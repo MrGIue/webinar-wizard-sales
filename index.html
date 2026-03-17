@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webinar Wizard — Founding Member Access | Trained Advisor</title>
+  <meta name="description" content="Answer 6 questions. Get a complete webinar campaign — script, emails, landing page — in minutes. Founding member access: $997.">
+  <meta property="og:title" content="Webinar Wizard — Founding Member Access">
+  <meta property="og:description" content="Answer 6 questions. Get a complete webinar campaign in minutes. $997 founding member pricing for 50 advisors.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FAF9F6;
+      --bg-alt: #F1EEE7;
+      --bg-dark: #1B1A17;
+      --text: #1B1A17;
+      --text-secondary: #5E5D56;
+      --text-muted: #8E8D84;
+      --navy: #162D4A;
+      --gold: #C4923A;
+      --gold-hover: #A67A2B;
+      --green: #2A7B4B;
+      --red-muted: #9E4A3A;
+      --border: #DDD9D0;
+      --border-light: #ECEAE3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 18px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-hover); }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .wrap--narrow { max-width: 780px; }
+
+    .label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 18px 40px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+      text-decoration: none;
+    }
+
+    .btn--gold {
+      background: var(--gold);
+      color: #fff;
+    }
+    .btn--gold:hover {
+      background: var(--gold-hover);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn--dark {
+      background: var(--bg-dark);
+      color: #fff;
+    }
+    .btn--dark:hover {
+      background: #2A2923;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s;
+    }
+    .btn:hover svg { transform: translateX(3px); }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,249,246,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 0;
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav__logo span { color: var(--gold); }
+
+    .nav__badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      background: rgba(42,123,75,0.08);
+      padding: 8px 16px;
+      border-radius: 100px;
+    }
+    .nav__badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .nav__cta {
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 6px;
+    }
+
+    .nav__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: clamp(80px, 12vw, 160px) 0 clamp(60px, 10vw, 120px);
+    }
+
+    .hero__prehead {
+      margin-bottom: 28px;
+    }
+
+    .hero__title {
+      font-size: clamp(38px, 5.5vw, 72px);
+      color: var(--navy);
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+
+    .hero__deck {
+      font-size: clamp(17px, 1.4vw, 20px);
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .hero__subtext {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: clamp(32px, 5vw, 64px);
+      margin-top: 72px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero__stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .hero__stat-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 180px;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section {
+      padding: clamp(72px, 8vw, 120px) 0;
+    }
+
+    .section--alt { background: var(--bg-alt); }
+
+    .section--dark {
+      background: var(--bg-dark);
+      color: #ECEAE3;
+    }
+    .section--dark h2 { color: #FAF9F6; }
+    .section--dark .text-secondary { color: #A8A79E; }
+
+    .section__title {
+      font-size: clamp(30px, 3.5vw, 48px);
+      color: var(--navy);
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    .section__subtitle {
+      font-size: clamp(17px, 1.3vw, 20px);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 56px;
+      line-height: 1.7;
+    }
+
+    /* ─── PROBLEM ─── */
+    .problem__grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .problem__text p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+    .problem__text p:last-child { margin-bottom: 0; }
+    .problem__text strong { color: var(--text); font-weight: 600; }
+
+    .problem__callouts {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .callout {
+      padding: 28px;
+      border-left: 3px solid var(--red-muted);
+      background: rgba(158,74,58,0.04);
+    }
+
+    .callout__num {
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--red-muted);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .callout__label {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 640px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 24px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+
+    .step__num {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .step__title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .step__desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ─── DELIVERABLES ─── */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .deliverable {
+      background: var(--bg);
+      padding: clamp(28px, 3vw, 40px);
+    }
+
+    .deliverable__accent {
+      width: 32px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .deliverable__title {
+      font-family: 'Fraunces', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .deliverable__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ─── DIFFERENTIATION ─── */
+    .diff__content {
+      max-width: 680px;
+    }
+
+    .diff__content p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+    .diff__content strong { color: var(--text); font-weight: 600; }
+
+    .diff__quote {
+      margin: 48px 0;
+      padding: 32px 0 32px 28px;
+      border-left: 3px solid var(--gold);
+      font-family: 'Fraunces', serif;
+      font-size: clamp(20px, 2vw, 24px);
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .frameworks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .framework-tag {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      color: var(--text-secondary);
+    }
+
+    /* ─── COMPARISON ─── */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 860px;
+    }
+
+    .comparison__col {
+      padding: clamp(32px, 3vw, 44px);
+    }
+
+    .comparison__col--old {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+    }
+
+    .comparison__col--new {
+      background: rgba(196,146,58,0.06);
+      border: 2px solid var(--gold);
+    }
+
+    .comparison__heading {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison__col--new .comparison__heading {
+      border-bottom-color: rgba(196,146,58,0.3);
+    }
+
+    .comparison__item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .comparison__item:last-child { margin-bottom: 0; }
+
+    .comparison__icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 3px;
+    }
+
+    .comparison__icon--x {
+      color: var(--red-muted);
+    }
+    .comparison__icon--check {
+      color: var(--green);
+    }
+
+    /* ─── PLATFORM ─── */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .platform-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .platform-item:nth-child(odd) { padding-right: 32px; }
+    .platform-item:nth-child(even) { padding-left: 32px; border-left: 1px solid var(--border); }
+
+    .platform-item__name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .platform-item__desc {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .platform-note {
+      margin-top: 40px;
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* ─── OFFER ─── */
+    .offer-section {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--bg-alt);
+    }
+
+    .offer-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      padding: clamp(36px, 5vw, 56px);
+    }
+
+    .offer-card__label {
+      margin-bottom: 16px;
+    }
+
+    .offer-card__title {
+      font-size: clamp(26px, 3vw, 36px);
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .offer-card__subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .value-stack {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+
+    .value-stack li {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .value-stack li:last-child { border-bottom: none; }
+
+    .value-stack__check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      color: var(--green);
+      margin-top: 2px;
+    }
+
+    .value-stack__name { font-weight: 600; color: var(--text); }
+    .value-stack__detail { color: var(--text-secondary); }
+
+    .offer-price-block {
+      padding: 32px 0;
+      margin-bottom: 32px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .offer-price-block__anchor {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .offer-price-block__anchor-val {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .offer-price-block__price {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .offer-price-block__amount {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(48px, 5vw, 64px);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .offer-price-block__term {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    .offer-card__after {
+      font-size: 15px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .offer-card__btn {
+      width: 100%;
+      justify-content: center;
+      font-size: 18px;
+      padding: 20px 40px;
+    }
+
+    .offer-card__secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .offer-card__secure svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .offer-scarcity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 14px 24px;
+      background: rgba(196,146,58,0.08);
+      border: 1px solid rgba(196,146,58,0.2);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold-hover);
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list {
+      max-width: 720px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item__q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .faq-item__q:hover { color: var(--navy); }
+
+    .faq-item__icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--text-muted);
+      transition: transform 0.25s;
+    }
+
+    .faq-item.is-open .faq-item__icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-item__a {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+
+    .faq-item.is-open .faq-item__a {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-item__a-inner {
+      overflow: hidden;
+    }
+
+    .faq-item__a-inner p {
+      padding-bottom: 24px;
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      text-align: center;
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .final-cta__title {
+      font-size: clamp(30px, 3.5vw, 48px);
+      margin-bottom: 20px;
+    }
+
+    .final-cta__sub {
+      font-size: 18px;
+      margin-bottom: 40px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta__terms {
+      font-size: 14px;
+      margin-top: 16px;
+    }
+
+    /* ─── P.S. ─── */
+    .ps {
+      padding: 56px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .ps__text {
+      max-width: 640px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .ps__text strong { font-weight: 600; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      padding: 32px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── MOBILE STICKY CTA ─── */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250,249,246,0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-cta.is-visible {
+      transform: translateY(0);
+    }
+
+    .mobile-cta .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .problem__grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .problem__callouts {
+        flex-direction: row;
+        position: static;
+      }
+
+      .callout { flex: 1; }
+
+      .deliverables-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+      .platform-item:nth-child(even) {
+        padding-left: 0;
+        border-left: none;
+      }
+      .platform-item:nth-child(odd) {
+        padding-right: 0;
+      }
+
+      .hero__stats {
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 17px; }
+
+      .wrap { padding: 0 20px; }
+
+      .nav__badge { display: none; }
+
+      .hero__stats {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .deliverables-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem__callouts {
+        flex-direction: column;
+      }
+
+      .frameworks {
+        gap: 8px;
+      }
+
+      .framework-tag {
+        font-size: 12px;
+        padding: 8px 14px;
+      }
+
+      .offer-card {
+        padding: 28px;
+      }
+
+      .mobile-cta { display: block; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <div class="wrap nav__inner">
+      <a href="#" class="nav__logo">Trained <span>Advisor</span></a>
+      <div class="nav__right">
+        <div class="nav__badge">Founding Member Spots Open</div>
+        <a href="#offer" class="btn btn--gold nav__cta">Get Access</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero__prehead label">For Financial Advisors</div>
+
+      <h1 class="hero__title">Your Next Webinar Campaign Is 6&nbsp;Questions&nbsp;Away.</h1>
+
+      <p class="hero__deck">Answer 6 strategic questions about your practice. In about 6 minutes, get a complete 45-minute webinar script, marketing emails, follow-up sequence, social posts, and landing page copy&nbsp;&mdash;&nbsp;all personalized to your voice and your&nbsp;ideal&nbsp;client.</p>
+
+      <div class="hero__actions">
+        <a href="#offer" class="btn btn--gold">
+          Become a Founding Member &mdash; $997
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <p class="hero__subtext">One-time payment &middot; 50 spots available &middot; Includes 6 months of Advisor Nexus</p>
+
+      <div class="hero__stats fade-up">
+        <div>
+          <div class="hero__stat-num">6 min</div>
+          <div class="hero__stat-label">Average time to generate a complete campaign</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">$3–5K</div>
+          <div class="hero__stat-label">What a copywriter charges for the same deliverables</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">45 min</div>
+          <div class="hero__stat-label">Full-length presentation script, section by section</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── PROBLEM ─── -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <h2 class="section__title fade-up">Webinars Work.<br>Building Them Doesn't.</h2>
+
+      <div class="problem__grid">
+        <div class="problem__text fade-up">
+          <p>You already know the math. A single webinar can fill your pipeline for weeks. One good presentation books 5, 10, 15 discovery calls.</p>
+
+          <p>But nobody talks about what it actually takes to produce one.</p>
+
+          <p>A complete webinar campaign requires a <strong>45-minute script</strong> that sounds like you, not a template. <strong>Three marketing emails</strong> to fill seats. <strong>Three follow-up emails</strong> to convert attendees. Social posts. A landing page. An offer stack.</p>
+
+          <p>Hire a copywriter? <strong>$3,000&ndash;$5,000</strong> per campaign. And you&rsquo;ll wait 3&ndash;4 weeks for delivery.</p>
+
+          <p>Do it yourself? <strong>40&ndash;80 hours</strong> of writing, rewriting, and second-guessing every word.</p>
+
+          <p>Ask ChatGPT? You&rsquo;ll get something generic that sounds like every other advisor on the internet.</p>
+
+          <p>So most advisors just&hellip; don&rsquo;t do webinars. Not because they can&rsquo;t present. <strong>Because the production is a full-time job.</strong></p>
+        </div>
+
+        <div class="problem__callouts fade-up">
+          <div class="callout">
+            <div class="callout__num">40–80</div>
+            <div class="callout__label">Hours to build a webinar campaign from scratch</div>
+          </div>
+          <div class="callout">
+            <div class="callout__num">$3–5K</div>
+            <div class="callout__label">Typical cost to hire a copywriter for one campaign</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="label" style="margin-bottom:16px">How It Works</div>
+      <h2 class="section__title fade-up">6 Questions. One System.<br>Complete Campaign.</h2>
+      <p class="section__subtitle fade-up">No copywriter. No agency. No three-week wait. Just your expertise, structured by AI engines built specifically for financial advisor webinars.</p>
+
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step__num">01</div>
+          <div>
+            <div class="step__title">Answer 6 Strategic Questions</div>
+            <div class="step__desc">Not generic intake questions. These are built on the same frameworks used by the world&rsquo;s top direct-response marketers. They pull out what makes your practice different&nbsp;&mdash;&nbsp;your unique angle, your origin story, the objections you hear every day. Takes about 15&nbsp;minutes.</div>
+          </div>
+        </div>
+        <div class="step fade-up">
+          <div class="step__num">02</div>
+          <div>
+            <div class="step__title">The System Builds Your Campaign</div>
+            <div class="step__desc">Four specialized AI engines go to work on your answers. One builds your script. Another writes your emails. Another creates social content. Another builds your landing page copy. Each engine is tuned for financial advisor webinars. Takes about 5&nbsp;minutes.</div>
+          </div>
+        </div>
+        <div class="step fade-up">
+          <div class="step__num">03</div>
+          <div>
+            <div class="step__title">Review Your Complete Package</div>
+            <div class="step__desc">Everything comes back in one polished interface. Review each section, enter full-screen presenter mode to rehearse, or export the entire package. Ready to present as-is.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DELIVERABLES ─── -->
+  <section class="section section--alt" style="padding-bottom:0">
+    <div class="wrap">
+      <h2 class="section__title fade-up">Everything You Need to Fill a Room<br>and Book Appointments</h2>
+      <p class="section__subtitle fade-up">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
+    </div>
+    <div class="wrap" style="max-width:1160px; padding:0">
+      <div class="deliverables-grid fade-up">
+        <div class="deliverable">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">45-Minute Webinar Script</div>
+          <div class="deliverable__desc">Section-by-section, in your voice. Strategic pacing, audience engagement cues, trial closes, and a closing sequence engineered to book appointments.</div>
+        </div>
+        <div class="deliverable">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">3 Marketing Emails</div>
+          <div class="deliverable__desc">Curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
+        </div>
+        <div class="deliverable">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">3 Follow-Up Emails</div>
+          <div class="deliverable__desc">Post-webinar sequence that converts attendees into booked discovery calls. Urgency, value recap, and clear calls-to-action.</div>
+        </div>
+        <div class="deliverable">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Social Media Posts</div>
+          <div class="deliverable__desc">Ready-to-post promotional content for LinkedIn and beyond. Written to sound human, not automated. Drives registrations.</div>
+        </div>
+        <div class="deliverable">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Landing Page Copy</div>
+          <div class="deliverable__desc">Headlines, bullets, and body copy for your webinar registration page. Conversion-focused and specific to your topic.</div>
+        </div>
+        <div class="deliverable">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Complete Offer Stack</div>
+          <div class="deliverable__desc">Named deliverables with value anchoring, built on the Grand Slam methodology. Makes your webinar offer feel irresistible to attendees.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DIFFERENTIATION ─── -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section__title fade-up">This Isn&rsquo;t a Chatbot.<br>It&rsquo;s a Campaign Engine.</h2>
+
+      <div class="diff__content fade-up">
+        <p>You&rsquo;ve probably asked ChatGPT to write a webinar script before. And you probably got back something generic, robotic, and full of phrases no human would say to a room full of people.</p>
+
+        <p>Webinar Wizard was built to do one thing: <strong>create webinar campaigns for financial advisors</strong> using proven direct-response frameworks.</p>
+
+        <p>The script engine understands webinar pacing, audience engagement, trial closes, and offer stacking. The email engine builds anticipation sequences that drive registrations. The social engine writes posts that sound like a human wrote them.</p>
+
+        <p>And the entire system is built around <strong>6 questions that force you to articulate what makes your practice different</strong>&nbsp;&mdash;&nbsp;so the output sounds like you. Not like a template. Not like everyone else.</p>
+      </div>
+
+      <blockquote class="diff__quote fade-up">
+        &ldquo;The output quality is unlike anything I&rsquo;ve seen from AI. Not a rough draft&nbsp;&mdash;&nbsp;ready to present without editing.&rdquo;
+      </blockquote>
+
+      <div class="frameworks fade-up">
+        <span class="framework-tag">$100M Offers Methodology</span>
+        <span class="framework-tag">Expert Secrets Framework</span>
+        <span class="framework-tag">Direct-Response Copywriting</span>
+        <span class="framework-tag">Grand Slam Offer Stacking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPARISON ─── -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <h2 class="section__title fade-up">The Math Is Simple</h2>
+      <p class="section__subtitle fade-up">Compare the cost and time of building a webinar campaign three different ways.</p>
+
+      <div class="comparison fade-up">
+        <div class="comparison__col comparison__col--old">
+          <div class="comparison__heading">The Old Way</div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span><strong>$3,000&ndash;$5,000</strong> per campaign from a copywriter</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span><strong>3&ndash;4 weeks</strong> waiting for delivery</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span>Generic output that doesn&rsquo;t sound like you</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span>One campaign per engagement</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span>Revisions cost extra</span>
+          </div>
+        </div>
+
+        <div class="comparison__col comparison__col--new">
+          <div class="comparison__heading">With Webinar Wizard</div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span><strong>$997 one-time</strong> for unlimited campaigns</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span><strong>Under 30 minutes</strong> from start to finished campaign</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span>Built on <strong>your answers</strong>&nbsp;&mdash;&nbsp;sounds like you</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span>Generate <strong>as many campaigns</strong> as you want</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span>Don&rsquo;t like the output? <strong>Regenerate instantly</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PLATFORM ─── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="label" style="margin-bottom:16px">Included In Your Membership</div>
+      <h2 class="section__title fade-up">Webinar Wizard Is One Feature.<br>You Get the Whole Platform.</h2>
+      <p class="section__subtitle fade-up">Founding Members get 6 months of full access to Advisor Nexus&nbsp;&mdash;&nbsp;the all-in-one marketing platform built specifically for financial advisors.</p>
+
+      <div class="platform-grid fade-up">
+        <div class="platform-item">
+          <span class="platform-item__name">Webinar Wizard</span>
+          <span class="platform-item__desc">&mdash; AI campaign generator</span>
+        </div>
+        <div class="platform-item">
+          <span class="platform-item__name">Financial Diagnostic Tool</span>
+          <span class="platform-item__desc">&mdash; AI client reports</span>
+        </div>
+        <div class="platform-item">
+          <span class="platform-item__name">Full CRM</span>
+          <span class="platform-item__desc">&mdash; Contacts, pipelines, follow-up</span>
+        </div>
+        <div class="platform-item">
+          <span class="platform-item__name">Funnel Builder</span>
+          <span class="platform-item__desc">&mdash; Landing pages &amp; opt-ins</span>
+        </div>
+        <div class="platform-item">
+          <span class="platform-item__name">Email &amp; SMS Automation</span>
+          <span class="platform-item__desc">&mdash; Set it and forget it</span>
+        </div>
+        <div class="platform-item">
+          <span class="platform-item__name">Calendar Booking</span>
+          <span class="platform-item__desc">&mdash; Integrated scheduling</span>
+        </div>
+        <div class="platform-item">
+          <span class="platform-item__name">Reputation Management</span>
+          <span class="platform-item__desc">&mdash; Automated reviews</span>
+        </div>
+        <div class="platform-item">
+          <span class="platform-item__name">Weekly Coaching Calls</span>
+          <span class="platform-item__desc">&mdash; Live with the TA team</span>
+        </div>
+      </div>
+
+      <p class="platform-note fade-up">Plus every new tool we build while you&rsquo;re a member. We ship constantly.</p>
+    </div>
+  </section>
+
+  <!-- ─── OFFER ─── -->
+  <section class="offer-section" id="offer">
+    <div class="wrap">
+      <div class="offer-card fade-up">
+        <div class="offer-card__label label">Founding Member Access</div>
+        <h2 class="offer-card__title">Webinar Wizard + 6&nbsp;Months of&nbsp;Advisor&nbsp;Nexus</h2>
+        <p class="offer-card__subtitle">Everything you need to create, launch, and run webinar campaigns&nbsp;&mdash;&nbsp;plus the full marketing platform built for financial advisors.</p>
+
+        <ul class="value-stack">
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">Unlimited Webinar Wizard campaigns</span><br>
+              <span class="value-stack__detail">Generate as many webinar packages as you want. New topic? New niche? New audience? Build another one.</span>
+            </div>
+          </li>
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">6 months of Advisor Nexus</span><br>
+              <span class="value-stack__detail">Full CRM, funnel builder, automations, calendar, reputation management. ($1,182&nbsp;value)</span>
+            </div>
+          </li>
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">Private onboarding call</span><br>
+              <span class="value-stack__detail">Get Webinar Wizard mapped to your specific practice and client base.</span>
+            </div>
+          </li>
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">Weekly coaching calls</span><br>
+              <span class="value-stack__detail">Live group calls with the Trained Advisor team.</span>
+            </div>
+          </li>
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">Every new tool we build</span><br>
+              <span class="value-stack__detail">Financial Diagnostic Tool, plus everything we ship while you&rsquo;re a member.</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="offer-price-block">
+          <div class="offer-price-block__anchor">
+            <span>Total value of everything included</span>
+            <span class="offer-price-block__anchor-val">$4,782+</span>
+          </div>
+          <div class="offer-price-block__price">
+            <span class="offer-price-block__amount">$997</span>
+            <span class="offer-price-block__term">one-time</span>
+          </div>
+        </div>
+
+        <a href="#checkout" class="btn btn--gold offer-card__btn">
+          Become a Founding Member
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+        </a>
+
+        <div class="offer-card__secure">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm2 6H6V5a2 2 0 1 1 4 0v2z"/></svg>
+          Secure checkout &middot; Your information is protected
+        </div>
+
+        <p class="offer-card__after">After 6 months, continue Advisor Nexus at $197/mo.<br>Or cancel. No contracts. No hassle.</p>
+
+        <div class="offer-scarcity">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="4"/></svg>
+          Limited to 50 Founding Members &mdash; then this offer closes permanently
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section__title fade-up">Common Questions</h2>
+
+      <div class="faq-list fade-up">
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            What exactly do I get for $997?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>You get 6 months of full access to Advisor Nexus, which includes unlimited Webinar Wizard campaigns, the Financial Diagnostic Tool, a full CRM, funnel builder, email/SMS automation, calendar booking, reputation management, weekly coaching calls, and a private onboarding call. Everything Trained Advisor builds or ships during your membership is included.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            What happens after 6 months?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>After your 6 months, you can continue Advisor Nexus at $197/mo to keep access to everything&nbsp;&mdash;&nbsp;including Webinar Wizard. Or you can cancel. No contracts, no cancellation fees, no hassle. Your $997 founding member payment covers the full 6 months regardless.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            How good is the content, really?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>Every advisor who has used Webinar Wizard has had the same reaction: the quality is unlike anything they&rsquo;ve seen from AI. These aren&rsquo;t rough drafts or starting points. The scripts come out presentation-ready with natural language, strategic pacing, and built-in closing mechanics. The system uses four specialized AI engines&nbsp;&mdash;&nbsp;each fine-tuned for its part of the campaign&nbsp;&mdash;&nbsp;built on frameworks from $100M Offers and Expert Secrets.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            How long does it take to generate a campaign?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>About 15&ndash;20 minutes to answer the 6 strategic questions, then roughly 5&ndash;6 minutes for the AI engines to generate your complete campaign. From start to finished package, you&rsquo;re looking at under 30 minutes.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Do I need to be tech-savvy?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>If you can fill out a form and type a few paragraphs about your practice, you can use Webinar Wizard. There&rsquo;s nothing to install, configure, or integrate. Log in, answer the questions, and your campaign is generated for you.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Can I generate more than one webinar campaign?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>Unlimited. Different topics, different niches, different audiences. Want a webinar on tax planning for retirees and another on estate planning for business owners? Generate both. There&rsquo;s no cap on how many campaigns you can create.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            What if it doesn&rsquo;t work for my specific niche?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>The system is built for financial advisors across all specialties&nbsp;&mdash;&nbsp;retirement planning, life insurance, annuities, estate planning, tax strategy, and more. The 6 strategic questions pull your specific expertise and client base into every piece of content. Your private onboarding call is specifically designed to map the tool to your practice.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="section section--dark final-cta">
+    <div class="wrap">
+      <h2 class="final-cta__title fade-up">50 Spots. Then This<br>Price Disappears.</h2>
+      <p class="final-cta__sub text-secondary fade-up">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
+      <a href="#offer" class="btn btn--gold fade-up">
+        Claim Your Founding Member Spot
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+      </a>
+      <p class="final-cta__terms text-secondary fade-up">$997 one-time &middot; 6 months Advisor Nexus included &middot; Cancel anytime after</p>
+
+      <!-- P.S. -->
+      <div class="ps">
+        <div class="ps__text text-secondary">
+          <strong style="color:#FAF9F6">P.S.</strong>&nbsp;&mdash; Think about what happens if you don&rsquo;t do a webinar this quarter. Same pipeline. Same number of calls. Same ceiling. Now think about what happens if you do one. A room full of prospects who already trust your expertise, already see you as the authority, already want to talk. Webinar Wizard makes the second scenario 30 minutes of work instead of 80 hours. <a href="#offer" style="color:var(--gold)">Claim your spot before they&rsquo;re gone&nbsp;&rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="wrap">&copy; 2026 Trained Advisor. All rights reserved.</div>
+  </footer>
+
+  <!-- ─── MOBILE STICKY CTA ─── -->
+  <div class="mobile-cta" id="mobileCta">
+    <a href="#offer" class="btn btn--gold">Become a Founding Member &mdash; $997</a>
+  </div>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-item__q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all
+        document.querySelectorAll('.faq-item.is-open').forEach(el => {
+          el.classList.remove('is-open');
+          el.querySelector('.faq-item__q').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Mobile sticky CTA
+    const mobileCta = document.getElementById('mobileCta');
+    const heroSection = document.querySelector('.hero');
+
+    if (mobileCta && heroSection) {
+      const heroObserver = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) {
+          mobileCta.classList.add('is-visible');
+        } else {
+          mobileCta.classList.remove('is-visible');
+        }
+      }, { threshold: 0 });
+      heroObserver.observe(heroSection);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
