@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,7 +45,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.7;
@@ -81,10 +81,10 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-weight: 700;
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-weight: 400;
       line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       color: #fff;
     }
 
@@ -102,7 +102,7 @@
     .wrap--narrow { max-width: 780px; }
 
     .label {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.14em;
@@ -115,7 +115,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 17px;
       font-weight: 600;
       padding: 18px 40px;
@@ -175,7 +175,7 @@
     }
 
     .nav__logo {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 18px;
       font-weight: 700;
       color: #fff;
@@ -272,6 +272,33 @@
       color: var(--text-muted);
     }
 
+    .founding-spots {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--green);
+      background: var(--green-subtle);
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1px solid rgba(34,197,94,0.18);
+      margin-bottom: 12px;
+    }
+
+    .founding-spots__dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .founding-spots__count {
+      font-weight: 800;
+      font-size: 17px;
+    }
+
     .hero__stats {
       display: flex;
       gap: clamp(32px, 5vw, 64px);
@@ -281,9 +308,9 @@
     }
 
     .hero__stat-num {
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(28px, 3vw, 40px);
-      font-weight: 800;
+      font-weight: 400;
       color: #fff;
       line-height: 1;
       margin-bottom: 8px;
@@ -353,9 +380,9 @@
     }
 
     .callout__num {
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: 36px;
-      font-weight: 800;
+      font-weight: 400;
       color: #fff;
       line-height: 1;
       margin-bottom: 6px;
@@ -384,18 +411,18 @@
     .step:last-child { border-bottom: none; }
 
     .step__num {
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: 32px;
-      font-weight: 800;
+      font-weight: 400;
       color: var(--blue-bright);
       line-height: 1;
       padding-top: 4px;
     }
 
     .step__title {
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 400;
       color: #fff;
       margin-bottom: 10px;
     }
@@ -433,9 +460,9 @@
     }
 
     .deliverable__title {
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: 19px;
-      font-weight: 600;
+      font-weight: 400;
       color: #fff;
       margin-bottom: 10px;
       line-height: 1.3;
@@ -460,7 +487,7 @@
       margin: 48px 0;
       padding: 32px 0 32px 28px;
       border-left: 3px solid var(--blue);
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(20px, 2vw, 24px);
       font-style: italic;
       color: #C7D2FE;
@@ -509,9 +536,9 @@
     }
 
     .comparison__heading {
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 400;
       color: #fff;
       margin-bottom: 28px;
       padding-bottom: 16px;
@@ -670,9 +697,9 @@
     }
 
     .offer-price-block__amount {
-      font-family: 'Fraunces', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(48px, 5vw, 64px);
-      font-weight: 800;
+      font-weight: 400;
       color: #fff;
       line-height: 1;
     }
@@ -740,7 +767,7 @@
       border: none;
       cursor: pointer;
       text-align: left;
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 17px;
       font-weight: 600;
       color: var(--text);
@@ -916,16 +943,6 @@
 
 <body>
 
-  <!-- ─── NAV ─── -->
-  <nav class="nav">
-    <div class="wrap nav__inner">
-      <a href="#" class="nav__logo">Trained <span>Advisor</span></a>
-      <div class="nav__right">
-        <div class="nav__badge">Founding Member Spots Open</div>
-        <a href="#offer" class="btn btn--blue nav__cta">Get Access</a>
-      </div>
-    </div>
-  </nav>
 
   <!-- ─── HERO ─── -->
   <header class="hero">
@@ -938,11 +955,15 @@
 
       <div class="hero__actions">
         <a href="#offer" class="btn btn--blue">
-          Become a Founding Member &mdash; $997
+          Become a Founding Member
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
         </a>
       </div>
-      <p class="hero__subtext">One-time payment &middot; 50 spots available &middot; Includes 6 months of Advisor Nexus</p>
+      <div class="founding-spots">
+        <span class="founding-spots__dot"></span>
+        <span class="founding-spots__count" id="spotsCount">47</span> Founding Member spots remaining
+      </div>
+      <p class="hero__subtext">One-time payment &middot; Includes 6 months of Advisor Nexus</p>
 
       <div class="hero__stats fade-up">
         <div>
@@ -1388,7 +1409,7 @@
 
   <!-- ─── MOBILE STICKY CTA ─── -->
   <div class="mobile-cta" id="mobileCta">
-    <a href="#offer" class="btn btn--blue">Become a Founding Member &mdash; $997</a>
+    <a href="#offer" class="btn btn--blue">Become a Founding Member</a>
   </div>
 
   <script>
