@@ -1102,12 +1102,12 @@
       gap: 10px;
       margin-top: 28px;
       padding: 14px 24px;
-      background: var(--purple-subtle);
-      border: 1px solid rgba(124,58,237,0.2);
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.25);
       border-radius: 10px;
       font-size: 14px;
       font-weight: 600;
-      color: #A78BFA;
+      color: #FBBF24;
     }
 
     /* ─── FAQ ─── */
@@ -1283,7 +1283,7 @@
     /* ─── HOW IT WORKS VISUAL ─── */
     .hiw-visual {
       position: relative;
-      height: 420px;
+      min-height: 520px;
       perspective: 800px;
     }
 
@@ -1293,18 +1293,18 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 16px;
+      gap: 20px;
     }
 
     .hiw-node {
       background: rgba(15,20,36,0.85);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 18px 22px;
+      border-radius: 14px;
+      padding: 24px 28px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
       transition: all 0.3s ease;
       position: relative;
     }
@@ -1315,7 +1315,7 @@
     }
 
     .hiw-node__icon {
-      width: 44px; height: 44px;
+      width: 52px; height: 52px;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -1393,13 +1393,13 @@
     /* ─── CAMPAIGN ENGINE VISUAL ─── */
     .engine-visual {
       position: relative;
-      height: 400px;
+      min-height: 480px;
     }
 
     .engine-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 16px;
       height: 100%;
       align-content: center;
     }
@@ -1408,8 +1408,8 @@
       background: rgba(15,20,36,0.85);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 22px;
+      border-radius: 14px;
+      padding: 28px;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -1431,29 +1431,29 @@
     .engine-card:hover::before { opacity: 1; }
 
     .engine-card__icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
+      width: 44px; height: 44px;
+      border-radius: 10px;
       background: var(--blue-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 14px;
     }
-    .engine-card__icon svg { width: 18px; height: 18px; color: var(--blue-bright); }
+    .engine-card__icon svg { width: 22px; height: 22px; color: var(--blue-bright); }
     .engine-card__icon--purple { background: var(--purple-subtle); }
     .engine-card__icon--purple svg { color: #A78BFA; }
     .engine-card__icon--green { background: var(--green-subtle); }
     .engine-card__icon--green svg { color: var(--green); }
 
     .engine-card__title {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
       color: #fff;
       margin-bottom: 6px;
       font-family: 'Inter', sans-serif;
     }
     .engine-card__desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
       line-height: 1.5;
       font-family: 'Inter', sans-serif;
@@ -1724,7 +1724,7 @@
 
           <p>But nobody talks about what it actually takes to produce one.</p>
 
-          <p>A complete webinar campaign requires a <strong>45-minute script</strong> that sounds like you, not a template. <strong>Three marketing emails</strong> to fill seats. <strong>Three follow-up emails</strong> to convert attendees. Social posts. A landing page. An offer stack.</p>
+          <p>A complete webinar campaign requires a <strong>45-minute script</strong> that sounds like you, not a template. <strong>Eight marketing emails</strong> to fill seats. <strong>Three follow-up emails</strong> to convert attendees. Social posts. A landing page. An offer stack.</p>
 
           <p>Hire a copywriter? <strong>$3,000&ndash;$5,000</strong> per campaign. And you&rsquo;ll wait 3&ndash;4 weeks for delivery.</p>
 
@@ -1912,7 +1912,7 @@
   <!-- ─── DELIVERABLES ─── -->
   <section class="section">
     <div class="wrap">
-      <h2 class="section__title fade-up">Everything You Need to Fill a Room<br>and Book Appointments</h2>
+      <h2 class="section__title fade-up">Everything You Need to Fill a Room<br><span style="color:var(--blue-bright)">and Book Appointments</span></h2>
       <p class="section__subtitle fade-up">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
 
       <div class="deliverables-grid fade-up">
@@ -1923,8 +1923,8 @@
         </div>
         <div class="deliverable">
           <div class="deliverable__accent"></div>
-          <div class="deliverable__title">3 Marketing Emails</div>
-          <div class="deliverable__desc">Curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
+          <div class="deliverable__title">8 Marketing Emails</div>
+          <div class="deliverable__desc">A full sequence of curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
         </div>
         <div class="deliverable">
           <div class="deliverable__accent"></div>
@@ -2007,7 +2007,7 @@
               <div class="engine-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
               </div>
-              <div class="engine-card__title">Landing Engine</div>
+              <div class="engine-card__title">Landing Page Engine</div>
               <div class="engine-card__desc">Conversion-focused registration page copy</div>
             </div>
           </div>
@@ -2124,12 +2124,6 @@
           </div>
           <span class="platform-pill__name">Reputation Management</span>
         </div>
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 004 4h12"/></svg>
-          </div>
-          <span class="platform-pill__name">Weekly Coaching Calls</span>
-        </div>
       </div>
 
       <p class="platform-note fade-up">Plus every new tool we build while you&rsquo;re a member. We ship constantly.</p>
@@ -2139,7 +2133,7 @@
   <!-- ─── OFFER ─── -->
   <section class="offer-section" id="offer">
     <div class="wrap">
-      <div class="offer-card fade-up">
+      <div class="offer-card offer-card--centered fade-up">
         <div class="offer-card__label label">Founding Member Access</div>
         <h2 class="offer-card__title">Webinar Wizard + 6&nbsp;Months of&nbsp;Advisor&nbsp;Nexus</h2>
         <p class="offer-card__subtitle">Everything you need to create, launch, and run webinar campaigns&nbsp;&mdash;&nbsp;plus the full marketing platform built for financial advisors.</p>
@@ -2164,13 +2158,6 @@
             <div>
               <span class="value-stack__name">Private onboarding call</span><br>
               <span class="value-stack__detail">Get Webinar Wizard mapped to your specific practice and client base.</span>
-            </div>
-          </li>
-          <li>
-            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
-            <div>
-              <span class="value-stack__name">Weekly coaching calls</span><br>
-              <span class="value-stack__detail">Live group calls with the Trained Advisor team.</span>
             </div>
           </li>
           <li>
@@ -2203,7 +2190,7 @@
           Secure checkout &middot; Your information is protected
         </div>
 
-        <p class="offer-card__after">After 6 months, continue Advisor Nexus at $197/mo.<br>Or cancel. No contracts. No hassle.</p>
+        <p class="offer-card__after">After 6 months, keep full platform access&nbsp;&mdash;&nbsp;including Webinar Wizard&nbsp;&mdash;&nbsp;at $197/mo.<br>Or cancel. No contracts. No hassle.</p>
 
         <div class="offer-scarcity">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="4"/></svg>
@@ -2225,7 +2212,7 @@
             <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-item__a"><div class="faq-item__a-inner">
-            <p>You get 6 months of full access to Advisor Nexus, which includes unlimited Webinar Wizard campaigns, the Financial Diagnostic Tool, a full CRM, funnel builder, email/SMS automation, calendar booking, reputation management, weekly coaching calls, and a private onboarding call. Everything Trained Advisor builds or ships during your membership is included.</p>
+            <p>You get 6 months of full access to Advisor Nexus, which includes unlimited Webinar Wizard campaigns, the Financial Diagnostic Tool, a full CRM, funnel builder, email/SMS automation, calendar booking, reputation management, and a private onboarding call. Everything Trained Advisor builds or ships during your membership is included.</p>
           </div></div>
         </div>
 
@@ -2235,7 +2222,7 @@
             <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-item__a"><div class="faq-item__a-inner">
-            <p>After your 6 months, you can continue Advisor Nexus at $197/mo to keep access to everything&nbsp;&mdash;&nbsp;including Webinar Wizard. Or you can cancel. No contracts, no cancellation fees, no hassle. Your $997 founding member payment covers the full 6 months regardless.</p>
+            <p>Webinar Wizard is a feature inside Advisor Nexus. Your $997 covers 6 full months of the platform. After that, you can continue at $197/mo to keep access to Webinar Wizard and everything else. Or cancel&nbsp;&mdash;&nbsp;no contracts, no cancellation fees, no hassle. Your founding member payment covers the full 6 months regardless.</p>
           </div></div>
         </div>
 
@@ -2286,6 +2273,16 @@
           </button>
           <div class="faq-item__a"><div class="faq-item__a-inner">
             <p>The system is built for financial advisors across all specialties&nbsp;&mdash;&nbsp;retirement planning, life insurance, annuities, estate planning, tax strategy, and more. The 6 strategic questions pull your specific expertise and client base into every piece of content. Your private onboarding call is specifically designed to map the tool to your practice.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">
+            Can&rsquo;t I just use ChatGPT to do this myself?
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">
+            <p>You could&nbsp;&mdash;&nbsp;the same way you could hand a paintbrush to anyone and ask them to paint the Sistine Chapel. The tool matters, but the expertise behind it matters more. We&rsquo;ve spent thousands of hours building AI systems specifically for financial advisor marketing. Webinar Wizard uses four specialized engines trained on direct-response frameworks like $100M Offers and Expert Secrets, tuned for webinar pacing, audience psychology, and offer stacking. ChatGPT gives you a generic rough draft. Webinar Wizard gives you a finished, presentation-ready campaign built around what makes your practice different. It&rsquo;s the difference between AI as a novelty and AI as a competitive advantage.</p>
           </div></div>
         </div>
       </div>
