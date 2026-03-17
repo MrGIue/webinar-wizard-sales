@@ -1272,9 +1272,281 @@
     }
 
     /* ─── RESPONSIVE ─── */
+    /* ─── SECTION WITH VISUAL (2-col layout) ─── */
+    .section__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    /* ─── HOW IT WORKS VISUAL ─── */
+    .hiw-visual {
+      position: relative;
+      height: 420px;
+      perspective: 800px;
+    }
+
+    .hiw-pipeline {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .hiw-node {
+      background: rgba(15,20,36,0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .hiw-node:hover {
+      border-color: rgba(37,99,235,0.3);
+      box-shadow: 0 0 30px rgba(37,99,235,0.08);
+      transform: translateX(4px);
+    }
+
+    .hiw-node__icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hiw-node__icon--input {
+      background: var(--blue-subtle);
+    }
+    .hiw-node__icon--input svg { color: var(--blue-bright); }
+    .hiw-node__icon--process {
+      background: var(--purple-subtle);
+    }
+    .hiw-node__icon--process svg { color: #A78BFA; }
+    .hiw-node__icon--output {
+      background: var(--green-subtle);
+    }
+    .hiw-node__icon--output svg { color: var(--green); }
+    .hiw-node__icon svg { width: 22px; height: 22px; }
+
+    .hiw-node__label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+    .hiw-node__sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Connector arrows between nodes */
+    .hiw-connector {
+      width: 2px;
+      height: 20px;
+      background: linear-gradient(to bottom, rgba(37,99,235,0.3), rgba(124,58,237,0.3));
+      margin-left: 40px;
+      position: relative;
+    }
+    .hiw-connector::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: -3px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      animation: connectorPulse 2s ease-in-out infinite;
+    }
+    @keyframes connectorPulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* AI engine badges */
+    .hiw-engines {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .hiw-engine-badge {
+      font-size: 10px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.2);
+      color: #C4B5FD;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── CAMPAIGN ENGINE VISUAL ─── */
+    .engine-visual {
+      position: relative;
+      height: 400px;
+    }
+
+    .engine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      height: 100%;
+      align-content: center;
+    }
+
+    .engine-card {
+      background: rgba(15,20,36,0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 22px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .engine-card:hover {
+      border-color: rgba(37,99,235,0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    .engine-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .engine-card:hover::before { opacity: 1; }
+
+    .engine-card__icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--blue-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .engine-card__icon svg { width: 18px; height: 18px; color: var(--blue-bright); }
+    .engine-card__icon--purple { background: var(--purple-subtle); }
+    .engine-card__icon--purple svg { color: #A78BFA; }
+    .engine-card__icon--green { background: var(--green-subtle); }
+    .engine-card__icon--green svg { color: var(--green); }
+
+    .engine-card__title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      font-family: 'Inter', sans-serif;
+    }
+    .engine-card__desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ─── CENTERED SECTIONS ─── */
+    .section--centered {
+      text-align: center;
+    }
+    .section--centered .section__title {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section--centered .section__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section--centered .comparison {
+      margin: 0 auto;
+    }
+
+    /* ─── PLATFORM PILLS ─── */
+    .platform-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .platform-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      background: rgba(15,20,36,0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .platform-pill:hover {
+      border-color: rgba(37,99,235,0.3);
+      background: rgba(37,99,235,0.06);
+      box-shadow: 0 0 20px rgba(37,99,235,0.08);
+      transform: translateY(-2px);
+    }
+
+    .platform-pill__icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .platform-pill__icon svg { width: 16px; height: 16px; }
+    .platform-pill__icon--blue { background: var(--blue-subtle); }
+    .platform-pill__icon--blue svg { color: var(--blue-bright); }
+    .platform-pill__icon--purple { background: var(--purple-subtle); }
+    .platform-pill__icon--purple svg { color: #A78BFA; }
+    .platform-pill__icon--green { background: var(--green-subtle); }
+    .platform-pill__icon--green svg { color: var(--green); }
+
+    .platform-pill__name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+
+    /* ─── CENTERED OFFER CARD ─── */
+    .offer-card--centered {
+      text-align: center;
+    }
+    .offer-card--centered .offer-price-block__anchor,
+    .offer-card--centered .offer-price-block__price {
+      justify-content: center;
+    }
+
+    /* ─── CENTERED FAQ ─── */
+    .faq-list--centered {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     @media (max-width: 1100px) {
       .hero__grid { grid-template-columns: 1fr; }
       .hero__visual { display: none; }
+      .section__grid { grid-template-columns: 1fr; }
+      .hiw-visual, .engine-visual { display: none; }
     }
 
     @media (max-width: 900px) {
@@ -1484,26 +1756,73 @@
       <h2 class="section__title fade-up">6 Questions. One System.<br>Complete Campaign.</h2>
       <p class="section__subtitle fade-up">No copywriter. No agency. No three-week wait. Just your expertise, structured by AI engines built specifically for financial advisor webinars.</p>
 
-      <div class="steps">
-        <div class="step fade-up">
-          <div class="step__num">01</div>
-          <div>
-            <div class="step__title">Answer 6 Strategic Questions</div>
-            <div class="step__desc">Not generic intake questions. These are built on the same frameworks used by the world&rsquo;s top direct-response marketers. They pull out what makes your practice different&nbsp;&mdash;&nbsp;your unique angle, your origin story, the objections you hear every day. Takes about 15&nbsp;minutes.</div>
+      <div class="section__grid">
+        <div class="steps">
+          <div class="step fade-up">
+            <div class="step__num">01</div>
+            <div>
+              <div class="step__title">Answer 6 Strategic Questions</div>
+              <div class="step__desc">Not generic intake questions. These are built on the same frameworks used by the world&rsquo;s top direct-response marketers. They pull out what makes your practice different&nbsp;&mdash;&nbsp;your unique angle, your origin story, the objections you hear every day. Takes about 15&nbsp;minutes.</div>
+            </div>
+          </div>
+          <div class="step fade-up">
+            <div class="step__num">02</div>
+            <div>
+              <div class="step__title">The System Builds Your Campaign</div>
+              <div class="step__desc">Four specialized AI engines go to work on your answers. One builds your script. Another writes your emails. Another creates social content. Another builds your landing page copy. Each engine is tuned for financial advisor webinars. Takes about 5&nbsp;minutes.</div>
+            </div>
+          </div>
+          <div class="step fade-up">
+            <div class="step__num">03</div>
+            <div>
+              <div class="step__title">Review Your Complete Package</div>
+              <div class="step__desc">Everything comes back in one polished interface. Review each section, enter full-screen presenter mode to rehearse, or export the entire package. Ready to present as-is.</div>
+            </div>
           </div>
         </div>
-        <div class="step fade-up">
-          <div class="step__num">02</div>
-          <div>
-            <div class="step__title">The System Builds Your Campaign</div>
-            <div class="step__desc">Four specialized AI engines go to work on your answers. One builds your script. Another writes your emails. Another creates social content. Another builds your landing page copy. Each engine is tuned for financial advisor webinars. Takes about 5&nbsp;minutes.</div>
-          </div>
-        </div>
-        <div class="step fade-up">
-          <div class="step__num">03</div>
-          <div>
-            <div class="step__title">Review Your Complete Package</div>
-            <div class="step__desc">Everything comes back in one polished interface. Review each section, enter full-screen presenter mode to rehearse, or export the entire package. Ready to present as-is.</div>
+
+        <!-- Pipeline visual -->
+        <div class="hiw-visual fade-up">
+          <div class="hiw-pipeline">
+            <div class="hiw-node">
+              <div class="hiw-node__icon hiw-node__icon--input">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+              <div>
+                <div class="hiw-node__label">6 Strategic Questions</div>
+                <div class="hiw-node__sub">Your expertise &amp; unique angle</div>
+              </div>
+            </div>
+
+            <div class="hiw-connector"></div>
+
+            <div class="hiw-node">
+              <div class="hiw-node__icon hiw-node__icon--process">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <div class="hiw-node__label">4 AI Engines Process</div>
+                <div class="hiw-node__sub">~5 min generation time</div>
+                <div class="hiw-engines">
+                  <span class="hiw-engine-badge">Script</span>
+                  <span class="hiw-engine-badge">Email</span>
+                  <span class="hiw-engine-badge">Social</span>
+                  <span class="hiw-engine-badge">Landing</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hiw-connector"></div>
+
+            <div class="hiw-node">
+              <div class="hiw-node__icon hiw-node__icon--output">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              </div>
+              <div>
+                <div class="hiw-node__label">Complete Campaign Ready</div>
+                <div class="hiw-node__sub">Script, emails, social, landing page</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1636,31 +1955,69 @@
     <div class="wrap">
       <h2 class="section__title fade-up">This Isn&rsquo;t a Chatbot.<br>It&rsquo;s a Campaign Engine.</h2>
 
-      <div class="diff__content fade-up">
-        <p>You&rsquo;ve probably asked ChatGPT to write a webinar script before. And you probably got back something generic, robotic, and full of phrases no human would say to a room full of people.</p>
+      <div class="section__grid">
+        <div>
+          <div class="diff__content fade-up">
+            <p>You&rsquo;ve probably asked ChatGPT to write a webinar script before. And you probably got back something generic, robotic, and full of phrases no human would say to a room full of people.</p>
 
-        <p>Webinar Wizard was built to do one thing: <strong>create webinar campaigns for financial advisors</strong> using proven direct-response frameworks.</p>
+            <p>Webinar Wizard was built to do one thing: <strong>create webinar campaigns for financial advisors</strong> using proven direct-response frameworks.</p>
 
-        <p>The script engine understands webinar pacing, audience engagement, trial closes, and offer stacking. The email engine builds anticipation sequences that drive registrations. The social engine writes posts that sound like a human wrote them.</p>
+            <p>The script engine understands webinar pacing, audience engagement, trial closes, and offer stacking. The email engine builds anticipation sequences that drive registrations. The social engine writes posts that sound like a human wrote them.</p>
 
-        <p>And the entire system is built around <strong>6 questions that force you to articulate what makes your practice different</strong>&nbsp;&mdash;&nbsp;so the output sounds like you. Not like a template. Not like everyone else.</p>
-      </div>
+            <p>And the entire system is built around <strong>6 questions that force you to articulate what makes your practice different</strong>&nbsp;&mdash;&nbsp;so the output sounds like you. Not like a template. Not like everyone else.</p>
+          </div>
 
-      <blockquote class="diff__quote fade-up">
-        &ldquo;The output quality is unlike anything I&rsquo;ve seen from AI. Not a rough draft&nbsp;&mdash;&nbsp;ready to present without editing.&rdquo;
-      </blockquote>
+          <blockquote class="diff__quote fade-up">
+            &ldquo;The output quality is unlike anything I&rsquo;ve seen from AI. Not a rough draft&nbsp;&mdash;&nbsp;ready to present without editing.&rdquo;
+          </blockquote>
 
-      <div class="frameworks fade-up">
-        <span class="framework-tag">$100M Offers Methodology</span>
-        <span class="framework-tag">Expert Secrets Framework</span>
-        <span class="framework-tag">Direct-Response Copywriting</span>
-        <span class="framework-tag">Grand Slam Offer Stacking</span>
+          <div class="frameworks fade-up">
+            <span class="framework-tag">$100M Offers Methodology</span>
+            <span class="framework-tag">Expert Secrets Framework</span>
+            <span class="framework-tag">Direct-Response Copywriting</span>
+            <span class="framework-tag">Grand Slam Offer Stacking</span>
+          </div>
+        </div>
+
+        <!-- Engine visual -->
+        <div class="engine-visual fade-up">
+          <div class="engine-grid">
+            <div class="engine-card">
+              <div class="engine-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+              </div>
+              <div class="engine-card__title">Script Engine</div>
+              <div class="engine-card__desc">45-min webinar with pacing, trial closes, and offer stacking</div>
+            </div>
+            <div class="engine-card">
+              <div class="engine-card__icon engine-card__icon--purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+              </div>
+              <div class="engine-card__title">Email Engine</div>
+              <div class="engine-card__desc">Marketing sequences that fill seats + follow-ups that book calls</div>
+            </div>
+            <div class="engine-card">
+              <div class="engine-card__icon engine-card__icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+              </div>
+              <div class="engine-card__title">Social Engine</div>
+              <div class="engine-card__desc">LinkedIn posts that sound human, not automated</div>
+            </div>
+            <div class="engine-card">
+              <div class="engine-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              </div>
+              <div class="engine-card__title">Landing Engine</div>
+              <div class="engine-card__desc">Conversion-focused registration page copy</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ─── COMPARISON ─── -->
-  <section class="section">
+  <section class="section section--centered">
     <div class="wrap">
       <h2 class="section__title fade-up">The Math Is Simple</h2>
       <p class="section__subtitle fade-up">Compare the cost and time of building a webinar campaign three different ways.</p>
@@ -1718,44 +2075,60 @@
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section section--alt">
+  <section class="section section--alt section--centered">
     <div class="wrap">
       <div class="label" style="margin-bottom:16px">Included In Your Membership</div>
       <h2 class="section__title fade-up">Webinar Wizard Is One Feature.<br>You Get the Whole Platform.</h2>
       <p class="section__subtitle fade-up">Founding Members get 6 months of full access to Advisor Nexus&nbsp;&mdash;&nbsp;the all-in-one marketing platform built specifically for financial advisors.</p>
 
-      <div class="platform-grid fade-up">
-        <div class="platform-item">
-          <span class="platform-item__name">Webinar Wizard</span>
-          <span class="platform-item__desc">&mdash; AI campaign generator</span>
+      <div class="platform-pills fade-up">
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <span class="platform-pill__name">Webinar Wizard</span>
         </div>
-        <div class="platform-item">
-          <span class="platform-item__name">Financial Diagnostic Tool</span>
-          <span class="platform-item__desc">&mdash; AI client reports</span>
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <span class="platform-pill__name">Financial Diagnostic Tool</span>
         </div>
-        <div class="platform-item">
-          <span class="platform-item__name">Full CRM</span>
-          <span class="platform-item__desc">&mdash; Contacts, pipelines, follow-up</span>
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <span class="platform-pill__name">Full CRM</span>
         </div>
-        <div class="platform-item">
-          <span class="platform-item__name">Funnel Builder</span>
-          <span class="platform-item__desc">&mdash; Landing pages &amp; opt-ins</span>
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <span class="platform-pill__name">Funnel Builder</span>
         </div>
-        <div class="platform-item">
-          <span class="platform-item__name">Email &amp; SMS Automation</span>
-          <span class="platform-item__desc">&mdash; Set it and forget it</span>
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          </div>
+          <span class="platform-pill__name">Email &amp; SMS Automation</span>
         </div>
-        <div class="platform-item">
-          <span class="platform-item__name">Calendar Booking</span>
-          <span class="platform-item__desc">&mdash; Integrated scheduling</span>
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          </div>
+          <span class="platform-pill__name">Calendar Booking</span>
         </div>
-        <div class="platform-item">
-          <span class="platform-item__name">Reputation Management</span>
-          <span class="platform-item__desc">&mdash; Automated reviews</span>
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="platform-pill__name">Reputation Management</span>
         </div>
-        <div class="platform-item">
-          <span class="platform-item__name">Weekly Coaching Calls</span>
-          <span class="platform-item__desc">&mdash; Live with the TA team</span>
+        <div class="platform-pill">
+          <div class="platform-pill__icon platform-pill__icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 004 4h12"/></svg>
+          </div>
+          <span class="platform-pill__name">Weekly Coaching Calls</span>
         </div>
       </div>
 
@@ -1841,11 +2214,11 @@
   </section>
 
   <!-- ─── FAQ ─── -->
-  <section class="section">
+  <section class="section section--centered">
     <div class="wrap">
       <h2 class="section__title fade-up">Common Questions</h2>
 
-      <div class="faq-list fade-up">
+      <div class="faq-list faq-list--centered fade-up">
         <div class="faq-item">
           <button class="faq-item__q" aria-expanded="false">
             What exactly do I get for $997?
@@ -1938,11 +2311,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ─── FOOTER ─── -->
-  <footer class="footer">
-    <div class="wrap">&copy; 2026 Trained Advisor. All rights reserved.</div>
-  </footer>
 
   <!-- ─── MOBILE STICKY CTA ─── -->
   <div class="mobile-cta" id="mobileCta">
