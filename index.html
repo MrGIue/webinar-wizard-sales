@@ -1275,36 +1275,34 @@
     /* ─── SECTION WITH VISUAL (2-col layout) ─── */
     .section__grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 48px;
       align-items: center;
     }
 
     /* ─── HOW IT WORKS VISUAL ─── */
     .hiw-visual {
       position: relative;
-      min-height: 520px;
       perspective: 800px;
     }
 
     .hiw-pipeline {
       position: relative;
-      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 20px;
+      gap: 24px;
     }
 
     .hiw-node {
       background: rgba(15,20,36,0.85);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 24px 28px;
+      border-radius: 16px;
+      padding: 28px 32px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
       transition: all 0.3s ease;
       position: relative;
     }
@@ -1315,7 +1313,7 @@
     }
 
     .hiw-node__icon {
-      width: 52px; height: 52px;
+      width: 56px; height: 56px;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -1334,16 +1332,16 @@
       background: var(--green-subtle);
     }
     .hiw-node__icon--output svg { color: var(--green); }
-    .hiw-node__icon svg { width: 22px; height: 22px; }
+    .hiw-node__icon svg { width: 26px; height: 26px; }
 
     .hiw-node__label {
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       color: #fff;
       font-family: 'Inter', sans-serif;
     }
     .hiw-node__sub {
-      font-size: 12px;
+      font-size: 14px;
       color: var(--text-muted);
       font-family: 'Inter', sans-serif;
     }
@@ -1351,9 +1349,9 @@
     /* Connector arrows between nodes */
     .hiw-connector {
       width: 2px;
-      height: 20px;
+      height: 28px;
       background: linear-gradient(to bottom, rgba(37,99,235,0.3), rgba(124,58,237,0.3));
-      margin-left: 40px;
+      margin-left: 48px;
       position: relative;
     }
     .hiw-connector::after {
@@ -1379,10 +1377,10 @@
       flex-wrap: wrap;
     }
     .hiw-engine-badge {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 600;
       font-family: 'Inter', sans-serif;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 100px;
       background: rgba(124,58,237,0.12);
       border: 1px solid rgba(124,58,237,0.2);
@@ -1393,14 +1391,12 @@
     /* ─── CAMPAIGN ENGINE VISUAL ─── */
     .engine-visual {
       position: relative;
-      min-height: 480px;
     }
 
     .engine-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      height: 100%;
+      gap: 18px;
       align-content: center;
     }
 
@@ -1408,8 +1404,8 @@
       background: rgba(15,20,36,0.85);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      padding: 28px;
+      border-radius: 16px;
+      padding: 32px;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -1431,29 +1427,29 @@
     .engine-card:hover::before { opacity: 1; }
 
     .engine-card__icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
+      width: 52px; height: 52px;
+      border-radius: 12px;
       background: var(--blue-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 14px;
     }
-    .engine-card__icon svg { width: 22px; height: 22px; color: var(--blue-bright); }
+    .engine-card__icon svg { width: 26px; height: 26px; color: var(--blue-bright); }
     .engine-card__icon--purple { background: var(--purple-subtle); }
     .engine-card__icon--purple svg { color: #A78BFA; }
     .engine-card__icon--green { background: var(--green-subtle); }
     .engine-card__icon--green svg { color: var(--green); }
 
     .engine-card__title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 600;
       color: #fff;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-family: 'Inter', sans-serif;
     }
     .engine-card__desc {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--text-muted);
       line-height: 1.5;
       font-family: 'Inter', sans-serif;
