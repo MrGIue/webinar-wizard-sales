@@ -1,0 +1,2411 @@
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- WEBINAR WIZARD SALES PAGE — FUNNEL EMBED               -->
+<!-- Paste into a GHL funnel page Custom Code block         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Sora:wght@300;400;500;600;700&display=swap');
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #060A14;
+      --bg-card: #0C1222;
+      --bg-elevated: #111827;
+      --bg-surface: rgba(255,255,255,0.025);
+      --text: #E2E8F0;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --blue: #2563EB;
+      --blue-bright: #3B82F6;
+      --blue-subtle: rgba(37,99,235,0.1);
+      --electric: #4CC9F0;
+      --electric-dim: #38B0D8;
+      --electric-glow: rgba(76,201,240,0.35);
+      --electric-subtle: rgba(76,201,240,0.08);
+      --amber: #F59E0B;
+      --amber-glow: rgba(245,158,11,0.35);
+      --amber-subtle: rgba(245,158,11,0.08);
+      --coral: #FF7043;
+      --coral-subtle: rgba(255,112,67,0.1);
+      --green: #16A34A;
+      --green-glow: rgba(22,163,74,0.3);
+      --red: #EF4444;
+      --red-subtle: rgba(239,68,68,0.08);
+      --border: rgba(255,255,255,0.06);
+      --border-light: rgba(255,255,255,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Sora', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 17px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.12;
+      color: #fff;
+      letter-spacing: -0.01em;
+      font-optical-sizing: auto;
+    }
+
+    a { color: var(--electric); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #7DD9F5; }
+
+    :focus-visible {
+      outline: 2px solid var(--electric);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+      position: relative;
+      z-index: 3;
+    }
+
+    .label {
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--electric);
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 18px 40px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      position: relative;
+    }
+
+    .btn--primary {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 0 24px var(--green-glow), 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .btn--primary:hover {
+      background: #22C55E;
+      color: #fff;
+      box-shadow: 0 0 48px var(--green-glow), 0 8px 20px rgba(0,0,0,0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn svg {
+      width: 18px; height: 18px;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn:hover svg { transform: translateX(4px); }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal--left {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+    .reveal--left.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal--right {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+    .reveal--right.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal--scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .reveal--scale.is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger delays — tighter */
+    [data-delay="1"] { transition-delay: 0.05s; }
+    [data-delay="2"] { transition-delay: 0.1s; }
+    [data-delay="3"] { transition-delay: 0.15s; }
+    [data-delay="4"] { transition-delay: 0.2s; }
+    [data-delay="5"] { transition-delay: 0.25s; }
+    [data-delay="6"] { transition-delay: 0.3s; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 5vw, 60px) 0;
+      overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, #0F1A3A 0%, var(--bg) 70%);
+    }
+
+    .hero__canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .hero__prehead {
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero__prehead::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--electric);
+    }
+
+    .hero__title {
+      font-size: clamp(36px, 4.5vw, 62px);
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+    .hero__title em {
+      font-style: normal;
+      color: var(--electric);
+    }
+
+    .hero__deck {
+      font-size: clamp(16px, 1.2vw, 19px);
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .hero__spots {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--electric);
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1px solid rgba(76,201,240,0.2);
+      background: var(--electric-subtle);
+    }
+    .hero__spots-dot {
+      width: 8px; height: 8px;
+      background: var(--electric);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(76,201,240,0.4); }
+      50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(76,201,240,0); }
+    }
+
+    .hero__sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* Hero product visual */
+    .hero__visual {
+      position: relative;
+    }
+
+    .hero__screenshot-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 100px rgba(76,201,240,0.15),
+        0 0 200px rgba(37,99,235,0.1),
+        0 30px 80px rgba(0,0,0,0.6);
+      border: 1px solid var(--border-light);
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero__screenshot-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: #0F1520;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero__screenshot-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .hero__screenshot-dot--r { background: #EF4444; }
+    .hero__screenshot-dot--y { background: #F59E0B; }
+    .hero__screenshot-dot--g { background: #22C55E; }
+    .hero__screenshot-url {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 8px;
+      font-family: 'Sora', monospace;
+    }
+
+    .hero__screenshot-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: blur(3px);
+    }
+
+    /* Small floating processing card */
+    .hero__float-card {
+      position: absolute;
+      bottom: -30px;
+      left: -40px;
+      width: 260px;
+      background: #0C1222;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(76,201,240,0.06);
+      z-index: 5;
+      animation: heroFloat 6s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+
+    .hero__float-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .hero__float-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      font-family: 'Sora', sans-serif;
+    }
+    .hero__float-step--done { color: var(--electric); }
+    .hero__float-step--active { color: var(--text); }
+
+    .hero__float-check {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero__float-check--done {
+      border-color: var(--electric);
+      background: var(--electric-subtle);
+    }
+    .hero__float-check--active {
+      border-color: var(--electric);
+      animation: spinCheck 1s linear infinite;
+    }
+    @keyframes spinCheck {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ─── SECTION BASE ─── */
+    .section {
+      position: relative;
+      padding: clamp(60px, 7vw, 100px) 0;
+      overflow: hidden;
+    }
+
+    .section__label { margin-bottom: 20px; }
+
+    .section__title {
+      font-size: clamp(32px, 4vw, 56px);
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+    .section__title em {
+      font-style: normal;
+      color: var(--electric);
+    }
+
+    .section__subtitle {
+      font-size: clamp(16px, 1.2vw, 19px);
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 64px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ─── PROBLEM ─── */
+    .problem {
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+    }
+
+    .problem__text {
+      max-width: 720px;
+      position: relative;
+    }
+
+    .problem__text p {
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+    .problem__text strong { color: #fff; font-weight: 600; }
+
+    .problem__stat {
+      display: block;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-variation-settings: 'WONK' 0, 'opsz' 72;
+      font-size: clamp(56px, 6vw, 80px);
+      color: #fff;
+      line-height: 1;
+      margin: 40px 0 8px;
+      position: relative;
+    }
+    .problem__stat-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      position: relative;
+      padding: 48px 0;
+      background: #080D18;
+      border-top: 1px solid rgba(76,201,240,0.08);
+      border-bottom: 1px solid rgba(76,201,240,0.08);
+    }
+
+    .stats-strip__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 4vw, 56px);
+      flex-wrap: wrap;
+    }
+
+    .stats-strip__item {
+      text-align: center;
+    }
+
+    .stats-strip__num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-variation-settings: 'WONK' 0, 'opsz' 48;
+      font-size: clamp(28px, 3vw, 40px);
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stats-strip__num--electric { color: var(--electric); }
+
+    .stats-strip__label {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 160px;
+    }
+
+    .stats-strip__div {
+      width: 1px;
+      height: 48px;
+      background: var(--border-light);
+    }
+
+    .stats-strip__visual {
+      width: 220px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 30px rgba(76,201,240,0.06);
+    }
+    .stats-strip__visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .hiw {
+      background: linear-gradient(180deg, #080D18 0%, #061018 50%, #080D18 100%);
+    }
+
+    .hiw__steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hiw__step {
+      display: grid;
+      grid-template-columns: 100px 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: clamp(40px, 5vw, 64px) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hiw__step:last-child { border-bottom: none; }
+
+    .hiw__step-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-variation-settings: 'WONK' 0, 'opsz' 96;
+      font-size: clamp(64px, 7vw, 96px);
+      color: rgba(76,201,240,0.12);
+      line-height: 1;
+    }
+
+    .hiw__step-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .hiw__step-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .hiw__step-visual {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px rgba(76,201,240,0.04);
+      max-width: 500px;
+      justify-self: end;
+    }
+    .hiw__step-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: blur(3px);
+    }
+
+    /* Mockup component for step 1 */
+    .input-mockup {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 500px;
+      justify-self: end;
+    }
+    .input-mockup__header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .input-mockup__badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--electric-subtle);
+      color: var(--electric);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .input-mockup__step-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+    .input-mockup__question {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.4;
+      filter: blur(4px);
+      user-select: none;
+    }
+    .input-mockup__textarea {
+      width: 100%;
+      height: 80px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .input-mockup__textarea-cursor {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 2px;
+      height: 16px;
+      background: var(--electric);
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .input-mockup__btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .input-mockup__btn-inner {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+    }
+
+    /* ─── 6 QUESTIONS ─── */
+    .questions {
+      margin-top: 80px;
+    }
+
+    .questions__title {
+      font-size: clamp(24px, 2.8vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .questions__subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    .questions__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .q-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(12,18,34,0.5);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .q-card:nth-child(odd) { border-color: rgba(76,201,240,0.1); }
+    .q-card:nth-child(even) { border-color: rgba(37,99,235,0.1); }
+    .q-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(76,201,240,0.06);
+      border-color: rgba(76,201,240,0.2);
+    }
+
+    .q-card__num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-variation-settings: 'WONK' 0, 'opsz' 36;
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .q-card:nth-child(odd) .q-card__num { color: var(--electric); }
+    .q-card:nth-child(even) .q-card__num { color: var(--blue-bright); }
+
+    .q-card__title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .q-card__desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ─── PRODUCT SHOWCASE ─── */
+    .showcase {
+      background: linear-gradient(180deg, #080D18 0%, var(--bg) 100%);
+      border-top: 1px solid rgba(76,201,240,0.06);
+    }
+
+    .showcase__main {
+      margin-bottom: 40px;
+    }
+
+    .browser-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: box-shadow 0.4s ease;
+    }
+    .browser-frame:hover {
+      box-shadow: 0 0 60px rgba(76,201,240,0.06);
+    }
+
+    .browser-frame--glow {
+      box-shadow:
+        0 0 80px rgba(76,201,240,0.06),
+        0 0 160px rgba(37,99,235,0.04),
+        0 40px 100px rgba(0,0,0,0.5);
+    }
+
+    .browser-frame__bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: #0A0F1A;
+      border-bottom: 1px solid var(--border);
+    }
+    .browser-frame__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .browser-frame__url {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 10px;
+      font-family: 'Sora', monospace;
+    }
+    .browser-frame__body img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: blur(3px);
+    }
+
+    .showcase__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .showcase__caption {
+      padding: 20px 0 0;
+    }
+    .showcase__caption-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .showcase__caption-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── DELIVERABLES ─── */
+    .deliverables {
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+    }
+
+    .deliverables__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .deliverable {
+      padding: clamp(24px, 2.5vw, 32px);
+      border-radius: 14px;
+      background: rgba(76,201,240,0.04);
+      border: 1px solid rgba(76,201,240,0.1);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .deliverable:hover {
+      background: rgba(76,201,240,0.07);
+      border-color: rgba(76,201,240,0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 0 40px rgba(76,201,240,0.06);
+    }
+
+    .deliverable__accent {
+      width: 28px;
+      height: 2px;
+      background: var(--electric);
+      margin-bottom: 18px;
+      border-radius: 1px;
+    }
+
+    .deliverable__title {
+      font-family: 'Sora', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .deliverable__desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── DIFFERENTIATION ─── */
+    .diff {
+      background: linear-gradient(180deg, #080D18 0%, #0A1020 50%, #080D18 100%);
+    }
+
+    .diff__grid {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: center;
+    }
+
+    .diff__text p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+    .diff__text strong { color: #fff; font-weight: 600; }
+
+    .diff__quote {
+      margin: 48px 0;
+      padding: 28px 0 28px 24px;
+      border-left: 2px solid var(--electric);
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(20px, 2vw, 26px);
+      font-style: normal;
+      color: var(--electric);
+      line-height: 1.5;
+    }
+    .diff__quote-attr {
+      display: block;
+      margin-top: 12px;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      color: var(--text-muted);
+    }
+
+    /* Orbital engine visual */
+    .orbital {
+      position: relative;
+      width: 480px;
+      height: 480px;
+    }
+
+    .orbital__ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.03);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .orbital__ring--inner {
+      width: 240px; height: 240px;
+      border-color: rgba(76,201,240,0.08);
+    }
+    .orbital__ring--outer {
+      width: 440px; height: 440px;
+      border-style: dashed;
+      border-color: rgba(37,99,235,0.06);
+      animation: orbitSpin 80s linear infinite;
+    }
+    @keyframes orbitSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    .orbital__core {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,201,240,0.15) 0%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .orbital__core-inner {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(76,201,240,0.2), rgba(37,99,235,0.15));
+      border: 1px solid rgba(76,201,240,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: corePulse 3s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(76,201,240,0.1);
+    }
+    .orbital__core-inner svg { width: 28px; height: 28px; color: var(--electric); }
+    @keyframes corePulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(76,201,240,0.1); transform: scale(1); }
+      50% { box-shadow: 0 0 80px rgba(76,201,240,0.2); transform: scale(1.06); }
+    }
+    .orbital__core-label {
+      position: absolute;
+      bottom: -22px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .orbital__node {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(12,18,34,0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    .orbital__node:hover {
+      border-color: rgba(76,201,240,0.25);
+      box-shadow: 0 0 30px rgba(76,201,240,0.08);
+      transform: scale(1.04);
+    }
+    .orbital__node--top { top: -10px; left: 50%; transform: translateX(-50%); }
+    .orbital__node--top:hover { transform: translateX(-50%) scale(1.04); }
+    .orbital__node--right { top: 50%; right: -30px; transform: translateY(-50%); }
+    .orbital__node--right:hover { transform: translateY(-50%) scale(1.04); }
+    .orbital__node--bottom { bottom: -10px; left: 50%; transform: translateX(-50%); }
+    .orbital__node--bottom:hover { transform: translateX(-50%) scale(1.04); }
+    .orbital__node--left { top: 50%; left: -30px; transform: translateY(-50%); }
+    .orbital__node--left:hover { transform: translateY(-50%) scale(1.04); }
+
+    .orbital__node-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .orbital__node-icon svg { width: 18px; height: 18px; }
+    .orbital__node-icon--electric { background: var(--electric-subtle); }
+    .orbital__node-icon--electric svg { color: var(--electric); }
+    .orbital__node-icon--blue { background: var(--blue-subtle); }
+    .orbital__node-icon--blue svg { color: var(--blue-bright); }
+
+    .orbital__node-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .orbital__node-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Beams */
+    .orbital__beam {
+      position: absolute;
+      top: 50%; left: 50%;
+      z-index: 1;
+      transform-origin: 0 0;
+      height: 1px;
+      width: 140px;
+      background: linear-gradient(90deg, rgba(76,201,240,0.25), transparent);
+    }
+    .orbital__beam--top { transform: rotate(-90deg); }
+    .orbital__beam--right { transform: rotate(0deg); }
+    .orbital__beam--bottom { transform: rotate(90deg); }
+    .orbital__beam--left { transform: rotate(180deg); }
+    .orbital__beam::after {
+      content: '';
+      position: absolute;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--electric);
+      box-shadow: 0 0 8px var(--electric);
+      animation: beamTravel 3s ease-in-out infinite;
+    }
+    .orbital__beam--top::after { animation-delay: 0s; }
+    .orbital__beam--right::after { animation-delay: -0.75s; }
+    .orbital__beam--bottom::after { animation-delay: -1.5s; }
+    .orbital__beam--left::after { animation-delay: -2.25s; }
+    @keyframes beamTravel {
+      0% { transform: translateX(120px); opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { transform: translateX(0); opacity: 0; }
+    }
+
+    /* ─── COMPARISON ─── */
+    .comparison {
+      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(76,201,240,0.02) 0%, transparent 50%), var(--bg);
+      border-top: 1px solid rgba(76,201,240,0.06);
+    }
+    .comparison--centered {
+      text-align: center;
+    }
+    .comparison--centered .section__title,
+    .comparison--centered .section__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .comparison__grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .comparison__col {
+      padding: clamp(32px, 3.5vw, 48px);
+      border-radius: 14px;
+    }
+
+    .comparison__col--old {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .comparison__col--new {
+      background: rgba(76,201,240,0.04);
+      border: 1px solid rgba(76,201,240,0.15);
+      box-shadow: 0 0 60px rgba(76,201,240,0.04);
+    }
+
+    .comparison__heading {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison__col--new .comparison__heading {
+      border-bottom-color: rgba(76,201,240,0.12);
+    }
+
+    .comparison__item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+    .comparison__item:last-child { margin-bottom: 0; }
+    .comparison__item strong { color: #fff; font-weight: 600; }
+
+    .comparison__icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      margin-top: 3px;
+    }
+    .comparison__icon--x { color: var(--red); }
+    .comparison__icon--check { color: var(--electric); }
+
+    /* ─── PLATFORM ─── */
+    .platform {
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+      text-align: center;
+    }
+
+    .platform .section__title,
+    .platform .section__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .platform__pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .platform__pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .platform__pill:hover {
+      border-color: rgba(76,201,240,0.2);
+      background: rgba(76,201,240,0.04);
+      transform: translateY(-2px);
+    }
+
+    .platform__pill-icon {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .platform__pill-icon svg { width: 15px; height: 15px; }
+    .platform__pill-icon--electric { background: var(--electric-subtle); }
+    .platform__pill-icon--electric svg { color: var(--electric); }
+    .platform__pill-icon--blue { background: var(--blue-subtle); }
+    .platform__pill-icon--blue svg { color: var(--blue-bright); }
+
+    .platform__pill-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .platform__note {
+      margin-top: 32px;
+      font-size: 15px;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    /* ─── OFFER ─── */
+    .offer {
+      padding: clamp(80px, 10vw, 140px) 0;
+      position: relative;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(76,201,240,0.04) 0%, transparent 60%),
+                  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(37,99,235,0.05) 0%, transparent 50%),
+                  #080D18;
+    }
+    .offer__canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .offer::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(76,201,240,0.1) 0%, rgba(37,99,235,0.07) 40%, transparent 60%);
+      pointer-events: none;
+      filter: blur(40px);
+    }
+
+    .offer__card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--electric);
+      border-radius: 16px;
+      padding: clamp(36px, 5vw, 60px);
+      position: relative;
+      box-shadow:
+        0 0 120px rgba(76,201,240,0.15),
+        0 0 240px rgba(37,99,235,0.1),
+        0 30px 80px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .offer__label { margin-bottom: 16px; }
+
+    .offer__title {
+      font-size: clamp(28px, 3.5vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .offer__subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .value-stack {
+      list-style: none;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .value-stack li {
+      display: flex;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .value-stack li:last-child { border-bottom: none; }
+
+    .value-stack__check {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      color: var(--electric);
+      margin-top: 2px;
+    }
+
+    .value-stack__name { font-weight: 600; color: #fff; }
+    .value-stack__detail { color: var(--text-secondary); font-weight: 300; }
+
+    .offer__price-block {
+      padding: 36px 0;
+      margin-bottom: 32px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .offer__price-anchor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+    .offer__price-anchor-val {
+      text-decoration: line-through;
+    }
+
+    .offer__price {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .offer__amount {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-variation-settings: 'WONK' 0, 'opsz' 72;
+      font-size: clamp(56px, 6vw, 80px);
+      color: #fff;
+      line-height: 1;
+      text-shadow: 0 0 60px var(--electric-glow), 0 0 120px rgba(76,201,240,0.2);
+    }
+
+    .offer__term {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    .offer__btn {
+      width: 100%;
+      justify-content: center;
+      font-size: 18px;
+      padding: 22px 48px;
+      border-radius: 12px;
+    }
+
+    .offer__secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .offer__secure svg { width: 14px; height: 14px; }
+
+    .offer__after {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 20px;
+      line-height: 1.65;
+    }
+
+    .offer__scarcity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 14px 24px;
+      background: var(--coral-subtle);
+      border: 1px solid rgba(255,112,67,0.25);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--coral);
+    }
+    .offer__scarcity-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      animation: pulse 2s infinite;
+    }
+
+    /* ─── FAQ ─── */
+    .faq {
+      background: var(--bg);
+      text-align: center;
+    }
+    .faq .section__title {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .faq__list {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .faq__item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq__q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+    .faq__q:hover { color: #fff; }
+
+    .faq__icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      color: var(--text-muted);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s;
+    }
+    .faq__item.is-open .faq__icon {
+      transform: rotate(45deg);
+      color: var(--electric);
+    }
+
+    .faq__a {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq__item.is-open .faq__a { grid-template-rows: 1fr; }
+
+    .faq__a-inner { overflow: hidden; }
+    .faq__a-inner p {
+      padding-bottom: 24px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      text-align: center;
+      padding: clamp(80px, 10vw, 140px) 0;
+      position: relative;
+      background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(76,201,240,0.03) 0%, transparent 50%),
+                  radial-gradient(ellipse 40% 30% at 50% 40%, rgba(245,158,11,0.03) 0%, transparent 50%),
+                  #080D18;
+    }
+
+    .final-cta__title {
+      font-size: clamp(32px, 4vw, 56px);
+      margin-bottom: 20px;
+    }
+    .final-cta__title em { font-style: normal; color: var(--electric); }
+
+    .final-cta__sub {
+      font-size: 17px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .final-cta__terms {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    .final-cta__ps {
+      max-width: 620px;
+      margin: 80px auto 0;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+    .final-cta__ps strong { color: #fff; font-weight: 600; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer__logo {
+      height: 36px;
+      width: auto;
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+    .footer__copy {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer__secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer__secure svg { width: 12px; height: 12px; }
+
+    /* ─── MOBILE STICKY CTA ─── */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(6,10,20,0.94);
+      backdrop-filter: blur(16px);
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-cta.is-visible { transform: translateY(0); }
+    .mobile-cta .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__visual { max-width: 600px; margin-top: 48px; }
+      .hero__float-card { display: none; }
+      .diff__grid { grid-template-columns: 1fr; }
+      .orbital { display: none; }
+      .hiw__step { grid-template-columns: 80px 1fr; }
+      .hiw__step-visual { display: none; }
+
+      /* Center everything on single-column */
+      .hero { text-align: center; }
+      .hero__content { text-align: center; }
+      .hero__title { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .hero__deck { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .hero__prehead { justify-content: center; }
+      .hero__actions { justify-content: center; }
+      .hero__spots { margin-left: auto; margin-right: auto; }
+      .hero__sub { text-align: center; }
+      .hero__visual { margin-left: auto; margin-right: auto; }
+
+      .section__title { text-align: center; margin-left: auto; margin-right: auto; }
+      .section__subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+      .section__label { text-align: center; }
+
+      .problem__text { text-align: center; max-width: 100%; margin-left: auto; margin-right: auto; }
+      .problem__stat { text-align: center; }
+      .problem__stat-label { text-align: center; margin-left: auto; margin-right: auto; }
+
+</style>
+
+      .diff__text { text-align: center; }
+      .diff__quote { text-align: center; border-left: none; padding-left: 0; border-top: 2px solid var(--electric); padding-top: 28px; }
+
+      .showcase__caption { text-align: center; }
+    }
+
+    @media (max-width: 900px) {
+      .deliverables__grid { grid-template-columns: repeat(2, 1fr); }
+      .comparison__grid { grid-template-columns: 1fr; }
+      .showcase__grid { grid-template-columns: 1fr; }
+      .questions__grid { grid-template-columns: repeat(2, 1fr); }
+      .hiw__step { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+      .hiw__step-num { font-size: 56px; color: rgba(76,201,240,0.18); }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .hiw__step-num { font-size: 48px; }
+      .questions__grid { grid-template-columns: 1fr; }
+      .deliverables__grid { grid-template-columns: 1fr; }
+      .mobile-cta { display: block; }
+      .stats-strip__div { display: none; }
+      .stats-strip__inner { gap: 20px; }
+      .stats-strip__visual { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hidden SEO/AI summary for crawlers -->
+  <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true">
+    <h2>Webinar Wizard — AI Webinar Campaign Generator for Financial Advisors</h2>
+    <p>Webinar Wizard by Trained Advisor is the first AI-powered tool that generates complete webinar campaigns specifically for financial advisors. Answer 6 strategic questions about your practice and receive a 45-minute webinar script, 8 marketing emails, 3 follow-up emails, social media posts, landing page copy, and a complete offer stack — all in under 30 minutes. Unlike generic AI tools like ChatGPT, Webinar Wizard uses 4 specialized engines trained on direct-response marketing frameworks for financial services. Founding member pricing is $997 one-time, which includes 6 months of the Advisor Nexus all-in-one marketing platform. Built for retirement planners, life insurance agents, annuity specialists, estate planners, tax strategists, and wealth managers.</p>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero">
+    <canvas class="hero__canvas" id="heroCanvas"></canvas>
+    <div class="wrap hero__grid">
+      <div class="hero__content">
+        <div class="hero__prehead label reveal">For Financial Advisors</div>
+
+        <h1 class="hero__title reveal" data-delay="1">Your Next Webinar Campaign Is <em>6&nbsp;Questions</em>&nbsp;Away.</h1>
+
+        <p class="hero__deck reveal" data-delay="2">Answer 6 strategic questions about your practice. In about 6 minutes, get a complete 45-minute webinar script, marketing emails, follow-up sequence, social posts, and landing page copy&nbsp;&mdash;&nbsp;all personalized to your voice and your&nbsp;ideal&nbsp;client.</p>
+
+        <div class="hero__actions reveal" data-delay="3">
+          <a href="https://buy.stripe.com/cNi5kEb3UbpB0CU6ad3Nm2R" class="btn btn--primary">
+            Become a Founding Member
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="hero__spots reveal" data-delay="4">
+          <span class="hero__spots-dot"></span>
+          <strong>50</strong> Founding Member spots remaining
+        </div>
+        <p class="hero__sub reveal" data-delay="4">One-time payment &middot; Includes 6 months of Advisor Nexus</p>
+      </div>
+
+      <!-- Hero visual -->
+      <div class="hero__visual reveal--right" data-delay="2">
+        <div class="hero__screenshot-wrap">
+          <div class="hero__screenshot-bar">
+            <div class="hero__screenshot-dot hero__screenshot-dot--r"></div>
+            <div class="hero__screenshot-dot hero__screenshot-dot--y"></div>
+            <div class="hero__screenshot-dot hero__screenshot-dot--g"></div>
+            <span class="hero__screenshot-url">webinar-wizard.app/results</span>
+          </div>
+          <img class="hero__screenshot-img" src="https://webinar-wizard-sales.vercel.app/assets/screenshot-script-view.png" alt="Webinar Wizard results dashboard showing a generated webinar script" loading="eager">
+        </div>
+
+        <!-- Floating processing card -->
+        <div class="hero__float-card">
+          <div class="hero__float-title">Creating Your Content</div>
+          <div class="hero__float-step hero__float-step--done">
+            <div class="hero__float-check hero__float-check--done">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 8.5l3.5 3.5 6.5-8"/></svg>
+            </div>
+            Analyzing your answers...
+          </div>
+          <div class="hero__float-step hero__float-step--active">
+            <div class="hero__float-check hero__float-check--active">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--electric)" stroke-width="2" stroke-linecap="round"><path d="M8 2a6 6 0 014.5 10" /></svg>
+            </div>
+            Engineering your offer stack...
+          </div>
+          <div class="hero__float-step">
+            <div class="hero__float-check"></div>
+            Crafting your webinar script...
+          </div>
+          <div class="hero__float-step">
+            <div class="hero__float-check"></div>
+            Writing marketing emails...
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── PROBLEM ─── -->
+  <section class="section problem">
+    <div class="wrap">
+      <div class="label section__label reveal">The Problem</div>
+      <h2 class="section__title reveal" data-delay="1">Webinars Work.<br>Building Them <em>Doesn&rsquo;t.</em></h2>
+
+      <div class="problem__text">
+        <p class="reveal" data-delay="2">You already know the math. A single webinar can fill your pipeline for weeks. One good presentation books 5, 10, 15 discovery calls.</p>
+
+        <p class="reveal" data-delay="2">But nobody talks about what it actually takes to produce one.</p>
+
+        <p class="reveal" data-delay="2">A complete webinar campaign requires a <strong>45-minute script</strong> that sounds like you, not a template. <strong>Eight marketing emails</strong> to fill seats. <strong>Three follow-up emails</strong> to convert attendees. Social posts. A landing page. An offer stack.</p>
+
+        <span class="problem__stat reveal" data-delay="2" data-count="true" data-target="40">40&ndash;80</span>
+        <span class="problem__stat-label reveal" data-delay="2">Hours to build a webinar campaign from scratch</span>
+
+        <p class="reveal" data-delay="2">Hire a copywriter? <strong>$3,000&ndash;$5,000</strong> per campaign. And you&rsquo;ll wait 3&ndash;4 weeks for delivery.</p>
+
+        <p class="reveal" data-delay="2">Do it yourself? 40&ndash;80 hours of writing, rewriting, and second-guessing every word.</p>
+
+        <p class="reveal" data-delay="2">Ask ChatGPT? You&rsquo;ll get something generic that sounds like every other advisor on the internet.</p>
+
+        <span class="problem__stat reveal" data-delay="2">$3&ndash;5K</span>
+        <span class="problem__stat-label reveal" data-delay="2">Typical cost to hire a copywriter for one campaign</span>
+
+        <p class="reveal" data-delay="2">So most advisors just&hellip; don&rsquo;t do webinars. Not because they can&rsquo;t present. <strong>Because the production is a full-time job.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS STRIP ─── -->
+  <div class="stats-strip">
+    <div class="wrap">
+      <div class="stats-strip__inner">
+        <div class="stats-strip__item reveal" data-delay="1">
+          <div class="stats-strip__num stats-strip__num--electric">6 min</div>
+          <div class="stats-strip__label">Average generation time</div>
+        </div>
+        <div class="stats-strip__div"></div>
+        <div class="stats-strip__item reveal" data-delay="2">
+          <div class="stats-strip__num">11</div>
+          <div class="stats-strip__label">Campaign emails generated</div>
+        </div>
+        <div class="stats-strip__div"></div>
+        <div class="stats-strip__item reveal" data-delay="3">
+          <div class="stats-strip__num">45 min</div>
+          <div class="stats-strip__label">Presentation-ready script</div>
+        </div>
+        <div class="stats-strip__div"></div>
+        <div class="stats-strip__item reveal" data-delay="4">
+          <div class="stats-strip__num">4</div>
+          <div class="stats-strip__label">Specialized AI engines</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="section hiw">
+    <div class="wrap">
+      <div class="label section__label reveal">How It Works</div>
+      <h2 class="section__title reveal" data-delay="1">6 Questions. One System.<br><em>Complete Campaign.</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">No copywriter. No agency. No three-week wait. Just your expertise, structured by AI engines built specifically for financial advisor webinars.</p>
+
+      <div class="hiw__steps">
+        <div class="hiw__step reveal" data-delay="1">
+          <div class="hiw__step-num">01</div>
+          <div>
+            <div class="hiw__step-title">Answer 6 Strategic Questions</div>
+            <div class="hiw__step-desc">Not generic intake questions. These are built on the same frameworks used by the world&rsquo;s top direct-response marketers. They pull out what makes your practice different&nbsp;&mdash;&nbsp;your unique angle, your origin story, the objections you hear every day. Takes about 15&nbsp;minutes.</div>
+          </div>
+          <div class="hiw__step-visual">
+            <!-- Input mockup component -->
+            <div class="input-mockup">
+              <div class="input-mockup__header">
+                <span class="input-mockup__badge">Question 1 of 6</span>
+                <span class="input-mockup__step-label">The Mistake</span>
+              </div>
+              <div class="input-mockup__question">What is the #1 mistake your ideal client makes &mdash; and the simple fix only you provide?</div>
+              <div class="input-mockup__textarea">
+                <div class="input-mockup__textarea-cursor"></div>
+              </div>
+              <div class="input-mockup__btn">
+                <div class="input-mockup__btn-inner">Next &rarr;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hiw__step reveal" data-delay="1">
+          <div class="hiw__step-num">02</div>
+          <div>
+            <div class="hiw__step-title">The System Builds Your Campaign</div>
+            <div class="hiw__step-desc">Four specialized AI engines go to work on your answers. One builds your script. Another writes your emails. Another creates social content. Another builds your landing page copy. Each engine is tuned for financial advisor webinars. Takes about 5&nbsp;minutes.</div>
+          </div>
+          <div class="hiw__step-visual">
+            <img src="https://webinar-wizard-sales.vercel.app/assets/screenshot-processing.png" alt="AI engines generating your campaign" style="border-radius: 12px;">
+          </div>
+        </div>
+
+        <div class="hiw__step reveal" data-delay="1">
+          <div class="hiw__step-num">03</div>
+          <div>
+            <div class="hiw__step-title">Review Your Complete Package</div>
+            <div class="hiw__step-desc">Everything comes back in one polished interface. Review each section, enter full-screen presenter mode to rehearse, or export the entire package. Ready to present as-is.</div>
+          </div>
+          <div class="hiw__step-visual">
+            <img src="https://webinar-wizard-sales.vercel.app/assets/screenshot-landing-page.png" alt="Complete campaign results" style="border-radius: 12px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Questions -->
+      <div class="questions">
+        <h3 class="questions__title reveal">The 6 Questions That Power Everything</h3>
+        <p class="questions__subtitle reveal" data-delay="1">Each question is designed to pull out what makes your practice unique.</p>
+
+        <div class="questions__grid">
+          <div class="q-card reveal" data-delay="1">
+            <div class="q-card__num">01</div>
+            <div class="q-card__title">The Mistake</div>
+            <div class="q-card__desc">The #1 mistake your ideal client makes &mdash; and the simple fix only you provide.</div>
+          </div>
+          <div class="q-card reveal" data-delay="2">
+            <div class="q-card__num">02</div>
+            <div class="q-card__title">The Vision</div>
+            <div class="q-card__desc">Paint the picture of success. What does life look like 3 years from now with the right plan?</div>
+          </div>
+          <div class="q-card reveal" data-delay="3">
+            <div class="q-card__num">03</div>
+            <div class="q-card__title">The Objections</div>
+            <div class="q-card__desc">The 3 objections you hear every day &mdash; the polite reason and the real reason behind each.</div>
+          </div>
+          <div class="q-card reveal" data-delay="4">
+            <div class="q-card__num">04</div>
+            <div class="q-card__title">The Origin Story</div>
+            <div class="q-card__desc">Why you do what you do. The defining moment that shaped your approach.</div>
+          </div>
+          <div class="q-card reveal" data-delay="5">
+            <div class="q-card__num">05</div>
+            <div class="q-card__title">The Goodie Bag</div>
+            <div class="q-card__desc">3 free resources you can offer attendees to build trust and demonstrate value.</div>
+          </div>
+          <div class="q-card reveal" data-delay="6">
+            <div class="q-card__num">06</div>
+            <div class="q-card__title">The Scarcity</div>
+            <div class="q-card__desc">Why prospects say no &mdash; and what they miss by waiting.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCT SHOWCASE ─── -->
+  <section class="section showcase">
+    <div class="wrap">
+      <div class="label section__label reveal">See It In Action</div>
+      <h2 class="section__title reveal" data-delay="1">Built for Financial Advisors.<br><em>Not a Generic AI Tool.</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">Every piece of your campaign is generated inside one polished interface&nbsp;&mdash;&nbsp;review, edit, present, and export without leaving the app.</p>
+
+      <div class="showcase__main reveal--scale" data-delay="2">
+        <div class="browser-frame browser-frame--glow">
+          <div class="browser-frame__bar">
+            <div class="browser-frame__dot"></div>
+            <div class="browser-frame__dot"></div>
+            <div class="browser-frame__dot"></div>
+            <span class="browser-frame__url">webinar-wizard.app/results</span>
+          </div>
+          <div class="browser-frame__body">
+            <img src="https://webinar-wizard-sales.vercel.app/assets/screenshot-script-view.png" alt="Webinar Wizard results dashboard" loading="lazy">
+          </div>
+        </div>
+        <div class="showcase__caption">
+          <div class="showcase__caption-title">Your Complete Campaign at a Glance</div>
+          <div class="showcase__caption-desc">Script, emails, social posts, landing page copy &mdash; tabbed sections with everything you need.</div>
+        </div>
+      </div>
+
+      <div class="showcase__grid">
+        <div class="reveal--left" data-delay="1">
+          <div class="browser-frame">
+            <div class="browser-frame__bar">
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <span class="browser-frame__url">landing page output</span>
+            </div>
+            <div class="browser-frame__body">
+              <img src="https://webinar-wizard-sales.vercel.app/assets/screenshot-landing-page.png" alt="Landing page copy output" loading="lazy">
+            </div>
+          </div>
+          <div class="showcase__caption">
+            <div class="showcase__caption-title">Landing Page Copy</div>
+            <div class="showcase__caption-desc">Headlines, hooks, and registration copy personalized to your topic.</div>
+          </div>
+        </div>
+        <div class="reveal--right" data-delay="2">
+          <div class="browser-frame">
+            <div class="browser-frame__bar">
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <span class="browser-frame__url">content generation</span>
+            </div>
+            <div class="browser-frame__body">
+              <img src="https://webinar-wizard-sales.vercel.app/assets/screenshot-processing.png" alt="AI engines generating your campaign" loading="lazy">
+            </div>
+          </div>
+          <div class="showcase__caption">
+            <div class="showcase__caption-title">4 AI Engines Working</div>
+            <div class="showcase__caption-desc">Watch your campaign come to life in real-time. ~5 minutes from answers to finished package.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DELIVERABLES ─── -->
+  <section class="section deliverables">
+    <div class="wrap">
+      <div class="label section__label reveal">What You Get</div>
+      <h2 class="section__title reveal" data-delay="1">Everything You Need to Fill a Room<br><em>and Book Appointments</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
+
+      <div class="deliverables__grid">
+        <div class="deliverable reveal" data-delay="1">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">45-Minute Webinar Script</div>
+          <div class="deliverable__desc">Section-by-section, in your voice. Strategic pacing, audience engagement cues, trial closes, and a closing sequence engineered to book appointments.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="2">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">8 Marketing Emails</div>
+          <div class="deliverable__desc">A full sequence of curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="3">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">3 Follow-Up Emails</div>
+          <div class="deliverable__desc">Post-webinar sequence that converts attendees into booked discovery calls. Urgency, value recap, and clear calls-to-action.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="1">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Social Media Posts</div>
+          <div class="deliverable__desc">Ready-to-post promotional content for LinkedIn and beyond. Written to sound human, not automated. Drives registrations.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="2">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Landing Page Copy</div>
+          <div class="deliverable__desc">Headlines, bullets, and body copy for your webinar registration page. Conversion-focused and specific to your topic.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="3">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Complete Offer Stack</div>
+          <div class="deliverable__desc">Named deliverables with value anchoring, built on the Grand Slam methodology. Makes your webinar offer feel irresistible to attendees.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DIFFERENTIATION ─── -->
+  <section class="section diff">
+    <div class="wrap">
+      <div class="label section__label reveal">Why This Is Different</div>
+      <h2 class="section__title reveal" data-delay="1">This Isn&rsquo;t a Chatbot.<br><em>It&rsquo;s a Campaign Engine.</em></h2>
+
+      <div class="diff__grid">
+        <div>
+          <div class="diff__text reveal" data-delay="2">
+            <p>You&rsquo;ve probably asked ChatGPT to write a webinar script before. And you probably got back something generic, robotic, and full of phrases no human would say to a room full of people.</p>
+
+            <p>Webinar Wizard was built to do one thing: <strong>create webinar campaigns for financial advisors</strong> using proven direct-response frameworks.</p>
+
+            <p>The script engine understands webinar pacing, audience engagement, trial closes, and offer stacking. The email engine builds anticipation sequences that drive registrations. The social engine writes posts that sound like a human wrote them.</p>
+
+            <p>And the entire system is built around <strong>6 questions that force you to articulate what makes your practice different</strong>&nbsp;&mdash;&nbsp;so the output sounds like you. Not like a template. Not like everyone else.</p>
+          </div>
+
+          <blockquote class="diff__quote reveal" data-delay="2">
+            &ldquo;The output quality is unlike anything I&rsquo;ve seen from AI. Not a rough draft&nbsp;&mdash;&nbsp;ready to present without editing.&rdquo;
+            <span class="diff__quote-attr">&mdash; Early beta tester, retirement planning</span>
+          </blockquote>
+        </div>
+
+        <!-- Orbital engine visual -->
+        <div class="reveal--right" data-delay="3">
+          <div class="orbital">
+            <div class="orbital__ring orbital__ring--inner"></div>
+            <div class="orbital__ring orbital__ring--outer"></div>
+
+            <div class="orbital__beam orbital__beam--top"></div>
+            <div class="orbital__beam orbital__beam--right"></div>
+            <div class="orbital__beam orbital__beam--bottom"></div>
+            <div class="orbital__beam orbital__beam--left"></div>
+
+            <div class="orbital__core">
+              <div class="orbital__core-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <span class="orbital__core-label">AI Engine</span>
+            </div>
+
+            <div class="orbital__node orbital__node--top">
+              <div class="orbital__node-icon orbital__node-icon--electric">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+              </div>
+              <div>
+                <div class="orbital__node-title">Script Engine</div>
+                <div class="orbital__node-sub">45-min presentation</div>
+              </div>
+            </div>
+
+            <div class="orbital__node orbital__node--right">
+              <div class="orbital__node-icon orbital__node-icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+              </div>
+              <div>
+                <div class="orbital__node-title">Email Engine</div>
+                <div class="orbital__node-sub">11 campaign emails</div>
+              </div>
+            </div>
+
+            <div class="orbital__node orbital__node--bottom">
+              <div class="orbital__node-icon orbital__node-icon--electric">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div>
+                <div class="orbital__node-title">Social Engine</div>
+                <div class="orbital__node-sub">LinkedIn &amp; beyond</div>
+              </div>
+            </div>
+
+            <div class="orbital__node orbital__node--left">
+              <div class="orbital__node-icon orbital__node-icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              </div>
+              <div>
+                <div class="orbital__node-title">Landing Page</div>
+                <div class="orbital__node-sub">Registration copy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPARISON ─── -->
+  <section class="section comparison comparison--centered">
+    <div class="wrap">
+      <h2 class="section__title reveal"><em>The Math</em> Is Simple</h2>
+      <p class="section__subtitle reveal" data-delay="1">Compare the cost and time of building a webinar campaign three different ways.</p>
+
+      <div class="comparison__grid">
+        <div class="comparison__col comparison__col--old reveal--left" data-delay="2">
+          <div class="comparison__heading">The Old Way</div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span><strong>$3,000&ndash;$5,000</strong> per campaign from a copywriter</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span><strong>3&ndash;4 weeks</strong> waiting for delivery</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span>Generic output that doesn&rsquo;t sound like you</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span>One campaign per engagement</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
+            <span>Revisions cost extra</span>
+          </div>
+        </div>
+
+        <div class="comparison__col comparison__col--new reveal--right" data-delay="3">
+          <div class="comparison__heading">With Webinar Wizard</div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span><strong>$997 one-time</strong> for unlimited campaigns</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span><strong>Under 30 minutes</strong> from start to finished campaign</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span>Built on <strong>your answers</strong>&nbsp;&mdash;&nbsp;sounds like you</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span>Generate <strong>as many campaigns</strong> as you want</span>
+          </div>
+          <div class="comparison__item">
+            <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <span>Don&rsquo;t like the output? <strong>Regenerate instantly</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PLATFORM ─── -->
+  <section class="section platform">
+    <div class="wrap">
+      <div class="label section__label reveal">Included In Your Membership</div>
+      <h2 class="section__title reveal" data-delay="1">Webinar Wizard Is One Feature.<br><em>You Get the Whole Platform.</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">Founding Members get 6 months of full access to Advisor Nexus&nbsp;&mdash;&nbsp;the all-in-one marketing platform built specifically for financial advisors.</p>
+
+      <div class="platform__pills reveal" data-delay="3">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--electric">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <span class="platform__pill-name">Webinar Wizard</span>
+        </div>
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--electric">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <span class="platform__pill-name">Financial Diagnostic Tool</span>
+        </div>
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <span class="platform__pill-name">Full CRM</span>
+        </div>
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <span class="platform__pill-name">Funnel Builder</span>
+        </div>
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--electric">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          </div>
+          <span class="platform__pill-name">Email &amp; SMS Automation</span>
+        </div>
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          </div>
+          <span class="platform__pill-name">Calendar Booking</span>
+        </div>
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--electric">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="platform__pill-name">Reputation Management</span>
+        </div>
+      </div>
+
+      <p class="platform__note reveal" data-delay="4">Plus every new tool we build while you&rsquo;re a member. We ship constantly.</p>
+    </div>
+  </section>
+
+  <!-- ─── OFFER ─── -->
+  <section class="section offer" id="offer">
+    <canvas class="offer__canvas" id="offerCanvas"></canvas>
+    <div class="wrap">
+      <div class="offer__card reveal--scale" data-delay="1">
+        <div class="label offer__label">Founding Member Access</div>
+        <h2 class="offer__title">Webinar Wizard + 6&nbsp;Months of&nbsp;Advisor&nbsp;Nexus</h2>
+        <p class="offer__subtitle">Everything you need to create, launch, and run webinar campaigns&nbsp;&mdash;&nbsp;plus the full marketing platform built for financial advisors.</p>
+
+        <ul class="value-stack">
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">Unlimited Webinar Wizard campaigns</span><br>
+              <span class="value-stack__detail">Generate as many webinar packages as you want. New topic? New niche? New audience? Build another one.</span>
+            </div>
+          </li>
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">6 months of Advisor Nexus</span><br>
+              <span class="value-stack__detail">Full CRM, funnel builder, automations, calendar, reputation management. ($1,182&nbsp;value)</span>
+            </div>
+          </li>
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">Private onboarding call</span><br>
+              <span class="value-stack__detail">Get Webinar Wizard mapped to your specific practice and client base.</span>
+            </div>
+          </li>
+          <li>
+            <svg class="value-stack__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
+            <div>
+              <span class="value-stack__name">Every new tool we build</span><br>
+              <span class="value-stack__detail">Financial Diagnostic Tool, plus everything we ship while you&rsquo;re a member.</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="offer__price-block">
+          <div class="offer__price-anchor">
+            <span>Total value of everything included</span>
+            <span class="offer__price-anchor-val">$4,782+</span>
+          </div>
+          <div class="offer__price">
+            <span class="offer__amount">$997</span>
+            <span class="offer__term">one-time</span>
+          </div>
+        </div>
+
+        <a href="https://buy.stripe.com/cNi5kEb3UbpB0CU6ad3Nm2R" class="btn btn--primary offer__btn">
+          Become a Founding Member
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+        </a>
+
+        <div class="offer__secure">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm2 6H6V5a2 2 0 1 1 4 0v2z"/></svg>
+          Secure checkout &middot; Your information is protected
+        </div>
+
+        <p class="offer__after">After 6 months, keep full platform access&nbsp;&mdash;&nbsp;including Webinar Wizard&nbsp;&mdash;&nbsp;at $197/mo.<br>Or cancel. No contracts. No hassle.</p>
+
+        <div class="offer__scarcity">
+          <span class="offer__scarcity-dot"></span>
+          Limited to 50 Founding Members &mdash; then this offer closes permanently
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="section faq">
+    <div class="wrap">
+      <h2 class="section__title reveal">Common Questions</h2>
+
+      <div class="faq__list reveal" data-delay="1">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            What exactly do I get for $997?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>You get 6 months of full access to Advisor Nexus, which includes unlimited Webinar Wizard campaigns, the Financial Diagnostic Tool, a full CRM, funnel builder, email/SMS automation, calendar booking, reputation management, and a private onboarding call. Everything Trained Advisor builds or ships during your membership is included.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            What happens after 6 months?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Webinar Wizard is a feature inside Advisor Nexus. Your $997 covers 6 full months of the platform. After that, you can continue at $197/mo to keep access to Webinar Wizard and everything else. Or cancel&nbsp;&mdash;&nbsp;no contracts, no cancellation fees, no hassle.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            How good is the content, really?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Every advisor who has used Webinar Wizard has had the same reaction: the quality is unlike anything they&rsquo;ve seen from AI. These aren&rsquo;t rough drafts or starting points. The scripts come out presentation-ready with natural language, strategic pacing, and built-in closing mechanics. The system uses four specialized AI engines&nbsp;&mdash;&nbsp;each fine-tuned for its part of the campaign.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            How long does it take to generate a campaign?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>About 15&ndash;20 minutes to answer the 6 strategic questions, then roughly 5&ndash;6 minutes for the AI engines to generate your complete campaign. From start to finished package, you&rsquo;re looking at under 30 minutes.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Do I need to be tech-savvy?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>If you can fill out a form and type a few paragraphs about your practice, you can use Webinar Wizard. There&rsquo;s nothing to install, configure, or integrate. Log in, answer the questions, and your campaign is generated for you.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Can I generate more than one webinar campaign?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Unlimited. Different topics, different niches, different audiences. Want a webinar on tax planning for retirees and another on estate planning for business owners? Generate both. There&rsquo;s no cap on how many campaigns you can create.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            What if it doesn&rsquo;t work for my specific niche?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>The system is built for financial advisors across all specialties&nbsp;&mdash;&nbsp;retirement planning, life insurance, annuities, estate planning, tax strategy, and more. The 6 strategic questions pull your specific expertise and client base into every piece of content. Your private onboarding call is specifically designed to map the tool to your practice.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Can&rsquo;t I just use ChatGPT to do this myself?
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>You could&nbsp;&mdash;&nbsp;the same way you could hand a paintbrush to anyone and ask them to paint the Sistine Chapel. The tool matters, but the expertise behind it matters more. Webinar Wizard uses four specialized engines trained on direct-response frameworks, tuned for webinar pacing, audience psychology, and offer stacking. ChatGPT gives you a generic rough draft. Webinar Wizard gives you a finished, presentation-ready campaign built around what makes your practice different.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="section final-cta">
+    <div class="wrap">
+      <h2 class="final-cta__title reveal">50 Spots. Then This<br><em>Price Disappears.</em></h2>
+      <p class="final-cta__sub reveal" data-delay="1">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
+      <a href="https://buy.stripe.com/cNi5kEb3UbpB0CU6ad3Nm2R" class="btn btn--primary reveal" data-delay="2">
+        Claim Your Founding Member Spot
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+      </a>
+      <p class="final-cta__terms reveal" data-delay="2">$997 one-time &middot; 6 months Advisor Nexus included &middot; Cancel anytime after</p>
+
+      <div class="final-cta__ps reveal" data-delay="3">
+        <strong>P.S.</strong>&nbsp;&mdash; Think about what happens if you don&rsquo;t do a webinar this quarter. Same pipeline. Same number of calls. Same ceiling. Now think about what happens if you do one. A room full of prospects who already trust your expertise, already see you as the authority, already want to talk. Webinar Wizard makes the second scenario 30 minutes of work instead of 80 hours. <a href="https://buy.stripe.com/cNi5kEb3UbpB0CU6ad3Nm2R">Claim your spot before they&rsquo;re gone&nbsp;&rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="wrap">
+      <img class="footer__logo" src="https://webinar-wizard-sales.vercel.app/assets/ta-logo.png" alt="Trained Advisor" loading="lazy">
+      <div class="footer__copy">&copy; 2026 Trained Advisor. All rights reserved.</div>
+      <div class="footer__secure">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm2 6H6V5a2 2 0 1 1 4 0v2z"/></svg>
+        Secure checkout powered by Stripe
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── MOBILE STICKY CTA ─── -->
+  <div class="mobile-cta" id="mobileCta">
+    <a href="https://buy.stripe.com/cNi5kEb3UbpB0CU6ad3Nm2R" class="btn btn--primary">Become a Founding Member</a>
+  </div>
+
+  <script>
+    // ─── HERO PARTICLE CANVAS ───
+    (function() {
+      const canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let w, h;
+
+      function resize() {
+        const hero = canvas.parentElement;
+        w = canvas.width = hero.offsetWidth;
+        h = canvas.height = hero.offsetHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.min(50, Math.floor(w * h / 18000));
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: -Math.random() * 0.4 - 0.1,
+            size: Math.random() * 2.5 + 0.8,
+            opacity: Math.random() * 0.6 + 0.2,
+            color: Math.random() > 0.6 ? '76, 201, 240' : '59, 130, 246'
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.color + ',' + p.opacity + ')';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      createParticles();
+      draw();
+      window.addEventListener('resize', () => { resize(); createParticles(); });
+    })();
+
+
+    // ─── OFFER PARTICLE CANVAS ───
+    (function() {
+      const canvas = document.getElementById('offerCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let w, h;
+
+      function resize() {
+        const section = canvas.parentElement;
+        w = canvas.width = section.offsetWidth;
+        h = canvas.height = section.offsetHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.min(50, Math.floor(w * h / 18000));
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: -Math.random() * 0.4 - 0.1,
+            size: Math.random() * 2.5 + 0.8,
+            opacity: Math.random() * 0.6 + 0.2,
+            color: Math.random() > 0.6 ? '76, 201, 240' : '59, 130, 246'
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.color + ',' + p.opacity + ')';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      createParticles();
+      draw();
+      window.addEventListener('resize', () => { resize(); createParticles(); });
+    })();
+
+    // ─── SCROLL REVEAL ───
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.01, rootMargin: '0px 0px 300px 0px' });
+
+      document.querySelectorAll('.reveal, .reveal--left, .reveal--right, .reveal--scale').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+
+    // ─── FAQ ACCORDION ───
+    document.querySelectorAll('.faq__q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq__item');
+        const isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq__item.is-open').forEach(el => {
+          el.classList.remove('is-open');
+          el.querySelector('.faq__q').setAttribute('aria-expanded', 'false');

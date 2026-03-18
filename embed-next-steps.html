@@ -1,0 +1,253 @@
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- WEBINAR WIZARD NEXT STEPS PAGE — FUNNEL EMBED          -->
+<!-- Paste into a GHL funnel page Custom Code block         -->
+<!-- Shown after booking onboarding call                    -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Sora:wght@300;400;500;600;700&display=swap');
+
+  .ns *, .ns *::before, .ns *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .ns {
+    font-family: 'Sora', system-ui, sans-serif;
+    color: #E2E8F0;
+    background: #060A14;
+    line-height: 1.7;
+    font-size: 17px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 40px);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  /* Background glow */
+  .ns::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(76,201,240,0.06) 0%, rgba(37,99,235,0.04) 40%, transparent 60%);
+    pointer-events: none;
+    filter: blur(40px);
+  }
+
+  /* Noise texture */
+  .ns::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .ns__wrap {
+    max-width: 900px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .ns__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #16A34A;
+    background: rgba(22,163,74,0.1);
+    border: 1px solid rgba(22,163,74,0.2);
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  .ns__badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #16A34A;
+    border-radius: 50%;
+    animation: nsPulse 2s infinite;
+  }
+
+  @keyframes nsPulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(22,163,74,0.4); }
+    50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(22,163,74,0); }
+  }
+
+  .ns__title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(32px, 4vw, 52px);
+    color: #fff;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .ns__subtitle {
+    font-size: clamp(16px, 1.2vw, 19px);
+    color: #94A3B8;
+    max-width: 560px;
+    margin: 0 auto 56px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .ns__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+    text-align: left;
+  }
+
+  .ns__step {
+    padding: 32px 28px;
+    border-radius: 14px;
+    background: rgba(76,201,240,0.03);
+    border: 1px solid rgba(76,201,240,0.08);
+    transition: all 0.3s ease;
+  }
+  .ns__step:hover {
+    background: rgba(76,201,240,0.06);
+    border-color: rgba(76,201,240,0.15);
+    transform: translateY(-2px);
+  }
+
+  .ns__step-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 500;
+    font-variation-settings: 'WONK' 0, 'opsz' 36;
+    color: #4CC9F0;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+
+  .ns__step-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .ns__step-desc {
+    font-size: 14px;
+    color: #94A3B8;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .ns__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 22px 48px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background: #16A34A;
+    color: #fff;
+    box-shadow: 0 0 32px rgba(22,163,74,0.3), 0 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .ns__cta:hover {
+    background: #22C55E;
+    color: #fff;
+    box-shadow: 0 0 56px rgba(22,163,74,0.4), 0 8px 20px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+  }
+  .ns__cta svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.25s ease;
+  }
+  .ns__cta:hover svg { transform: translateX(4px); }
+
+  .ns__support {
+    margin-top: 24px;
+    font-size: 14px;
+    color: #64748B;
+  }
+  .ns__support a { color: #4CC9F0; }
+
+  .ns__footer {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ns__footer-logo {
+    height: 32px;
+    width: auto;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .ns__steps { grid-template-columns: 1fr; gap: 16px; }
+    .ns__step { text-align: center; }
+  }
+</style>
+
+<div class="ns">
+  <div class="ns__wrap">
+
+    <div class="ns__badge">
+      <span class="ns__badge-dot"></span>
+      Account Created
+    </div>
+
+    <h1 class="ns__title">You're All Set. Here's What Happens Next.</h1>
+    <p class="ns__subtitle">Your Advisor Nexus account is being configured right now. You'll have everything you need to launch your first webinar campaign within the hour.</p>
+
+    <div class="ns__steps">
+      <div class="ns__step">
+        <div class="ns__step-num">1</div>
+        <div class="ns__step-title">Check Your Email</div>
+        <div class="ns__step-desc">Your Advisor Nexus login credentials are on the way. Look for an email from Trained Advisor in the next 15 minutes. Check spam if you don't see it.</div>
+      </div>
+      <div class="ns__step">
+        <div class="ns__step-num">2</div>
+        <div class="ns__step-title">Your Onboarding Call</div>
+        <div class="ns__step-desc">You're booked with Tyson. He'll walk you through the platform and set things up for your practice. Log in before the call so you can come with questions.</div>
+      </div>
+      <div class="ns__step">
+        <div class="ns__step-num">3</div>
+        <div class="ns__step-title">Create Your First Campaign</div>
+        <div class="ns__step-desc">Log in, click Webinar Wizard in the sidebar, and hit "Create New Campaign." Answer 6 questions. Your complete webinar campaign will be ready in under 30 minutes.</div>
+      </div>
+    </div>
+
+    <a href="https://app.advisornexus.io" class="ns__cta">
+      Log In to Advisor Nexus
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+    </a>
+
+    <div class="ns__support">Questions? Email <a href="mailto:support@trainedadvisor.com">support@trainedadvisor.com</a> — we actually read these.</div>
+
+    <div class="ns__footer">
+      <img class="ns__footer-logo" src="https://webinar-wizard-sales.vercel.app/assets/ta-logo.png" alt="Trained Advisor">
+    </div>
+
+  </div>
+</div>
