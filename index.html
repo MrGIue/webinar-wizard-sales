@@ -682,7 +682,7 @@
       font-weight: 500;
       font-variation-settings: 'WONK' 0, 'opsz' 96;
       font-size: clamp(64px, 7vw, 96px);
-      color: rgba(255,255,255,0.04);
+      color: rgba(76,201,240,0.12);
       line-height: 1;
     }
 
@@ -1006,7 +1006,7 @@
       font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(20px, 2vw, 26px);
       font-style: normal;
-      color: rgba(76,201,240,0.7);
+      color: var(--electric);
       line-height: 1.5;
     }
     .diff__quote-attr {
@@ -1597,11 +1597,11 @@
       border-top: 1px solid var(--border);
       text-align: center;
     }
-    .footer__brand {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 20px;
-      color: #fff;
-      margin-bottom: 8px;
+    .footer__logo {
+      height: 36px;
+      width: auto;
+      margin-bottom: 12px;
+      opacity: 0.8;
     }
     .footer__copy {
       font-size: 13px;
@@ -1660,14 +1660,41 @@
 
     @media (max-width: 640px) {
       body { font-size: 16px; }
-      .hiw__step { grid-template-columns: 1fr; gap: 16px; }
-      .hiw__step-num { font-size: 48px; }
+
+      /* Center hero on mobile */
+      .hero__content { text-align: center; }
+      .hero__title { max-width: 100%; }
+      .hero__deck { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .hero__prehead { justify-content: center; }
+      .hero__actions { justify-content: center; }
+      .hero__spots { margin-left: auto; margin-right: auto; }
+      .hero__sub { text-align: center; }
+      .hero__visual { margin-left: auto; margin-right: auto; }
+
+      /* Center sections on mobile */
+      .section__title { text-align: center; margin-left: auto; margin-right: auto; }
+      .section__subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+      .section__label { text-align: center; }
+
+      /* Step numbers more visible on mobile */
+      .hiw__step { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+      .hiw__step-num { font-size: 48px; color: rgba(76,201,240,0.18); }
+      .hiw__step-title { text-align: left; }
+      .hiw__step-desc { text-align: left; }
+
       .questions__grid { grid-template-columns: 1fr; }
+      .questions__title { text-align: center; }
+      .questions__subtitle { text-align: center; margin-left: auto; margin-right: auto; }
       .deliverables__grid { grid-template-columns: 1fr; }
       .mobile-cta { display: block; }
       .stats-strip__div { display: none; }
       .stats-strip__inner { gap: 20px; }
       .stats-strip__visual { display: none; }
+
+      /* Center problem section */
+      .problem__text { text-align: center; }
+      .problem__stat { text-align: center; }
+      .problem__stat-label { text-align: center; margin-left: auto; margin-right: auto; }
     }
   </style>
 </head>
@@ -2384,7 +2411,7 @@
   <!-- ─── FOOTER ─── -->
   <footer class="footer">
     <div class="wrap">
-      <div class="footer__brand">Trained Advisor</div>
+      <img class="footer__logo" src="assets/ta-logo.png" alt="Trained Advisor" loading="lazy">
       <div class="footer__copy">&copy; 2026 Trained Advisor. All rights reserved.</div>
       <div class="footer__secure">
         <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm2 6H6V5a2 2 0 1 1 4 0v2z"/></svg>
