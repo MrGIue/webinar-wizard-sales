@@ -8,6 +8,42 @@
   <meta property="og:title" content="Webinar Wizard — Founding Member Access">
   <meta property="og:description" content="Answer 6 questions. Get a complete webinar campaign in minutes. $997 founding member pricing for 50 advisors.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/screenshot-script-view.png">
+  <meta property="og:url" content="https://webinar-wizard-sales.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Webinar Wizard — Founding Member Access">
+  <meta name="twitter:description" content="Answer 6 questions. Get a complete webinar campaign in minutes. $997 founding member pricing.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Trained Advisor">
+  <link rel="canonical" href="https://webinar-wizard-sales.vercel.app/">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Webinar Wizard",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered webinar campaign generator for financial advisors. Answer 6 questions, get a complete 45-minute script, marketing emails, social posts, and landing page copy in minutes.",
+    "offers": {
+      "@type": "Offer",
+      "price": "997",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/LimitedAvailability",
+      "description": "Founding Member Access — includes 6 months of Advisor Nexus platform"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Trained Advisor",
+      "url": "https://trainedadvisor.com"
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Financial Advisors"
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,40 +243,6 @@
       pointer-events: none;
     }
 
-    /* CSS-based particles for sections */
-    .has-particles {
-      position: relative;
-    }
-    .has-particles::after {
-      content: '';
-      position: absolute;
-      inset: -60px;
-      background-image:
-        radial-gradient(1.5px 1.5px at 8% 15%, rgba(76,201,240,0.3), transparent),
-        radial-gradient(1px 1px at 25% 55%, rgba(37,99,235,0.25), transparent),
-        radial-gradient(2px 2px at 42% 85%, rgba(76,201,240,0.2), transparent),
-        radial-gradient(1px 1px at 65% 25%, rgba(37,99,235,0.3), transparent),
-        radial-gradient(1.5px 1.5px at 82% 65%, rgba(76,201,240,0.25), transparent),
-        radial-gradient(1px 1px at 18% 78%, rgba(37,99,235,0.2), transparent),
-        radial-gradient(2px 2px at 55% 12%, rgba(76,201,240,0.25), transparent),
-        radial-gradient(1px 1px at 72% 48%, rgba(37,99,235,0.2), transparent),
-        radial-gradient(1.5px 1.5px at 35% 35%, rgba(76,201,240,0.15), transparent),
-        radial-gradient(1px 1px at 88% 88%, rgba(37,99,235,0.2), transparent),
-        radial-gradient(1.5px 1.5px at 5% 45%, rgba(76,201,240,0.2), transparent),
-        radial-gradient(1px 1px at 95% 15%, rgba(37,99,235,0.25), transparent);
-      background-size: 100% 100%;
-      animation: particleDrift 25s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-    @keyframes particleDrift {
-      0% { transform: translate(0, 0); }
-      20% { transform: translate(12px, -18px); }
-      40% { transform: translate(-8px, -35px); }
-      60% { transform: translate(18px, -20px); }
-      80% { transform: translate(-5px, -10px); }
-      100% { transform: translate(0, 0); }
-    }
 
     .hero__grid {
       display: grid;
@@ -263,7 +265,7 @@
     }
 
     .hero__title {
-      font-size: clamp(40px, 5.5vw, 76px);
+      font-size: clamp(36px, 4.5vw, 62px);
       margin-bottom: 28px;
       max-width: 680px;
     }
@@ -1198,6 +1200,13 @@
                   radial-gradient(ellipse 50% 40% at 50% 50%, rgba(37,99,235,0.05) 0%, transparent 50%),
                   #080D18;
     }
+    .offer__canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     .offer::before {
       content: '';
       position: absolute;
@@ -1615,7 +1624,7 @@
   </header>
 
   <!-- ─── PROBLEM ─── -->
-  <section class="section problem has-particles">
+  <section class="section problem">
     <div class="wrap">
       <div class="label section__label reveal">The Problem</div>
       <h2 class="section__title reveal" data-delay="1">Webinars Work.<br>Building Them <em>Doesn&rsquo;t.</em></h2>
@@ -1672,7 +1681,7 @@
   </div>
 
   <!-- ─── HOW IT WORKS ─── -->
-  <section class="section hiw has-particles">
+  <section class="section hiw">
     <div class="wrap">
       <div class="label section__label reveal">How It Works</div>
       <h2 class="section__title reveal" data-delay="1">6 Questions. One System.<br><em>Complete Campaign.</em></h2>
@@ -1768,7 +1777,7 @@
   </section>
 
   <!-- ─── PRODUCT SHOWCASE ─── -->
-  <section class="section showcase has-particles">
+  <section class="section showcase">
     <div class="wrap">
       <div class="label section__label reveal">See It In Action</div>
       <h2 class="section__title reveal" data-delay="1">Built for Financial Advisors.<br><em>Not a Generic AI Tool.</em></h2>
@@ -1832,7 +1841,7 @@
   </section>
 
   <!-- ─── DELIVERABLES ─── -->
-  <section class="section deliverables has-particles">
+  <section class="section deliverables">
     <div class="wrap">
       <div class="label section__label reveal">What You Get</div>
       <h2 class="section__title reveal" data-delay="1">Everything You Need to Fill a Room<br><em>and Book Appointments</em></h2>
@@ -1874,7 +1883,7 @@
   </section>
 
   <!-- ─── DIFFERENTIATION ─── -->
-  <section class="section diff has-particles">
+  <section class="section diff">
     <div class="wrap">
       <div class="label section__label reveal">Why This Is Different</div>
       <h2 class="section__title reveal" data-delay="1">This Isn&rsquo;t a Chatbot.<br><em>It&rsquo;s a Campaign Engine.</em></h2>
@@ -1961,7 +1970,7 @@
   </section>
 
   <!-- ─── COMPARISON ─── -->
-  <section class="section comparison has-particles comparison--centered">
+  <section class="section comparison comparison--centered">
     <div class="wrap">
       <h2 class="section__title reveal"><em>The Math</em> Is Simple</h2>
       <p class="section__subtitle reveal" data-delay="1">Compare the cost and time of building a webinar campaign three different ways.</p>
@@ -2019,7 +2028,7 @@
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section platform has-particles">
+  <section class="section platform">
     <div class="wrap">
       <div class="label section__label reveal">Included In Your Membership</div>
       <h2 class="section__title reveal" data-delay="1">Webinar Wizard Is One Feature.<br><em>You Get the Whole Platform.</em></h2>
@@ -2075,7 +2084,8 @@
   </section>
 
   <!-- ─── OFFER ─── -->
-  <section class="section offer has-particles" id="offer">
+  <section class="section offer" id="offer">
+    <canvas class="offer__canvas" id="offerCanvas"></canvas>
     <div class="wrap">
       <div class="offer__card reveal--scale" data-delay="1">
         <div class="label offer__label">Founding Member Access</div>
@@ -2234,7 +2244,7 @@
   </section>
 
   <!-- ─── FINAL CTA ─── -->
-  <section class="section final-cta has-particles">
+  <section class="section final-cta">
     <div class="wrap">
       <h2 class="final-cta__title reveal">50 Spots. Then This<br><em>Price Disappears.</em></h2>
       <p class="final-cta__sub reveal" data-delay="1">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
@@ -2321,6 +2331,58 @@
       window.addEventListener('resize', () => { resize(); createParticles(); });
     })();
 
+
+    // ─── OFFER PARTICLE CANVAS ───
+    (function() {
+      const canvas = document.getElementById('offerCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let w, h;
+
+      function resize() {
+        const section = canvas.parentElement;
+        w = canvas.width = section.offsetWidth;
+        h = canvas.height = section.offsetHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.min(35, Math.floor(w * h / 25000));
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: -Math.random() * 0.4 - 0.1,
+            size: Math.random() * 1.5 + 0.5,
+            opacity: Math.random() * 0.5 + 0.1,
+            color: Math.random() > 0.7 ? '76, 201, 240' : '37, 99, 235'
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.color + ',' + p.opacity + ')';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      createParticles();
+      draw();
+      window.addEventListener('resize', () => { resize(); createParticles(); });
+    })();
 
     // ─── SCROLL REVEAL ───
     (function() {
