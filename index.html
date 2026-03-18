@@ -287,8 +287,8 @@
     /* ─── SCROLL ANIMATIONS ─── */
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(16px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
     }
     .reveal.is-visible {
       opacity: 1;
@@ -296,8 +296,8 @@
     }
     .reveal--left {
       opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(-24px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
     }
     .reveal--left.is-visible {
       opacity: 1;
@@ -305,8 +305,8 @@
     }
     .reveal--right {
       opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(24px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
     }
     .reveal--right.is-visible {
       opacity: 1;
@@ -314,21 +314,21 @@
     }
     .reveal--scale {
       opacity: 0;
-      transform: scale(0.92);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.95);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
     .reveal--scale.is-visible {
       opacity: 1;
       transform: scale(1);
     }
 
-    /* Stagger delays */
-    [data-delay="1"] { transition-delay: 0.1s; }
-    [data-delay="2"] { transition-delay: 0.2s; }
-    [data-delay="3"] { transition-delay: 0.3s; }
-    [data-delay="4"] { transition-delay: 0.4s; }
-    [data-delay="5"] { transition-delay: 0.5s; }
-    [data-delay="6"] { transition-delay: 0.6s; }
+    /* Stagger delays — tighter */
+    [data-delay="1"] { transition-delay: 0.05s; }
+    [data-delay="2"] { transition-delay: 0.1s; }
+    [data-delay="3"] { transition-delay: 0.15s; }
+    [data-delay="4"] { transition-delay: 0.2s; }
+    [data-delay="5"] { transition-delay: 0.25s; }
+    [data-delay="6"] { transition-delay: 0.3s; }
 
     /* ─── HERO ─── */
     .hero {
@@ -2514,7 +2514,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.02, rootMargin: '0px 0px 50px 0px' });
+      }, { threshold: 0.01, rootMargin: '0px 0px 300px 0px' });
 
       document.querySelectorAll('.reveal, .reveal--left, .reveal--right, .reveal--scale').forEach(el => {
         observer.observe(el);
