@@ -1649,21 +1649,11 @@
       .orbital { display: none; }
       .hiw__step { grid-template-columns: 80px 1fr; }
       .hiw__step-visual { display: none; }
-    }
 
-    @media (max-width: 900px) {
-      .deliverables__grid { grid-template-columns: repeat(2, 1fr); }
-      .comparison__grid { grid-template-columns: 1fr; }
-      .showcase__grid { grid-template-columns: 1fr; }
-      .questions__grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 640px) {
-      body { font-size: 16px; }
-
-      /* Center hero on mobile */
+      /* Center everything on single-column */
+      .hero { text-align: center; }
       .hero__content { text-align: center; }
-      .hero__title { max-width: 100%; }
+      .hero__title { max-width: 100%; margin-left: auto; margin-right: auto; }
       .hero__deck { max-width: 100%; margin-left: auto; margin-right: auto; }
       .hero__prehead { justify-content: center; }
       .hero__actions { justify-content: center; }
@@ -1671,30 +1661,43 @@
       .hero__sub { text-align: center; }
       .hero__visual { margin-left: auto; margin-right: auto; }
 
-      /* Center sections on mobile */
       .section__title { text-align: center; margin-left: auto; margin-right: auto; }
       .section__subtitle { text-align: center; margin-left: auto; margin-right: auto; }
       .section__label { text-align: center; }
 
-      /* Step numbers more visible on mobile */
-      .hiw__step { grid-template-columns: 1fr; gap: 16px; text-align: center; }
-      .hiw__step-num { font-size: 48px; color: rgba(76,201,240,0.18); }
-      .hiw__step-title { text-align: left; }
-      .hiw__step-desc { text-align: left; }
+      .problem__text { text-align: center; max-width: 100%; margin-left: auto; margin-right: auto; }
+      .problem__stat { text-align: center; }
+      .problem__stat-label { text-align: center; margin-left: auto; margin-right: auto; }
 
-      .questions__grid { grid-template-columns: 1fr; }
-      .questions__title { text-align: center; }
+      .hiw__step-num { text-align: center; }
+
+      .questions__title { text-align: center; margin-left: auto; margin-right: auto; }
       .questions__subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+
+      .diff__text { text-align: center; }
+      .diff__quote { text-align: center; border-left: none; padding-left: 0; border-top: 2px solid var(--electric); padding-top: 28px; }
+
+      .showcase__caption { text-align: center; }
+    }
+
+    @media (max-width: 900px) {
+      .deliverables__grid { grid-template-columns: repeat(2, 1fr); }
+      .comparison__grid { grid-template-columns: 1fr; }
+      .showcase__grid { grid-template-columns: 1fr; }
+      .questions__grid { grid-template-columns: repeat(2, 1fr); }
+      .hiw__step { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+      .hiw__step-num { font-size: 56px; color: rgba(76,201,240,0.18); }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .hiw__step-num { font-size: 48px; }
+      .questions__grid { grid-template-columns: 1fr; }
       .deliverables__grid { grid-template-columns: 1fr; }
       .mobile-cta { display: block; }
       .stats-strip__div { display: none; }
       .stats-strip__inner { gap: 20px; }
       .stats-strip__visual { display: none; }
-
-      /* Center problem section */
-      .problem__text { text-align: center; }
-      .problem__stat { text-align: center; }
-      .problem__stat-label { text-align: center; margin-left: auto; margin-right: auto; }
     }
   </style>
 </head>
