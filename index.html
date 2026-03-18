@@ -616,66 +616,65 @@
       position: relative;
     }
 
+    /* Dark alt sections — visible contrast */
     .section--alt {
-      background: #0D1220;
+      background: #101728;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    /* ─── ATMOSPHERIC ZONES ─── */
-    /* Zone 1: Hero + Problem — cool blue glow top-left */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: -10%;
-      width: 70%;
-      height: 120%;
-      background: radial-gradient(ellipse at 30% 40%, rgba(37,99,235,0.08) 0%, transparent 65%);
-      pointer-events: none;
-      z-index: 0;
+    /* Light sections — Apple-style contrast break */
+    .section--light {
+      background: #F4F5F7;
+      border-top: none;
+      border-bottom: none;
     }
-
-    /* Zone 2: How It Works + Deliverables + Engine — purple warmth */
-    .section--zone-purple {
-      position: relative;
+    .section--light .section__title {
+      color: #0F172A;
     }
-    .section--zone-purple::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at 70% 30%, rgba(124,58,237,0.06) 0%, transparent 60%);
-      pointer-events: none;
+    .section--light .section__subtitle {
+      color: #475569;
     }
-
-    /* Zone 3: Offer area — warm amber glow */
-    .offer-section::after {
-      content: '';
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, rgba(245,158,11,0.01) 40%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+    .section--light .label {
+      color: var(--blue);
     }
-
-    /* Gradient zone dividers — soft transitions instead of hard lines */
-    .zone-divider {
-      height: 80px;
-      background: linear-gradient(to bottom, var(--bg), #0D1220);
-      position: relative;
+    .section--light .comparison__col--old {
+      background: #fff;
+      border-color: #E2E8F0;
     }
-    .zone-divider--reverse {
-      background: linear-gradient(to bottom, #0D1220, var(--bg));
+    .section--light .comparison__heading {
+      color: #0F172A;
     }
-    .zone-divider--purple {
-      background: linear-gradient(to bottom, var(--bg), #0E0F1E);
+    .section--light .comparison__col--old .comparison__heading {
+      border-bottom-color: #E2E8F0;
     }
-    .zone-divider--purple-reverse {
-      background: linear-gradient(to bottom, #0E0F1E, var(--bg));
+    .section--light .comparison__item {
+      color: #475569;
+    }
+    .section--light .comparison__item strong {
+      color: #1E293B;
+    }
+    .section--light .comparison__col--new {
+      background: #EFF6FF;
+      border-color: rgba(37,99,235,0.25);
+    }
+    .section--light .comparison__col--new .comparison__heading {
+      border-bottom-color: rgba(37,99,235,0.15);
+    }
+    .section--light .faq-item {
+      border-bottom-color: #E2E8F0;
+    }
+    .section--light .faq-item__q {
+      color: #1E293B;
+    }
+    .section--light .faq-item__q:hover {
+      color: #0F172A;
+    }
+    .section--light .faq-item__icon {
+      color: #94A3B8;
+    }
+    .section--light .faq-item__a-inner p {
+      color: #475569;
     }
 
     .section__title {
@@ -1194,7 +1193,7 @@
     /* ─── DIVIDER ─── */
     .section-divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent 5%, rgba(37,99,235,0.15) 30%, rgba(124,58,237,0.12) 70%, transparent 95%);
+      background: linear-gradient(90deg, transparent 5%, rgba(37,99,235,0.2) 30%, rgba(124,58,237,0.15) 70%, transparent 95%);
     }
 
     /* ─── SCROLL ANIMATIONS ─── */
@@ -1791,7 +1790,7 @@
   </section>
 
   <!-- ─── HOW IT WORKS ─── -->
-  <section class="section section--alt section--zone-purple">
+  <section class="section section--alt">
     <div class="wrap">
       <div class="label" style="margin-bottom:16px">How It Works</div>
       <h2 class="section__title fade-up">6 Questions. One System.<br>Complete Campaign.</h2>
@@ -1992,7 +1991,7 @@
   </section>
 
   <!-- ─── DIFFERENTIATION ─── -->
-  <section class="section section--alt section--zone-purple">
+  <section class="section section--alt">
     <div class="wrap">
       <h2 class="section__title fade-up">This Isn&rsquo;t a Chatbot.<br>It&rsquo;s a Campaign Engine.</h2>
 
@@ -2085,7 +2084,7 @@
   </section>
 
   <!-- ─── COMPARISON ─── -->
-  <section class="section section--centered">
+  <section class="section section--light section--centered">
     <div class="wrap">
       <h2 class="section__title fade-up">The Math Is Simple</h2>
       <p class="section__subtitle fade-up">Compare the cost and time of building a webinar campaign three different ways.</p>
@@ -2143,7 +2142,7 @@
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section section--alt section--centered section--zone-purple">
+  <section class="section section--alt section--centered">
     <div class="wrap">
       <div class="label" style="margin-bottom:16px">Included In Your Membership</div>
       <h2 class="section__title fade-up">Webinar Wizard Is One Feature.<br>You Get the Whole Platform.</h2>
@@ -2269,7 +2268,7 @@
   </section>
 
   <!-- ─── FAQ ─── -->
-  <section class="section section--centered">
+  <section class="section section--light section--centered">
     <div class="wrap">
       <h2 class="section__title fade-up">Common Questions</h2>
 
