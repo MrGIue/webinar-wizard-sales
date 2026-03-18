@@ -11,81 +11,77 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0A0E1A;
-      --bg-card: #0F1424;
-      --bg-card-hover: #141A2E;
-      --bg-elevated: #161C30;
-      --bg-surface: rgba(255,255,255,0.03);
-      --text: #E8E6F0;
-      --text-secondary: #9B99A8;
-      --text-muted: #8A889A;
+      --bg: #060A14;
+      --bg-card: #0C1222;
+      --bg-elevated: #111827;
+      --bg-surface: rgba(255,255,255,0.025);
+      --text: #E2E8F0;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
       --blue: #2563EB;
       --blue-bright: #3B82F6;
-      --blue-glow: rgba(37,99,235,0.4);
-      --blue-subtle: rgba(37,99,235,0.12);
-      --purple: #7C3AED;
-      --purple-subtle: rgba(124,58,237,0.15);
-      --green: #22C55E;
-      --green-subtle: rgba(34,197,94,0.12);
+      --blue-subtle: rgba(37,99,235,0.1);
+      --teal: #06D6A0;
+      --teal-dim: #05B88A;
+      --teal-glow: rgba(6,214,160,0.35);
+      --teal-subtle: rgba(6,214,160,0.08);
+      --amber: #F59E0B;
+      --amber-glow: rgba(245,158,11,0.35);
+      --amber-subtle: rgba(245,158,11,0.08);
+      --green: #16A34A;
+      --green-glow: rgba(22,163,74,0.3);
       --red: #EF4444;
-      --red-subtle: rgba(239,68,68,0.1);
-      --border: rgba(255,255,255,0.08);
-      --border-bright: rgba(255,255,255,0.12);
-      --glow-sm: 0 0 20px rgba(37,99,235,0.15);
-      --glow-md: 0 0 40px rgba(37,99,235,0.2);
-      --glow-lg: 0 0 80px rgba(37,99,235,0.15), 0 0 160px rgba(124,58,237,0.08);
+      --red-subtle: rgba(239,68,68,0.08);
+      --border: rgba(255,255,255,0.06);
+      --border-light: rgba(255,255,255,0.1);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Sora', system-ui, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.7;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
-    /* Background gradient atmosphere — removed fixed overlay, using per-section atmospheres instead */
-
-    /* Subtle noise texture */
+    /* Noise texture overlay */
     body::after {
       content: '';
       position: fixed;
       inset: 0;
-      opacity: 0.018;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'DM Serif Display', Georgia, serif;
+      font-family: 'Instrument Serif', Georgia, serif;
       font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
+      line-height: 1.1;
       color: #fff;
     }
 
-    a { color: var(--blue-bright); text-decoration: none; }
-    a:hover { color: #60A5FA; }
+    a { color: var(--teal); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #34D399; }
 
-    /* Focus styles for keyboard navigation */
     :focus-visible {
-      outline: 2px solid var(--blue-bright);
+      outline: 2px solid var(--teal);
       outline-offset: 3px;
     }
 
-    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -97,18 +93,18 @@
     .wrap {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 clamp(20px, 4vw, 40px);
       position: relative;
       z-index: 1;
     }
 
     .label {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--blue-bright);
+      color: var(--teal);
     }
 
     /* ─── BUTTONS ─── */
@@ -116,72 +112,134 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
       font-weight: 600;
       padding: 18px 40px;
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       text-decoration: none;
       position: relative;
     }
 
-    .btn--blue {
-      background: #16A34A;
+    .btn--primary {
+      background: var(--green);
       color: #fff;
-      box-shadow: 0 0 20px rgba(22,163,74,0.2), 0 1px 2px rgba(0,0,0,0.3);
+      box-shadow: 0 0 24px var(--green-glow), 0 2px 4px rgba(0,0,0,0.3);
     }
-    .btn--blue:hover {
+    .btn--primary:hover {
       background: #22C55E;
       color: #fff;
-      box-shadow: 0 0 40px rgba(22,163,74,0.3), 0 4px 12px rgba(0,0,0,0.4);
+      box-shadow: 0 0 48px var(--green-glow), 0 8px 20px rgba(0,0,0,0.4);
       transform: translateY(-2px);
     }
 
     .btn svg {
-      width: 18px;
-      height: 18px;
-      transition: transform 0.2s;
+      width: 18px; height: 18px;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .btn:hover svg { transform: translateX(3px); }
+    .btn:hover svg { transform: translateX(4px); }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
-      50% { opacity: 0.6; box-shadow: 0 0 0 4px rgba(34,197,94,0); }
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal--left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal--left.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal--right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal--right.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal--scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal--scale.is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger delays */
+    [data-delay="1"] { transition-delay: 0.1s; }
+    [data-delay="2"] { transition-delay: 0.2s; }
+    [data-delay="3"] { transition-delay: 0.3s; }
+    [data-delay="4"] { transition-delay: 0.4s; }
+    [data-delay="5"] { transition-delay: 0.5s; }
+    [data-delay="6"] { transition-delay: 0.6s; }
 
     /* ─── HERO ─── */
     .hero {
-      padding: clamp(80px, 12vw, 140px) 0 clamp(60px, 10vw, 100px);
       position: relative;
+      padding: clamp(100px, 14vw, 180px) 0 clamp(80px, 10vw, 140px);
       overflow: hidden;
-      background: var(--bg) url('assets/bg-dark.jpeg') center/cover no-repeat;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, #0C1530 0%, var(--bg) 70%);
+    }
+
+    .hero__canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .hero__grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(40px, 6vw, 80px);
       align-items: center;
     }
 
-    .hero__prehead { margin-bottom: 28px; }
+    .hero__prehead {
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero__prehead::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--teal);
+    }
 
     .hero__title {
-      font-size: clamp(36px, 4.5vw, 64px);
-      max-width: 900px;
+      font-size: clamp(40px, 5.5vw, 76px);
       margin-bottom: 28px;
-      color: #fff;
+      max-width: 680px;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--teal);
     }
 
     .hero__deck {
-      font-size: clamp(16px, 1.3vw, 19px);
+      font-size: clamp(16px, 1.2vw, 19px);
       color: var(--text-secondary);
-      max-width: 560px;
+      max-width: 520px;
       margin-bottom: 40px;
-      line-height: 1.75;
+      line-height: 1.8;
+      font-weight: 300;
     }
 
     .hero__actions {
@@ -189,623 +247,567 @@
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
-    /* ─── HERO VISUAL ─── */
-    .hero__visual {
-      position: relative;
-      height: 580px;
-      perspective: 1200px;
-    }
-
-    /* Abstract orbs */
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      pointer-events: none;
-      animation: orbFloat 8s ease-in-out infinite;
-    }
-    .hero-orb--1 {
-      width: 300px; height: 300px;
-      background: rgba(37,99,235,0.15);
-      top: 10%; right: 10%;
-      animation-delay: 0s;
-    }
-    .hero-orb--2 {
-      width: 200px; height: 200px;
-      background: rgba(124,58,237,0.12);
-      top: 50%; right: 40%;
-      animation-delay: -3s;
-      animation-duration: 10s;
-    }
-    .hero-orb--3 {
-      width: 150px; height: 150px;
-      background: rgba(37,99,235,0.1);
-      bottom: 5%; right: 5%;
-      animation-delay: -5s;
-      animation-duration: 12s;
-    }
-
-    @keyframes orbFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(15px, -20px) scale(1.05); }
-      66% { transform: translate(-10px, 10px) scale(0.95); }
-    }
-
-    /* Floating particles */
-    .hero-particle {
-      position: absolute;
-      width: 4px; height: 4px;
-      background: rgba(59,130,246,0.5);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: particleFloat linear infinite;
-    }
-    .hero-particle:nth-child(1) { top: 15%; left: 20%; animation-duration: 6s; animation-delay: 0s; }
-    .hero-particle:nth-child(2) { top: 70%; left: 80%; animation-duration: 8s; animation-delay: -2s; width: 3px; height: 3px; }
-    .hero-particle:nth-child(3) { top: 40%; left: 60%; animation-duration: 7s; animation-delay: -4s; width: 5px; height: 5px; background: rgba(124,58,237,0.4); }
-    .hero-particle:nth-child(4) { top: 85%; left: 30%; animation-duration: 9s; animation-delay: -1s; width: 3px; height: 3px; }
-    .hero-particle:nth-child(5) { top: 25%; left: 75%; animation-duration: 5s; animation-delay: -3s; background: rgba(124,58,237,0.35); }
-    .hero-particle:nth-child(6) { top: 55%; left: 15%; animation-duration: 11s; animation-delay: -6s; width: 3px; height: 3px; }
-
-    @keyframes particleFloat {
-      0% { transform: translateY(0) translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-80px) translateX(20px); opacity: 0; }
-    }
-
-    /* Grid lines background */
-    .hero__gridlines {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.04;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    }
-
-    /* Floating glass cards */
-    .float-card {
-      position: absolute;
-      background: rgba(15,20,36,0.85);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 20px 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(37,99,235,0.06);
-      animation: cardFloat 6s ease-in-out infinite;
-      transition: transform 0.3s ease;
-    }
-
-    .float-card--script {
-      width: 340px;
-      top: 30px; right: 0;
-      z-index: 3;
-      animation-delay: 0s;
-      transform: rotateY(-4deg) rotateX(2deg);
-    }
-    .float-card--script:hover { transform: rotateY(-2deg) rotateX(1deg) scale(1.02); }
-
-    .float-card--email {
-      width: 280px;
-      top: 260px; right: 180px;
-      z-index: 2;
-      animation-delay: -2s;
-      transform: rotateY(3deg) rotateX(-1deg);
-    }
-    .float-card--email:hover { transform: rotateY(1deg) rotateX(0deg) scale(1.02); }
-
-    .float-card--stats {
-      width: 220px;
-      top: 400px; right: 20px;
-      z-index: 4;
-      animation-delay: -4s;
-      animation-duration: 5s;
-      transform: rotateY(-2deg) rotateX(3deg);
-    }
-    .float-card--stats:hover { transform: rotateY(0deg) rotateX(1deg) scale(1.02); }
-
-    @keyframes cardFloat {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -12px; }
-    }
-
-    /* Card internal styles */
-    .float-card__header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .float-card__dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-    }
-    .float-card__dot--red { background: #EF4444; }
-    .float-card__dot--yellow { background: #F59E0B; }
-    .float-card__dot--green { background: #22C55E; }
-    .float-card__title {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      letter-spacing: 0.04em;
-      margin-left: 4px;
-    }
-
-    .float-card__tabs {
-      display: flex;
-      gap: 2px;
-      margin-bottom: 14px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 8px;
-      padding: 3px;
-    }
-    .float-card__tab {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 5px 10px;
-      border-radius: 6px;
-      color: var(--text-muted);
-      font-family: 'Inter', sans-serif;
-    }
-    .float-card__tab--active {
-      background: var(--blue);
-      color: #fff;
-    }
-
-    .float-card__line {
-      height: 8px;
-      border-radius: 4px;
-      margin-bottom: 8px;
-      background: rgba(255,255,255,0.06);
-    }
-    .float-card__line--heading {
-      height: 10px;
-      width: 65%;
-      background: rgba(255,255,255,0.12);
-      margin-bottom: 12px;
-    }
-    .float-card__line--short { width: 40%; }
-    .float-card__line--med { width: 70%; }
-    .float-card__line--long { width: 90%; }
-    .float-card__line--full { width: 100%; }
-    .float-card__line--accent {
-      background: rgba(37,99,235,0.2);
-    }
-
-    /* Email card styles */
-    .float-card__email-subject {
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 4px;
-      font-family: 'Inter', sans-serif;
-    }
-    .float-card__email-preview {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      font-family: 'Inter', sans-serif;
-    }
-    .float-card__email-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: rgba(34,197,94,0.15);
-      color: var(--green);
-      margin-bottom: 10px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Stats card styles */
-    .float-card__stat-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-family: 'Inter', sans-serif;
-    }
-    .float-card__stat-row:last-child { border-bottom: none; }
-    .float-card__stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    .float-card__stat-value {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .float-card__stat-value--blue { color: var(--blue-bright); }
-    .float-card__stat-value--green { color: var(--green); }
-    .float-card__stat-value--purple { color: #A78BFA; }
-
-    /* Connection lines between cards */
-    .hero__connectors {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .hero__connectors svg { width: 100%; height: 100%; }
-    .hero__connector-line {
-      stroke: rgba(37,99,235,0.12);
-      stroke-width: 1;
-      stroke-dasharray: 4 4;
-      fill: none;
-      animation: dashMove 20s linear infinite;
-    }
-    @keyframes dashMove {
-      to { stroke-dashoffset: -100; }
-    }
-
-    /* ─── SCREENSHOTS SECTION ─── */
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    .screenshot-frame {
-      position: relative;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .screenshot-frame:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--glow-sm);
-    }
-    .screenshot-frame--wide {
-      grid-column: 1 / -1;
-    }
-
-    .screenshot-frame__bar {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 12px 16px;
-      background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid var(--border);
-    }
-    .screenshot-frame__dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.12);
-    }
-    .screenshot-frame__url {
-      font-size: 11px;
-      color: var(--text-muted);
-      font-family: 'Inter', monospace;
-      margin-left: 8px;
-    }
-
-    .screenshot-frame__body {
-      aspect-ratio: 16/7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-elevated) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .screenshot-frame__body img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .screenshot-placeholder {
-      text-align: center;
-      padding: 40px;
-    }
-    .screenshot-placeholder__icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 16px;
-      border-radius: 12px;
-      background: var(--blue-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .screenshot-placeholder__icon svg {
-      width: 24px; height: 24px;
-      color: var(--blue-bright);
-    }
-    .screenshot-placeholder__label {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-    }
-    .screenshot-placeholder__sub {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .screenshot-frame__caption {
-      padding: 16px 20px;
-      border-top: 1px solid var(--border);
-    }
-    .screenshot-frame__caption-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .screenshot-frame__caption-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .hero__subtext {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .founding-spots {
+    .hero__spots {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      color: var(--green);
-      background: var(--green-subtle);
+      color: var(--teal);
       padding: 10px 20px;
       border-radius: 100px;
-      border: 1px solid rgba(34,197,94,0.18);
-      margin-bottom: 12px;
+      border: 1px solid rgba(6,214,160,0.2);
+      background: var(--teal-subtle);
     }
-
-    .founding-spots__dot {
-      width: 8px;
-      height: 8px;
-      background: var(--green);
+    .hero__spots-dot {
+      width: 8px; height: 8px;
+      background: var(--teal);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
-
-    .founding-spots__count {
-      font-weight: 800;
-      font-size: 17px;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(6,214,160,0.4); }
+      50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(6,214,160,0); }
     }
 
-    .hero__stats {
-      display: flex;
-      gap: clamp(32px, 5vw, 64px);
-      margin-top: 72px;
-      padding-top: 48px;
-      border-top: 1px solid var(--border);
-    }
-
-    .hero__stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 400;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .hero__stat-label {
+    .hero__sub {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.5;
-      max-width: 220px;
+      margin-top: 8px;
     }
 
-    /* ─── SECTIONS ─── */
-    .section {
-      padding: clamp(80px, 9vw, 140px) 0;
+    /* Hero product visual */
+    .hero__visual {
       position: relative;
     }
 
-    /* Dark alt sections — branded background */
-    .section--alt {
-      background: #0C1525 url('assets/bg-dark.jpeg') center/cover no-repeat;
-      border-top: 1px solid var(--border);
+    .hero__screenshot-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 80px rgba(6,214,160,0.08),
+        0 0 160px rgba(37,99,235,0.06),
+        0 30px 80px rgba(0,0,0,0.6);
+      border: 1px solid var(--border-light);
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero__screenshot-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: #0F1520;
       border-bottom: 1px solid var(--border);
     }
+    .hero__screenshot-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .hero__screenshot-dot--r { background: #EF4444; }
+    .hero__screenshot-dot--y { background: #F59E0B; }
+    .hero__screenshot-dot--g { background: #22C55E; }
+    .hero__screenshot-url {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 8px;
+      font-family: 'Sora', monospace;
+    }
 
-    /* Light sections — branded background */
-    .section--light {
-      background: #F4F5F7 url('assets/bg-light.jpeg') center/cover no-repeat;
-      border-top: none;
-      border-bottom: none;
+    .hero__screenshot-img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
-    .section--light .section__title {
-      color: #0F172A;
+
+    /* Small floating processing card */
+    .hero__float-card {
+      position: absolute;
+      bottom: -30px;
+      left: -40px;
+      width: 260px;
+      background: #0C1222;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(6,214,160,0.06);
+      z-index: 5;
+      animation: heroFloat 6s ease-in-out infinite;
+      animation-delay: -2s;
     }
-    .section--light .section__subtitle {
-      color: #475569;
+
+    .hero__float-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
     }
-    .section--light .label {
-      color: var(--blue);
+
+    .hero__float-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      font-family: 'Sora', sans-serif;
     }
-    .section--light .comparison__col--old {
-      background: #fff;
-      border-color: #E2E8F0;
+    .hero__float-step--done { color: var(--teal); }
+    .hero__float-step--active { color: var(--text); }
+
+    .hero__float-check {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
-    .section--light .comparison__heading {
-      color: #0F172A;
+    .hero__float-check--done {
+      border-color: var(--teal);
+      background: var(--teal-subtle);
     }
-    .section--light .comparison__col--old .comparison__heading {
-      border-bottom-color: #E2E8F0;
+    .hero__float-check--active {
+      border-color: var(--teal);
+      animation: spinCheck 1s linear infinite;
     }
-    .section--light .comparison__item {
-      color: #475569;
+    @keyframes spinCheck {
+      to { transform: rotate(360deg); }
     }
-    .section--light .comparison__item strong {
-      color: #1E293B;
+
+    /* ─── SECTION BASE ─── */
+    .section {
+      position: relative;
+      padding: clamp(80px, 10vw, 140px) 0;
+      overflow: hidden;
     }
-    .section--light .comparison__col--new {
-      background: #EFF6FF;
-      border-color: rgba(37,99,235,0.25);
-    }
-    .section--light .comparison__col--new .comparison__heading {
-      border-bottom-color: rgba(37,99,235,0.15);
-    }
-    .section--light .faq-item {
-      border-bottom-color: #E2E8F0;
-    }
-    .section--light .faq-item__q {
-      color: #1E293B;
-    }
-    .section--light .faq-item__q:hover {
-      color: #0F172A;
-    }
-    .section--light .faq-item__icon {
-      color: #94A3B8;
-    }
-    .section--light .faq-item__a-inner p {
-      color: #475569;
-    }
+
+    .section__label { margin-bottom: 20px; }
 
     .section__title {
-      font-size: clamp(30px, 3.5vw, 48px);
+      font-size: clamp(32px, 4vw, 56px);
       margin-bottom: 20px;
-      max-width: 700px;
+      max-width: 720px;
+    }
+    .section__title em {
+      font-style: italic;
+      color: var(--teal);
     }
 
     .section__subtitle {
-      font-size: clamp(17px, 1.3vw, 20px);
+      font-size: clamp(16px, 1.2vw, 19px);
       color: var(--text-secondary);
-      max-width: 600px;
-      margin-bottom: 56px;
-      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 64px;
+      line-height: 1.8;
+      font-weight: 300;
     }
 
     /* ─── PROBLEM ─── */
-    .problem__grid {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 64px;
-      align-items: start;
+    .problem {
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+    }
+
+    .problem__text {
+      max-width: 720px;
+      position: relative;
     }
 
     .problem__text p {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       color: var(--text-secondary);
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.85;
     }
-    .problem__text p:last-child { margin-bottom: 0; }
-    .problem__text strong { color: var(--text); font-weight: 600; }
+    .problem__text strong { color: #fff; font-weight: 600; }
 
-    .problem__callouts {
+    .problem__stat {
+      display: block;
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(56px, 6vw, 80px);
+      color: #fff;
+      line-height: 1;
+      margin: 40px 0 8px;
+      position: relative;
+    }
+    .problem__stat-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      position: relative;
+      padding: 48px 0;
+      background: #080D18;
+      border-top: 1px solid rgba(6,214,160,0.08);
+      border-bottom: 1px solid rgba(6,214,160,0.08);
+    }
+
+    .stats-strip__inner {
       display: flex;
-      flex-direction: column;
-      gap: 24px;
-      position: sticky;
-      top: 100px;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 4vw, 56px);
+      flex-wrap: wrap;
     }
 
-    .callout {
-      padding: 28px;
-      border-left: 3px solid var(--red);
-      background: var(--red-subtle);
-      border-radius: 0 8px 8px 0;
+    .stats-strip__item {
+      text-align: center;
     }
 
-    .callout__num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 36px;
-      font-weight: 400;
+    .stats-strip__num {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(28px, 3vw, 40px);
       color: #fff;
       line-height: 1;
       margin-bottom: 6px;
     }
+    .stats-strip__num--teal { color: var(--teal); }
 
-    .callout__label {
-      font-size: 14px;
+    .stats-strip__label {
+      font-size: 13px;
       color: var(--text-muted);
+      max-width: 160px;
+    }
+
+    .stats-strip__div {
+      width: 1px;
+      height: 48px;
+      background: var(--border-light);
+    }
+
+    .stats-strip__visual {
+      width: 140px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 30px rgba(6,214,160,0.06);
+    }
+    .stats-strip__visual img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* ─── HOW IT WORKS ─── */
-    .steps {
+    .hiw {
+      background: linear-gradient(180deg, #080D18 0%, #061018 50%, #080D18 100%);
+    }
+
+    .hiw__steps {
       display: flex;
       flex-direction: column;
       gap: 0;
-      max-width: 640px;
     }
 
-    .step {
+    .hiw__step {
       display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 24px;
-      padding: 40px 0;
+      grid-template-columns: 100px 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: clamp(40px, 5vw, 64px) 0;
       border-bottom: 1px solid var(--border);
     }
-    .step:last-child { border-bottom: none; }
+    .hiw__step:last-child { border-bottom: none; }
 
-    .step__num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 32px;
-      font-weight: 400;
-      color: var(--blue-bright);
+    .hiw__step-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(64px, 7vw, 96px);
+      color: rgba(255,255,255,0.04);
       line-height: 1;
-      padding-top: 4px;
     }
 
-    .step__title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      font-weight: 400;
+    .hiw__step-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
       color: #fff;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .step__desc {
+    .hiw__step-desc {
       font-size: 16px;
       color: var(--text-secondary);
-      line-height: 1.7;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .hiw__step-visual {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px rgba(6,214,160,0.04);
+      max-width: 420px;
+      justify-self: end;
+    }
+    .hiw__step-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Mockup component for step 1 */
+    .input-mockup {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 420px;
+      justify-self: end;
+    }
+    .input-mockup__header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .input-mockup__badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--teal-subtle);
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .input-mockup__step-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+    .input-mockup__question {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .input-mockup__textarea {
+      width: 100%;
+      height: 80px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .input-mockup__textarea-cursor {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 2px;
+      height: 16px;
+      background: var(--teal);
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .input-mockup__btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .input-mockup__btn-inner {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+    }
+
+    /* ─── 6 QUESTIONS ─── */
+    .questions {
+      margin-top: 80px;
+    }
+
+    .questions__title {
+      font-size: clamp(24px, 2.8vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .questions__subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    .questions__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .q-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(12,18,34,0.5);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .q-card:nth-child(odd) { border-color: rgba(6,214,160,0.1); }
+    .q-card:nth-child(even) { border-color: rgba(37,99,235,0.1); }
+    .q-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(6,214,160,0.06);
+      border-color: rgba(6,214,160,0.2);
+    }
+
+    .q-card__num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .q-card:nth-child(odd) .q-card__num { color: var(--teal); }
+    .q-card:nth-child(even) .q-card__num { color: var(--blue-bright); }
+
+    .q-card__title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .q-card__desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ─── PRODUCT SHOWCASE ─── */
+    .showcase {
+      background: linear-gradient(180deg, #080D18 0%, var(--bg) 100%);
+    }
+
+    .showcase__main {
+      margin-bottom: 40px;
+    }
+
+    .browser-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: box-shadow 0.4s ease;
+    }
+    .browser-frame:hover {
+      box-shadow: 0 0 60px rgba(6,214,160,0.06);
+    }
+
+    .browser-frame--glow {
+      box-shadow:
+        0 0 80px rgba(6,214,160,0.06),
+        0 0 160px rgba(37,99,235,0.04),
+        0 40px 100px rgba(0,0,0,0.5);
+    }
+
+    .browser-frame__bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: #0A0F1A;
+      border-bottom: 1px solid var(--border);
+    }
+    .browser-frame__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .browser-frame__url {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 10px;
+      font-family: 'Sora', monospace;
+    }
+    .browser-frame__body img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .showcase__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .showcase__caption {
+      padding: 20px 0 0;
+    }
+    .showcase__caption-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .showcase__caption-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     /* ─── DELIVERABLES ─── */
-    .deliverables-grid {
+    .deliverables {
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+    }
+
+    .deliverables__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .deliverables__col {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .deliverables__col:nth-child(2) {
+      margin-top: 48px;
     }
 
     .deliverable {
-      background: var(--bg-card);
-      padding: clamp(28px, 3vw, 40px);
-      transition: background 0.2s;
+      padding: clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
+      border-bottom: 1px solid var(--border);
     }
-    .deliverable:hover { background: var(--bg-card-hover); }
+    .deliverable:last-child { border-bottom: none; }
 
     .deliverable__accent {
-      width: 32px;
-      height: 3px;
-      background: var(--blue);
-      border-radius: 2px;
-      margin-bottom: 20px;
+      width: 28px;
+      height: 2px;
+      background: var(--teal);
+      margin-bottom: 18px;
+      border-radius: 1px;
+    }
+    .deliverable:nth-child(even) .deliverable__accent {
+      background: var(--blue-bright);
     }
 
     .deliverable__title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 19px;
-      font-weight: 400;
+      font-family: 'Instrument Serif', serif;
+      font-size: 21px;
       color: #fff;
       margin-bottom: 10px;
       line-height: 1.3;
@@ -814,40 +816,225 @@
     .deliverable__desc {
       font-size: 15px;
       color: var(--text-secondary);
-      line-height: 1.65;
+      line-height: 1.7;
+      font-weight: 300;
     }
 
     /* ─── DIFFERENTIATION ─── */
-    .diff__content { max-width: none; }
+    .diff {
+      background: linear-gradient(180deg, #080D18 0%, #0A1020 50%, #080D18 100%);
+    }
 
-    .diff__content p {
+    .diff__grid {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: center;
+    }
+
+    .diff__text p {
       margin-bottom: 20px;
       color: var(--text-secondary);
+      line-height: 1.85;
+      font-weight: 300;
     }
-    .diff__content strong { color: var(--text); font-weight: 600; }
+    .diff__text strong { color: #fff; font-weight: 600; }
 
     .diff__quote {
       margin: 48px 0;
-      padding: 32px 0 32px 28px;
-      border-left: 3px solid var(--blue);
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(20px, 2vw, 24px);
+      padding: 28px 0 28px 24px;
+      border-left: 2px solid var(--teal);
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(20px, 2vw, 26px);
       font-style: italic;
-      color: #C7D2FE;
+      color: rgba(6,214,160,0.7);
       line-height: 1.5;
+    }
+    .diff__quote-attr {
+      display: block;
+      margin-top: 12px;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      color: var(--text-muted);
+    }
+
+    /* Orbital engine visual */
+    .orbital {
+      position: relative;
+      width: 480px;
+      height: 480px;
+    }
+
+    .orbital__ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.03);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .orbital__ring--inner {
+      width: 240px; height: 240px;
+      border-color: rgba(6,214,160,0.08);
+    }
+    .orbital__ring--outer {
+      width: 440px; height: 440px;
+      border-style: dashed;
+      border-color: rgba(37,99,235,0.06);
+      animation: orbitSpin 80s linear infinite;
+    }
+    @keyframes orbitSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    .orbital__core {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,214,160,0.15) 0%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .orbital__core-inner {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(6,214,160,0.2), rgba(37,99,235,0.15));
+      border: 1px solid rgba(6,214,160,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: corePulse 3s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(6,214,160,0.1);
+    }
+    .orbital__core-inner svg { width: 28px; height: 28px; color: var(--teal); }
+    @keyframes corePulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(6,214,160,0.1); transform: scale(1); }
+      50% { box-shadow: 0 0 80px rgba(6,214,160,0.2); transform: scale(1.06); }
+    }
+    .orbital__core-label {
+      position: absolute;
+      bottom: -22px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .orbital__node {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(12,18,34,0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    .orbital__node:hover {
+      border-color: rgba(6,214,160,0.25);
+      box-shadow: 0 0 30px rgba(6,214,160,0.08);
+      transform: scale(1.04);
+    }
+    .orbital__node--top { top: -10px; left: 50%; transform: translateX(-50%); }
+    .orbital__node--top:hover { transform: translateX(-50%) scale(1.04); }
+    .orbital__node--right { top: 50%; right: -30px; transform: translateY(-50%); }
+    .orbital__node--right:hover { transform: translateY(-50%) scale(1.04); }
+    .orbital__node--bottom { bottom: -10px; left: 50%; transform: translateX(-50%); }
+    .orbital__node--bottom:hover { transform: translateX(-50%) scale(1.04); }
+    .orbital__node--left { top: 50%; left: -30px; transform: translateY(-50%); }
+    .orbital__node--left:hover { transform: translateY(-50%) scale(1.04); }
+
+    .orbital__node-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .orbital__node-icon svg { width: 18px; height: 18px; }
+    .orbital__node-icon--teal { background: var(--teal-subtle); }
+    .orbital__node-icon--teal svg { color: var(--teal); }
+    .orbital__node-icon--blue { background: var(--blue-subtle); }
+    .orbital__node-icon--blue svg { color: var(--blue-bright); }
+
+    .orbital__node-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .orbital__node-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Beams */
+    .orbital__beam {
+      position: absolute;
+      top: 50%; left: 50%;
+      z-index: 1;
+      transform-origin: 0 0;
+      height: 1px;
+      width: 140px;
+      background: linear-gradient(90deg, rgba(6,214,160,0.25), transparent);
+    }
+    .orbital__beam--top { transform: rotate(-90deg); }
+    .orbital__beam--right { transform: rotate(0deg); }
+    .orbital__beam--bottom { transform: rotate(90deg); }
+    .orbital__beam--left { transform: rotate(180deg); }
+    .orbital__beam::after {
+      content: '';
+      position: absolute;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 8px var(--teal);
+      animation: beamTravel 3s ease-in-out infinite;
+    }
+    .orbital__beam--top::after { animation-delay: 0s; }
+    .orbital__beam--right::after { animation-delay: -0.75s; }
+    .orbital__beam--bottom::after { animation-delay: -1.5s; }
+    .orbital__beam--left::after { animation-delay: -2.25s; }
+    @keyframes beamTravel {
+      0% { transform: translateX(120px); opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { transform: translateX(0); opacity: 0; }
     }
 
     /* ─── COMPARISON ─── */
     .comparison {
+      background: var(--bg);
+    }
+    .comparison--centered {
+      text-align: center;
+    }
+    .comparison--centered .section__title,
+    .comparison--centered .section__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .comparison__grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 24px;
       max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
     }
 
     .comparison__col {
-      padding: clamp(32px, 3vw, 44px);
-      border-radius: 12px;
+      padding: clamp(32px, 3.5vw, 48px);
+      border-radius: 14px;
     }
 
     .comparison__col--old {
@@ -856,181 +1043,236 @@
     }
 
     .comparison__col--new {
-      background: var(--blue-subtle);
-      border: 1.5px solid rgba(37,99,235,0.3);
-      box-shadow: var(--glow-sm);
+      background: rgba(6,214,160,0.04);
+      border: 1px solid rgba(6,214,160,0.15);
+      box-shadow: 0 0 60px rgba(6,214,160,0.04);
     }
 
     .comparison__heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      font-weight: 400;
+      font-family: 'Instrument Serif', serif;
+      font-size: 22px;
       color: #fff;
       margin-bottom: 28px;
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
     }
-
     .comparison__col--new .comparison__heading {
-      border-bottom-color: rgba(37,99,235,0.2);
+      border-bottom-color: rgba(6,214,160,0.12);
     }
 
     .comparison__item {
       display: flex;
       gap: 12px;
       margin-bottom: 20px;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.65;
       color: var(--text-secondary);
+      font-weight: 300;
     }
     .comparison__item:last-child { margin-bottom: 0; }
-    .comparison__item strong { color: var(--text); }
+    .comparison__item strong { color: #fff; font-weight: 600; }
 
     .comparison__icon {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
+      width: 20px; height: 20px;
       margin-top: 3px;
     }
-
     .comparison__icon--x { color: var(--red); }
-    .comparison__icon--check { color: var(--green); }
+    .comparison__icon--check { color: var(--teal); }
 
-    .platform-note {
-      margin-top: 40px;
-      font-size: 16px;
-      color: var(--text-secondary);
+    /* ─── PLATFORM ─── */
+    .platform {
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+      text-align: center;
+    }
+
+    .platform .section__title,
+    .platform .section__subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .platform__pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .platform__pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .platform__pill:hover {
+      border-color: rgba(6,214,160,0.2);
+      background: rgba(6,214,160,0.04);
+      transform: translateY(-2px);
+    }
+
+    .platform__pill-icon {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .platform__pill-icon svg { width: 15px; height: 15px; }
+    .platform__pill-icon--teal { background: var(--teal-subtle); }
+    .platform__pill-icon--teal svg { color: var(--teal); }
+    .platform__pill-icon--blue { background: var(--blue-subtle); }
+    .platform__pill-icon--blue svg { color: var(--blue-bright); }
+
+    .platform__pill-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .platform__note {
+      margin-top: 32px;
+      font-size: 15px;
+      color: var(--text-muted);
       font-style: italic;
     }
 
     /* ─── OFFER ─── */
-    .offer-section {
-      padding: clamp(80px, 10vw, 140px) 0;
+    .offer {
+      padding: clamp(100px, 12vw, 180px) 0;
       position: relative;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(245,158,11,0.04) 0%, transparent 60%),
+                  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(37,99,235,0.03) 0%, transparent 50%),
+                  #080D18;
     }
-
-    /* Glow behind offer card — warm amber to signal value */
-    .offer-section::before {
+    .offer::before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 700px;
-      height: 500px;
-      background: radial-gradient(ellipse, rgba(37,99,235,0.07) 0%, rgba(245,158,11,0.03) 40%, transparent 70%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(245,158,11,0.06) 0%, transparent 60%);
       pointer-events: none;
+      filter: blur(40px);
     }
 
-    .offer-card {
+    .offer__card {
       max-width: 800px;
       margin: 0 auto;
       background: var(--bg-card);
-      border: 1px solid var(--border-bright);
-      border-top: 3px solid var(--blue);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--amber);
       border-radius: 16px;
-      padding: clamp(36px, 5vw, 56px);
+      padding: clamp(36px, 5vw, 60px);
       position: relative;
-      box-shadow: var(--glow-lg), 0 25px 60px rgba(0,0,0,0.5);
+      box-shadow:
+        0 0 100px rgba(245,158,11,0.06),
+        0 0 200px rgba(37,99,235,0.04),
+        0 30px 80px rgba(0,0,0,0.5);
+      text-align: center;
     }
 
-    .offer-card__label { margin-bottom: 16px; }
+    .offer__label { margin-bottom: 16px; }
 
-    .offer-card__title {
-      font-size: clamp(26px, 3vw, 36px);
+    .offer__title {
+      font-size: clamp(28px, 3.5vw, 40px);
       margin-bottom: 12px;
     }
 
-    .offer-card__subtitle {
+    .offer__subtitle {
       font-size: 16px;
       color: var(--text-secondary);
-      margin-bottom: 36px;
-      line-height: 1.7;
+      margin-bottom: 40px;
+      line-height: 1.75;
+      font-weight: 300;
     }
 
     .value-stack {
       list-style: none;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
+      text-align: left;
     }
 
     .value-stack li {
       display: flex;
       gap: 14px;
-      padding: 16px 0;
+      padding: 18px 0;
       border-bottom: 1px solid var(--border);
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.65;
     }
     .value-stack li:last-child { border-bottom: none; }
 
     .value-stack__check {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      color: var(--green);
+      width: 22px; height: 22px;
+      color: var(--teal);
       margin-top: 2px;
     }
 
     .value-stack__name { font-weight: 600; color: #fff; }
-    .value-stack__detail { color: var(--text-secondary); }
+    .value-stack__detail { color: var(--text-secondary); font-weight: 300; }
 
-    .offer-price-block {
-      padding: 32px 0;
+    .offer__price-block {
+      padding: 36px 0;
       margin-bottom: 32px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
-    .offer-price-block__anchor {
+    .offer__price-anchor {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 12px;
       margin-bottom: 8px;
       font-size: 15px;
       color: var(--text-muted);
     }
-
-    .offer-price-block__anchor-val {
+    .offer__price-anchor-val {
       text-decoration: line-through;
-      color: var(--text-muted);
     }
 
-    .offer-price-block__price {
+    .offer__price {
       display: flex;
       align-items: baseline;
-      gap: 12px;
+      justify-content: center;
+      gap: 14px;
     }
 
-    .offer-price-block__amount {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(48px, 5vw, 64px);
-      font-weight: 400;
+    .offer__amount {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(56px, 6vw, 80px);
+      font-style: italic;
       color: #fff;
       line-height: 1;
+      text-shadow: 0 0 60px var(--amber-glow), 0 0 120px rgba(245,158,11,0.15);
     }
 
-    .offer-price-block__term {
+    .offer__term {
       font-size: 18px;
       color: var(--text-secondary);
     }
 
-    .offer-card__after {
-      font-size: 15px;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 20px;
-      line-height: 1.6;
-    }
-
-    .offer-card__btn {
+    .offer__btn {
       width: 100%;
       justify-content: center;
       font-size: 18px;
-      padding: 20px 40px;
+      padding: 22px 48px;
       border-radius: 12px;
     }
 
-    .offer-card__secure {
+    .offer__secure {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1039,29 +1281,57 @@
       font-size: 13px;
       color: var(--text-muted);
     }
-    .offer-card__secure svg { width: 14px; height: 14px; }
+    .offer__secure svg { width: 14px; height: 14px; }
 
-    .offer-scarcity {
+    .offer__after {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 20px;
+      line-height: 1.65;
+    }
+
+    .offer__scarcity {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       margin-top: 28px;
       padding: 14px 24px;
-      background: rgba(245,158,11,0.1);
-      border: 1px solid rgba(245,158,11,0.25);
+      background: var(--amber-subtle);
+      border: 1px solid rgba(245,158,11,0.2);
       border-radius: 10px;
       font-size: 14px;
       font-weight: 600;
-      color: #FBBF24;
+      color: var(--amber);
+    }
+    .offer__scarcity-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 2s infinite;
     }
 
     /* ─── FAQ ─── */
-    .faq-list { max-width: 820px; }
+    .faq {
+      background: var(--bg);
+      text-align: center;
+    }
+    .faq .section__title {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq__list {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: left;
+    }
 
-    .faq-item__q {
+    .faq__item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq__q {
       width: 100%;
       display: flex;
       align-items: center;
@@ -1072,43 +1342,40 @@
       border: none;
       cursor: pointer;
       text-align: left;
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
       font-weight: 600;
       color: var(--text);
       line-height: 1.5;
       transition: color 0.2s;
     }
-    .faq-item__q:hover { color: #fff; }
+    .faq__q:hover { color: #fff; }
 
-    .faq-item__icon {
+    .faq__icon {
       flex-shrink: 0;
-      width: 24px;
-      height: 24px;
+      width: 24px; height: 24px;
       color: var(--text-muted);
-      transition: transform 0.25s, color 0.25s;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s;
     }
-
-    .faq-item.is-open .faq-item__icon {
+    .faq__item.is-open .faq__icon {
       transform: rotate(45deg);
-      color: var(--blue-bright);
+      color: var(--teal);
     }
 
-    .faq-item__a {
+    .faq__a {
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.3s ease;
+      transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .faq__item.is-open .faq__a { grid-template-rows: 1fr; }
 
-    .faq-item.is-open .faq-item__a { grid-template-rows: 1fr; }
-
-    .faq-item__a-inner { overflow: hidden; }
-
-    .faq-item__a-inner p {
+    .faq__a-inner { overflow: hidden; }
+    .faq__a-inner p {
       padding-bottom: 24px;
-      font-size: 16px;
+      font-size: 15px;
       color: var(--text-secondary);
-      line-height: 1.7;
+      line-height: 1.75;
+      font-weight: 300;
     }
 
     /* ─── FINAL CTA ─── */
@@ -1116,32 +1383,26 @@
       text-align: center;
       padding: clamp(80px, 10vw, 140px) 0;
       position: relative;
-    }
-
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(37,99,235,0.06) 0%, transparent 60%);
-      pointer-events: none;
+      background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(6,214,160,0.03) 0%, transparent 50%),
+                  radial-gradient(ellipse 40% 30% at 50% 40%, rgba(245,158,11,0.03) 0%, transparent 50%),
+                  #080D18;
     }
 
     .final-cta__title {
-      font-size: clamp(30px, 3.5vw, 48px);
+      font-size: clamp(32px, 4vw, 56px);
       margin-bottom: 20px;
     }
+    .final-cta__title em { font-style: italic; color: var(--amber); }
 
     .final-cta__sub {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--text-secondary);
       margin-bottom: 40px;
       max-width: 560px;
       margin-left: auto;
       margin-right: auto;
+      font-weight: 300;
+      line-height: 1.75;
     }
 
     .final-cta__terms {
@@ -1150,22 +1411,44 @@
       margin-top: 16px;
     }
 
-    /* ─── P.S. ─── */
-    .ps {
-      padding: 56px 0 0;
+    .final-cta__ps {
+      max-width: 620px;
+      margin: 80px auto 0;
+      padding-top: 48px;
       border-top: 1px solid var(--border);
-      margin-top: 80px;
-    }
-
-    .ps__text {
-      max-width: 640px;
-      margin: 0 auto;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.8;
       color: var(--text-secondary);
+      font-weight: 300;
+    }
+    .final-cta__ps strong { color: #fff; font-weight: 600; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
       text-align: center;
     }
-    .ps__text strong { color: #fff; font-weight: 600; }
+    .footer__brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer__copy {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer__secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer__secure svg { width: 12px; height: 12px; }
 
     /* ─── MOBILE STICKY CTA ─── */
     .mobile-cta {
@@ -1175,962 +1458,333 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(10,14,26,0.92);
+      background: rgba(6,10,20,0.94);
       backdrop-filter: blur(16px);
       padding: 14px 20px;
       border-top: 1px solid var(--border);
       transform: translateY(100%);
       transition: transform 0.3s ease;
     }
-
     .mobile-cta.is-visible { transform: translateY(0); }
-
     .mobile-cta .btn {
       width: 100%;
       justify-content: center;
       padding: 16px 24px;
     }
 
-    /* ─── DIVIDER ─── */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent 5%, rgba(37,99,235,0.2) 30%, rgba(124,58,237,0.15) 70%, transparent 95%);
-    }
-
-    /* ─── SCROLL ANIMATIONS ─── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-up.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── QUESTIONS ROADMAP ─── */
-    .questions-roadmap {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 48px;
-    }
-
-    .q-card {
-      background: rgba(15,20,36,0.7);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-      transition: all 0.25s ease;
-      position: relative;
-    }
-    .q-card:hover {
-      border-color: rgba(37,99,235,0.25);
-      background: rgba(15,20,36,0.9);
-      transform: translateY(-2px);
-    }
-
-    .q-card__num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 28px;
-      color: var(--blue-bright);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .q-card__title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 6px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .q-card__desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* ─── SECTION WITH VISUAL (2-col layout) ─── */
-    .section__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    /* Engine section — text gets breathing room, orbital fits naturally */
-    .section__grid--engine {
-      grid-template-columns: 1fr 520px;
-      gap: 48px;
-    }
-
-    /* ─── HOW IT WORKS VISUAL ─── */
-    .hiw-visual {
-      position: relative;
-      perspective: 800px;
-    }
-
-    .hiw-pipeline {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 24px;
-    }
-
-    .hiw-node {
-      background: rgba(15,20,36,0.85);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 28px 32px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .hiw-node:hover {
-      border-color: rgba(37,99,235,0.3);
-      box-shadow: 0 0 30px rgba(37,99,235,0.08);
-      transform: translateX(4px);
-    }
-
-    .hiw-node__icon {
-      width: 56px; height: 56px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .hiw-node__icon--input {
-      background: var(--blue-subtle);
-    }
-    .hiw-node__icon--input svg { color: var(--blue-bright); }
-    .hiw-node__icon--process {
-      background: var(--purple-subtle);
-    }
-    .hiw-node__icon--process svg { color: #A78BFA; }
-    .hiw-node__icon--output {
-      background: var(--green-subtle);
-    }
-    .hiw-node__icon--output svg { color: var(--green); }
-    .hiw-node__icon svg { width: 26px; height: 26px; }
-
-    .hiw-node__label {
-      font-size: 17px;
-      font-weight: 600;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-    }
-    .hiw-node__sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Connector arrows between nodes */
-    .hiw-connector {
-      width: 2px;
-      height: 28px;
-      background: linear-gradient(to bottom, rgba(37,99,235,0.3), rgba(124,58,237,0.3));
-      margin-left: 48px;
-      position: relative;
-    }
-    .hiw-connector::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: -3px;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--blue);
-      animation: connectorPulse 2s ease-in-out infinite;
-    }
-    @keyframes connectorPulse {
-      0%, 100% { opacity: 0.4; transform: scale(0.8); }
-      50% { opacity: 1; transform: scale(1.2); }
-    }
-
-    /* AI engine badges */
-    .hiw-engines {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
-    .hiw-engine-badge {
-      font-size: 12px;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      padding: 5px 12px;
-      border-radius: 100px;
-      background: rgba(124,58,237,0.12);
-      border: 1px solid rgba(124,58,237,0.2);
-      color: #C4B5FD;
-      letter-spacing: 0.03em;
-    }
-
-    /* ─── CAMPAIGN ENGINE VISUAL — ORBITAL ─── */
-    .engine-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .engine-orbital {
-      position: relative;
-      width: 520px;
-      height: 520px;
-    }
-
-    /* Orbit rings */
-    .engine-orbit {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.04);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .engine-orbit--inner { width: 280px; height: 280px; border-color: rgba(37,99,235,0.08); }
-    .engine-orbit--outer { width: 480px; height: 480px; border-style: dashed; border-color: rgba(124,58,237,0.06); animation: orbitSpin 60s linear infinite; }
-
-    @keyframes orbitSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-
-    /* Central core */
-    .engine-core {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 110px; height: 110px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0.05) 60%, transparent 80%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 3;
-    }
-    .engine-core__inner {
-      width: 76px; height: 76px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(124,58,237,0.2));
-      border: 1.5px solid rgba(37,99,235,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: corePulse 3s ease-in-out infinite;
-      box-shadow: 0 0 40px rgba(37,99,235,0.15), 0 0 80px rgba(37,99,235,0.05);
-    }
-    .engine-core__inner svg { width: 34px; height: 34px; color: #93C5FD; }
-
-    @keyframes corePulse {
-      0%, 100% { box-shadow: 0 0 40px rgba(37,99,235,0.15), 0 0 80px rgba(37,99,235,0.05); transform: scale(1); }
-      50% { box-shadow: 0 0 60px rgba(37,99,235,0.25), 0 0 120px rgba(37,99,235,0.1); transform: scale(1.05); }
-    }
-
-    .engine-core__label {
-      position: absolute;
-      bottom: -24px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* Orbital nodes — positioned around the circle */
-    .engine-node {
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: rgba(15,20,36,0.9);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 18px 24px;
-      white-space: nowrap;
-      transition: all 0.3s ease;
-    }
-    .engine-node:hover {
-      border-color: rgba(37,99,235,0.3);
-      box-shadow: 0 0 30px rgba(37,99,235,0.1);
-      transform: scale(1.05);
-    }
-
-    .engine-node--script { top: -14px; left: 50%; transform: translateX(-50%); }
-    .engine-node--script:hover { transform: translateX(-50%) scale(1.05); }
-    .engine-node--email { top: 50%; right: -40px; transform: translateY(-50%); }
-    .engine-node--email:hover { transform: translateY(-50%) scale(1.05); }
-    .engine-node--social { bottom: -14px; left: 50%; transform: translateX(-50%); }
-    .engine-node--social:hover { transform: translateX(-50%) scale(1.05); }
-    .engine-node--landing { top: 50%; left: -40px; transform: translateY(-50%); }
-    .engine-node--landing:hover { transform: translateY(-50%) scale(1.05); }
-
-    .engine-node__icon {
-      width: 46px; height: 46px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .engine-node__icon svg { width: 20px; height: 20px; }
-    .engine-node__icon--blue { background: var(--blue-subtle); }
-    .engine-node__icon--blue svg { color: var(--blue-bright); }
-    .engine-node__icon--purple { background: var(--purple-subtle); }
-    .engine-node__icon--purple svg { color: #A78BFA; }
-    .engine-node__icon--green { background: var(--green-subtle); }
-    .engine-node__icon--green svg { color: var(--green); }
-
-    .engine-node__text {
-      font-family: 'Inter', sans-serif;
-    }
-    .engine-node__title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-    }
-    .engine-node__sub {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* Animated connection beams from nodes to center */
-    .engine-beam {
-      position: absolute;
-      top: 50%; left: 50%;
-      z-index: 1;
-      transform-origin: 0 0;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(37,99,235,0.3), rgba(124,58,237,0.1));
-    }
-    .engine-beam--top { width: 160px; transform: rotate(-90deg); }
-    .engine-beam--right { width: 160px; transform: rotate(0deg); }
-    .engine-beam--bottom { width: 160px; transform: rotate(90deg); }
-    .engine-beam--left { width: 160px; transform: rotate(180deg); }
-
-    /* Traveling particles on beams */
-    .engine-beam::after {
-      content: '';
-      position: absolute;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--blue-bright);
-      box-shadow: 0 0 8px var(--blue-bright);
-      animation: beamTravel 2.5s ease-in-out infinite;
-    }
-    .engine-beam--top::after { animation-delay: 0s; }
-    .engine-beam--right::after { animation-delay: -0.6s; }
-    .engine-beam--bottom::after { animation-delay: -1.2s; }
-    .engine-beam--left::after { animation-delay: -1.8s; }
-
-    @keyframes beamTravel {
-      0% { transform: translateX(140px); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateX(0); opacity: 0; }
-    }
-
-    /* ─── CENTERED SECTIONS ─── */
-    .section--centered {
-      text-align: center;
-    }
-    .section--centered .section__title {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .section--centered .section__subtitle {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .section--centered .comparison {
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    /* ─── PLATFORM PILLS ─── */
-    .platform-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .platform-pill {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 22px;
-      background: rgba(15,20,36,0.7);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 100px;
-      transition: all 0.25s ease;
-      cursor: default;
-    }
-    .platform-pill:hover {
-      border-color: rgba(37,99,235,0.3);
-      background: rgba(37,99,235,0.06);
-      box-shadow: 0 0 20px rgba(37,99,235,0.08);
-      transform: translateY(-2px);
-    }
-
-    .platform-pill__icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .platform-pill__icon svg { width: 16px; height: 16px; }
-    .platform-pill__icon--blue { background: var(--blue-subtle); }
-    .platform-pill__icon--blue svg { color: var(--blue-bright); }
-    .platform-pill__icon--purple { background: var(--purple-subtle); }
-    .platform-pill__icon--purple svg { color: #A78BFA; }
-    .platform-pill__icon--green { background: var(--green-subtle); }
-    .platform-pill__icon--green svg { color: var(--green); }
-
-    .platform-pill__name {
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      white-space: nowrap;
-    }
-
-    /* ─── CENTERED OFFER CARD ─── */
-    .offer-card--centered {
-      text-align: center;
-    }
-    .offer-card--centered .offer-price-block {
-      text-align: center;
-    }
-    .offer-card--centered .offer-price-block__anchor {
-      justify-content: center;
-      gap: 12px;
-    }
-    .offer-card--centered .offer-price-block__price {
-      justify-content: center;
-    }
-    .offer-card--centered .value-stack li {
-      text-align: left;
-    }
-
-    /* ─── CENTERED FAQ ─── */
-    .faq-list--centered {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 1100px) {
       .hero__grid { grid-template-columns: 1fr; }
-      .hero__visual { display: none; }
-      .section__grid { grid-template-columns: 1fr; }
-      .hiw-visual, .engine-visual { display: none; }
+      .hero__visual { max-width: 600px; margin-top: 48px; }
+      .hero__float-card { display: none; }
+      .diff__grid { grid-template-columns: 1fr; }
+      .orbital { display: none; }
+      .hiw__step { grid-template-columns: 80px 1fr; }
+      .hiw__step-visual { display: none; }
     }
 
     @media (max-width: 900px) {
-      .problem__grid { grid-template-columns: 1fr; gap: 40px; }
-      .problem__callouts { flex-direction: row; position: static; }
-      .callout { flex: 1; }
-      .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
-      .questions-roadmap { grid-template-columns: repeat(2, 1fr); }
-      .comparison { grid-template-columns: 1fr; }
-      .hero__stats { gap: 32px; }
-      .screenshots-grid { grid-template-columns: 1fr; }
+      .deliverables__grid { grid-template-columns: 1fr; }
+      .deliverables__col:nth-child(2) { margin-top: 0; }
+      .comparison__grid { grid-template-columns: 1fr; }
+      .showcase__grid { grid-template-columns: 1fr; }
+      .questions__grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 640px) {
-      body { font-size: 17px; }
-      .wrap { padding: 0 20px; }
-      .hero__stats { flex-direction: column; gap: 24px; }
-      .deliverables-grid { grid-template-columns: 1fr; }
-      .questions-roadmap { grid-template-columns: 1fr; }
-      .problem__callouts { flex-direction: column; }
-      .offer-card { padding: 28px; border-radius: 12px; }
+      body { font-size: 16px; }
+      .hiw__step { grid-template-columns: 1fr; gap: 16px; }
+      .hiw__step-num { font-size: 48px; }
+      .questions__grid { grid-template-columns: 1fr; }
       .mobile-cta { display: block; }
-      .bloom { display: none; }
-      .strip-divider { display: none; }
-      .platform-pills { gap: 10px; }
-      .platform-pill { padding: 10px 16px; }
-      .platform-pill__name { font-size: 13px; }
-    }
-
-    /* ─── BLOOM / GLOW ORBS ─── */
-    .bloom {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(80px);
-      z-index: 0;
-    }
-    .bloom--soft { opacity: 0.06; }
-    .bloom--medium { opacity: 0.1; }
-    .bloom--hot { opacity: 0.15; }
-    .bloom--peak { opacity: 0.22; }
-    .bloom--blue { background: #2563EB; }
-    .bloom--purple { background: #7C3AED; }
-    .bloom--green { background: #16A34A; }
-    .bloom--amber { background: #F59E0B; }
-
-    /* ─── LIGHT SECTION OVERRIDES ─── */
-    .section--light .deliverable {
-      background: #fff;
-      border: none;
-    }
-    .section--light .deliverable:hover {
-      background: #F8FAFC;
-    }
-    .section--light .deliverable__title {
-      color: #0F172A;
-    }
-    .section--light .deliverable__desc {
-      color: #475569;
-    }
-    .section--light .deliverable__accent {
-      background: var(--blue);
-    }
-    .section--light .deliverables-grid {
-      background: #E2E8F0;
-      border-color: #E2E8F0;
-    }
-    .section--light .screenshot-frame {
-      background: #fff;
-      border-color: #E2E8F0;
-    }
-    .section--light .screenshot-frame__bar {
-      background: #F8FAFC;
-      border-bottom-color: #E2E8F0;
-    }
-    .section--light .screenshot-frame__body {
-      background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
-    }
-    .section--light .screenshot-placeholder__label {
-      color: #0F172A;
-    }
-    .section--light .screenshot-placeholder__sub {
-      color: #475569;
-    }
-    .section--light .screenshot-frame__caption {
-      border-top-color: #E2E8F0;
-    }
-    .section--light .screenshot-frame__caption-title {
-      color: #0F172A;
-    }
-    .section--light .screenshot-frame__caption-desc {
-      color: #475569;
-    }
-    .section--light .screenshot-frame__dot {
-      background: rgba(0,0,0,0.12);
-    }
-    .section--light .screenshot-frame__url {
-      color: #64748B;
+      .stats-strip__div { display: none; }
+      .stats-strip__inner { gap: 20px; }
+      .stats-strip__visual { display: none; }
     }
   </style>
 </head>
 
 <body>
 
-
   <!-- ─── HERO ─── -->
   <header class="hero">
+    <canvas class="hero__canvas" id="heroCanvas"></canvas>
     <div class="wrap hero__grid">
       <div class="hero__content">
-        <div class="hero__prehead label">For Financial Advisors</div>
+        <div class="hero__prehead label reveal">For Financial Advisors</div>
 
-        <h1 class="hero__title">Your Next Webinar Campaign Is 6&nbsp;Questions&nbsp;Away.</h1>
+        <h1 class="hero__title reveal" data-delay="1">Your Next Webinar Campaign Is <em>6&nbsp;Questions</em>&nbsp;Away.</h1>
 
-        <p class="hero__deck">Answer 6 strategic questions about your practice. In about 6 minutes, get a complete 45-minute webinar script, marketing emails, follow-up sequence, social posts, and landing page copy&nbsp;&mdash;&nbsp;all personalized to your voice and your&nbsp;ideal&nbsp;client.</p>
+        <p class="hero__deck reveal" data-delay="2">Answer 6 strategic questions about your practice. In about 6 minutes, get a complete 45-minute webinar script, marketing emails, follow-up sequence, social posts, and landing page copy&nbsp;&mdash;&nbsp;all personalized to your voice and your&nbsp;ideal&nbsp;client.</p>
 
-        <div class="hero__actions">
-          <a href="#offer" class="btn btn--blue">
+        <div class="hero__actions reveal" data-delay="3">
+          <a href="#offer" class="btn btn--primary">
             Become a Founding Member
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
           </a>
         </div>
-        <div class="founding-spots">
-          <span class="founding-spots__dot"></span>
-          <span class="founding-spots__count" id="spotsCount">50</span> Founding Member spots remaining
+        <div class="hero__spots reveal" data-delay="4">
+          <span class="hero__spots-dot"></span>
+          <strong>50</strong> Founding Member spots remaining
         </div>
-        <p class="hero__subtext">One-time payment &middot; Includes 6 months of Advisor Nexus</p>
+        <p class="hero__sub reveal" data-delay="4">One-time payment &middot; Includes 6 months of Advisor Nexus</p>
       </div>
 
-      <!-- ─── HERO VISUAL ─── -->
-      <div class="hero__visual">
-        <!-- Grid background -->
-        <div class="hero__gridlines"></div>
-
-        <!-- Abstract orbs -->
-        <div class="hero-orb hero-orb--1"></div>
-        <div class="hero-orb hero-orb--2"></div>
-        <div class="hero-orb hero-orb--3"></div>
-
-        <!-- Floating particles -->
-        <div class="hero-particle"></div>
-        <div class="hero-particle"></div>
-        <div class="hero-particle"></div>
-        <div class="hero-particle"></div>
-        <div class="hero-particle"></div>
-        <div class="hero-particle"></div>
-
-        <!-- Connection lines -->
-        <div class="hero__connectors">
-          <svg viewBox="0 0 500 580" preserveAspectRatio="none">
-            <path class="hero__connector-line" d="M 350 80 Q 280 180, 200 300"/>
-            <path class="hero__connector-line" d="M 240 320 Q 300 380, 280 440" style="animation-delay: -8s"/>
-          </svg>
+      <!-- Hero visual -->
+      <div class="hero__visual reveal--right" data-delay="2">
+        <div class="hero__screenshot-wrap">
+          <div class="hero__screenshot-bar">
+            <div class="hero__screenshot-dot hero__screenshot-dot--r"></div>
+            <div class="hero__screenshot-dot hero__screenshot-dot--y"></div>
+            <div class="hero__screenshot-dot hero__screenshot-dot--g"></div>
+            <span class="hero__screenshot-url">webinar-wizard.app/results</span>
+          </div>
+          <img class="hero__screenshot-img" src="assets/screenshot-script-view.png" alt="Webinar Wizard results dashboard showing a generated webinar script" loading="eager">
         </div>
 
-        <!-- Card 1: Script preview -->
-        <div class="float-card float-card--script">
-          <div class="float-card__header">
-            <div class="float-card__dot float-card__dot--red"></div>
-            <div class="float-card__dot float-card__dot--yellow"></div>
-            <div class="float-card__dot float-card__dot--green"></div>
-            <span class="float-card__title">WEBINAR WIZARD</span>
+        <!-- Floating processing card -->
+        <div class="hero__float-card">
+          <div class="hero__float-title">Creating Your Content</div>
+          <div class="hero__float-step hero__float-step--done">
+            <div class="hero__float-check hero__float-check--done">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 8.5l3.5 3.5 6.5-8"/></svg>
+            </div>
+            Analyzing your answers...
           </div>
-          <div class="float-card__tabs">
-            <div class="float-card__tab float-card__tab--active">Script</div>
-            <div class="float-card__tab">Emails</div>
-            <div class="float-card__tab">Social</div>
-            <div class="float-card__tab">Landing</div>
+          <div class="hero__float-step hero__float-step--active">
+            <div class="hero__float-check hero__float-check--active">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><path d="M8 2a6 6 0 014.5 10" /></svg>
+            </div>
+            Engineering your offer stack...
           </div>
-          <div class="float-card__line float-card__line--heading"></div>
-          <div class="float-card__line float-card__line--full"></div>
-          <div class="float-card__line float-card__line--long"></div>
-          <div class="float-card__line float-card__line--full"></div>
-          <div class="float-card__line float-card__line--med"></div>
-          <div style="height:8px"></div>
-          <div class="float-card__line float-card__line--heading" style="width:55%"></div>
-          <div class="float-card__line float-card__line--full float-card__line--accent"></div>
-          <div class="float-card__line float-card__line--long float-card__line--accent"></div>
-          <div class="float-card__line float-card__line--med"></div>
-        </div>
-
-        <!-- Card 2: Email preview -->
-        <div class="float-card float-card--email">
-          <div class="float-card__header">
-            <div class="float-card__dot float-card__dot--red"></div>
-            <div class="float-card__dot float-card__dot--yellow"></div>
-            <div class="float-card__dot float-card__dot--green"></div>
-            <span class="float-card__title">MARKETING EMAIL</span>
+          <div class="hero__float-step">
+            <div class="hero__float-check"></div>
+            Crafting your webinar script...
           </div>
-          <div class="float-card__email-badge">Ready to Send</div>
-          <div class="float-card__email-subject">The mistake 83% of retirees make with their&hellip;</div>
-          <div class="float-card__email-preview">You've saved diligently for decades. But there's a tax time bomb sitting in your retirement account that most advisors won't&hellip;</div>
-        </div>
-
-        <!-- Card 3: Campaign stats -->
-        <div class="float-card float-card--stats">
-          <div class="float-card__header">
-            <div class="float-card__dot float-card__dot--red"></div>
-            <div class="float-card__dot float-card__dot--yellow"></div>
-            <div class="float-card__dot float-card__dot--green"></div>
-            <span class="float-card__title">CAMPAIGN</span>
+          <div class="hero__float-step">
+            <div class="hero__float-check"></div>
+            Writing marketing emails...
           </div>
-          <div class="float-card__stat-row">
-            <span class="float-card__stat-label">Script</span>
-            <span class="float-card__stat-value float-card__stat-value--blue">45 min</span>
-          </div>
-          <div class="float-card__stat-row">
-            <span class="float-card__stat-label">Emails</span>
-            <span class="float-card__stat-value float-card__stat-value--green">6 ready</span>
-          </div>
-          <div class="float-card__stat-row">
-            <span class="float-card__stat-label">Social</span>
-            <span class="float-card__stat-value float-card__stat-value--purple">8 posts</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stats bar (full width below the grid) -->
-    <div class="wrap">
-      <div class="hero__stats fade-up">
-        <div>
-          <div class="hero__stat-num">6 min</div>
-          <div class="hero__stat-label">Average time to generate a complete campaign</div>
-        </div>
-        <div>
-          <div class="hero__stat-num">$3&ndash;5K</div>
-          <div class="hero__stat-label">What a copywriter charges for the same deliverables</div>
-        </div>
-        <div>
-          <div class="hero__stat-num">45 min</div>
-          <div class="hero__stat-label">Full-length presentation script, section by section</div>
         </div>
       </div>
     </div>
   </header>
 
-  <div class="section-divider"></div>
-
   <!-- ─── PROBLEM ─── -->
-  <section class="section" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--medium bloom--blue" style="width:400px; height:400px; top:-10%; right:-5%;"></div>
-    <div class="bloom bloom--soft bloom--purple" style="width:250px; height:250px; bottom:5%; left:-3%;"></div>
+  <section class="section problem">
     <div class="wrap">
-      <h2 class="section__title fade-up">Webinars Work.<br>Building Them Doesn&rsquo;t.</h2>
+      <div class="label section__label reveal">The Problem</div>
+      <h2 class="section__title reveal" data-delay="1">Webinars Work.<br>Building Them <em>Doesn&rsquo;t.</em></h2>
 
-      <div class="problem__grid">
-        <div class="problem__text fade-up">
-          <p>You already know the math. A single webinar can fill your pipeline for weeks. One good presentation books 5, 10, 15 discovery calls.</p>
+      <div class="problem__text">
+        <p class="reveal" data-delay="2">You already know the math. A single webinar can fill your pipeline for weeks. One good presentation books 5, 10, 15 discovery calls.</p>
 
-          <p>But nobody talks about what it actually takes to produce one.</p>
+        <p class="reveal" data-delay="2">But nobody talks about what it actually takes to produce one.</p>
 
-          <p>A complete webinar campaign requires a <strong>45-minute script</strong> that sounds like you, not a template. <strong>Eight marketing emails</strong> to fill seats. <strong>Three follow-up emails</strong> to convert attendees. Social posts. A landing page. An offer stack.</p>
+        <p class="reveal" data-delay="2">A complete webinar campaign requires a <strong>45-minute script</strong> that sounds like you, not a template. <strong>Eight marketing emails</strong> to fill seats. <strong>Three follow-up emails</strong> to convert attendees. Social posts. A landing page. An offer stack.</p>
 
-          <p>Hire a copywriter? <strong>$3,000&ndash;$5,000</strong> per campaign. And you&rsquo;ll wait 3&ndash;4 weeks for delivery.</p>
+        <span class="problem__stat reveal" data-delay="2" data-count="true" data-target="40">40&ndash;80</span>
+        <span class="problem__stat-label reveal" data-delay="2">Hours to build a webinar campaign from scratch</span>
 
-          <p>Do it yourself? <strong>40&ndash;80 hours</strong> of writing, rewriting, and second-guessing every word.</p>
+        <p class="reveal" data-delay="2">Hire a copywriter? <strong>$3,000&ndash;$5,000</strong> per campaign. And you&rsquo;ll wait 3&ndash;4 weeks for delivery.</p>
 
-          <p>Ask ChatGPT? You&rsquo;ll get something generic that sounds like every other advisor on the internet.</p>
+        <p class="reveal" data-delay="2">Do it yourself? 40&ndash;80 hours of writing, rewriting, and second-guessing every word.</p>
 
-          <p>So most advisors just&hellip; don&rsquo;t do webinars. Not because they can&rsquo;t present. <strong>Because the production is a full-time job.</strong></p>
-        </div>
+        <p class="reveal" data-delay="2">Ask ChatGPT? You&rsquo;ll get something generic that sounds like every other advisor on the internet.</p>
 
-        <div class="problem__callouts fade-up">
-          <div class="callout">
-            <div class="callout__num">40&ndash;80</div>
-            <div class="callout__label">Hours to build a webinar campaign from scratch</div>
-          </div>
-          <div class="callout">
-            <div class="callout__num">$3&ndash;5K</div>
-            <div class="callout__label">Typical cost to hire a copywriter for one campaign</div>
-          </div>
-        </div>
+        <span class="problem__stat reveal" data-delay="2">$3&ndash;5K</span>
+        <span class="problem__stat-label reveal" data-delay="2">Typical cost to hire a copywriter for one campaign</span>
+
+        <p class="reveal" data-delay="2">So most advisors just&hellip; don&rsquo;t do webinars. Not because they can&rsquo;t present. <strong>Because the production is a full-time job.</strong></p>
       </div>
     </div>
   </section>
 
   <!-- ─── STATS STRIP ─── -->
-  <div style="position:relative; padding:40px 0; background:url('assets/bg-dark.jpeg') center/cover no-repeat; overflow:hidden;">
-    <div class="wrap" style="display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap;">
-      <div style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">6 min</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Average generation time</div>
-      </div>
-      <div class="strip-divider" style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">11</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Campaign emails generated</div>
-      </div>
-      <div class="strip-divider" style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">45 min</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Presentation-ready script</div>
-      </div>
-      <div class="strip-divider" style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">4</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Specialized AI engines</div>
+  <div class="stats-strip">
+    <div class="wrap">
+      <div class="stats-strip__inner">
+        <div class="stats-strip__item reveal" data-delay="1">
+          <div class="stats-strip__num stats-strip__num--teal">6 min</div>
+          <div class="stats-strip__label">Average generation time</div>
+        </div>
+        <div class="stats-strip__div"></div>
+        <div class="stats-strip__item reveal" data-delay="2">
+          <div class="stats-strip__num">11</div>
+          <div class="stats-strip__label">Campaign emails generated</div>
+        </div>
+        <div class="stats-strip__div"></div>
+        <div class="stats-strip__item reveal" data-delay="3">
+          <div class="stats-strip__num">45 min</div>
+          <div class="stats-strip__label">Presentation-ready script</div>
+        </div>
+        <div class="stats-strip__div"></div>
+        <div class="stats-strip__item reveal" data-delay="4">
+          <div class="stats-strip__num">4</div>
+          <div class="stats-strip__label">Specialized AI engines</div>
+        </div>
+        <div class="stats-strip__div"></div>
+        <div class="stats-strip__visual reveal" data-delay="5">
+          <img src="assets/screenshot-processing.png" alt="Webinar Wizard generating content">
+        </div>
       </div>
     </div>
   </div>
 
   <!-- ─── HOW IT WORKS ─── -->
-  <section class="section section--alt">
+  <section class="section hiw">
     <div class="wrap">
-      <div class="label" style="margin-bottom:16px">How It Works</div>
-      <h2 class="section__title fade-up">6 Questions. One System.<br>Complete Campaign.</h2>
-      <p class="section__subtitle fade-up">No copywriter. No agency. No three-week wait. Just your expertise, structured by AI engines built specifically for financial advisor webinars.</p>
+      <div class="label section__label reveal">How It Works</div>
+      <h2 class="section__title reveal" data-delay="1">6 Questions. One System.<br><em>Complete Campaign.</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">No copywriter. No agency. No three-week wait. Just your expertise, structured by AI engines built specifically for financial advisor webinars.</p>
 
-      <div class="section__grid">
-        <div class="steps">
-          <div class="step fade-up">
-            <div class="step__num">01</div>
-            <div>
-              <div class="step__title">Answer 6 Strategic Questions</div>
-              <div class="step__desc">Not generic intake questions. These are built on the same frameworks used by the world&rsquo;s top direct-response marketers. They pull out what makes your practice different&nbsp;&mdash;&nbsp;your unique angle, your origin story, the objections you hear every day. Takes about 15&nbsp;minutes.</div>
-            </div>
+      <div class="hiw__steps">
+        <div class="hiw__step reveal" data-delay="1">
+          <div class="hiw__step-num">01</div>
+          <div>
+            <div class="hiw__step-title">Answer 6 Strategic Questions</div>
+            <div class="hiw__step-desc">Not generic intake questions. These are built on the same frameworks used by the world&rsquo;s top direct-response marketers. They pull out what makes your practice different&nbsp;&mdash;&nbsp;your unique angle, your origin story, the objections you hear every day. Takes about 15&nbsp;minutes.</div>
           </div>
-          <div class="step fade-up">
-            <div class="step__num">02</div>
-            <div>
-              <div class="step__title">The System Builds Your Campaign</div>
-              <div class="step__desc">Four specialized AI engines go to work on your answers. One builds your script. Another writes your emails. Another creates social content. Another builds your landing page copy. Each engine is tuned for financial advisor webinars. Takes about 5&nbsp;minutes.</div>
-            </div>
-          </div>
-          <div class="step fade-up">
-            <div class="step__num">03</div>
-            <div>
-              <div class="step__title">Review Your Complete Package</div>
-              <div class="step__desc">Everything comes back in one polished interface. Review each section, enter full-screen presenter mode to rehearse, or export the entire package. Ready to present as-is.</div>
+          <div class="hiw__step-visual">
+            <!-- Input mockup component -->
+            <div class="input-mockup">
+              <div class="input-mockup__header">
+                <span class="input-mockup__badge">Question 1 of 6</span>
+                <span class="input-mockup__step-label">The Mistake</span>
+              </div>
+              <div class="input-mockup__question">What is the #1 mistake your ideal client makes &mdash; and the simple fix only you provide?</div>
+              <div class="input-mockup__textarea">
+                <div class="input-mockup__textarea-cursor"></div>
+              </div>
+              <div class="input-mockup__btn">
+                <div class="input-mockup__btn-inner">Next &rarr;</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Pipeline visual -->
-        <div class="hiw-visual fade-up">
-          <div class="hiw-pipeline">
-            <div class="hiw-node">
-              <div class="hiw-node__icon hiw-node__icon--input">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-              </div>
-              <div>
-                <div class="hiw-node__label">6 Strategic Questions</div>
-                <div class="hiw-node__sub">Your expertise &amp; unique angle</div>
-              </div>
-            </div>
+        <div class="hiw__step reveal" data-delay="1">
+          <div class="hiw__step-num">02</div>
+          <div>
+            <div class="hiw__step-title">The System Builds Your Campaign</div>
+            <div class="hiw__step-desc">Four specialized AI engines go to work on your answers. One builds your script. Another writes your emails. Another creates social content. Another builds your landing page copy. Each engine is tuned for financial advisor webinars. Takes about 5&nbsp;minutes.</div>
+          </div>
+          <div class="hiw__step-visual">
+            <img src="assets/screenshot-processing.png" alt="AI engines generating your campaign" style="border-radius: 12px;">
+          </div>
+        </div>
 
-            <div class="hiw-connector"></div>
-
-            <div class="hiw-node">
-              <div class="hiw-node__icon hiw-node__icon--process">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-              </div>
-              <div>
-                <div class="hiw-node__label">4 AI Engines Process</div>
-                <div class="hiw-node__sub">~5 min generation time</div>
-                <div class="hiw-engines">
-                  <span class="hiw-engine-badge">Script</span>
-                  <span class="hiw-engine-badge">Email</span>
-                  <span class="hiw-engine-badge">Social</span>
-                  <span class="hiw-engine-badge">Landing</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hiw-connector"></div>
-
-            <div class="hiw-node">
-              <div class="hiw-node__icon hiw-node__icon--output">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              </div>
-              <div>
-                <div class="hiw-node__label">Complete Campaign Ready</div>
-                <div class="hiw-node__sub">Script, emails, social, landing page</div>
-              </div>
-            </div>
+        <div class="hiw__step reveal" data-delay="1">
+          <div class="hiw__step-num">03</div>
+          <div>
+            <div class="hiw__step-title">Review Your Complete Package</div>
+            <div class="hiw__step-desc">Everything comes back in one polished interface. Review each section, enter full-screen presenter mode to rehearse, or export the entire package. Ready to present as-is.</div>
+          </div>
+          <div class="hiw__step-visual">
+            <img src="assets/screenshot-landing-page.png" alt="Complete campaign results" style="border-radius: 12px;">
           </div>
         </div>
       </div>
 
-      <!-- 6 Questions Roadmap -->
-      <h3 class="section__title fade-up" style="font-size:clamp(22px,2.5vw,32px); margin-top:64px; margin-bottom:8px;">The 6 Questions That Power Everything</h3>
-      <p class="section__subtitle fade-up" style="margin-bottom:32px;">Each question is designed to pull out what makes your practice unique. Here&rsquo;s what you&rsquo;ll answer:</p>
+      <!-- 6 Questions -->
+      <div class="questions">
+        <h3 class="questions__title reveal">The 6 Questions That Power Everything</h3>
+        <p class="questions__subtitle reveal" data-delay="1">Each question is designed to pull out what makes your practice unique.</p>
 
-      <div class="questions-roadmap fade-up">
-        <div class="q-card">
-          <div class="q-card__num">01</div>
-          <div class="q-card__title">The Mistake</div>
-          <div class="q-card__desc">The #1 mistake your ideal client makes &mdash; and the simple fix only you provide.</div>
-        </div>
-        <div class="q-card">
-          <div class="q-card__num">02</div>
-          <div class="q-card__title">The Vision</div>
-          <div class="q-card__desc">Paint the picture of success. What does life look like 3 years from now with the right plan?</div>
-        </div>
-        <div class="q-card">
-          <div class="q-card__num">03</div>
-          <div class="q-card__title">The Objections</div>
-          <div class="q-card__desc">The 3 objections you hear every day &mdash; the polite reason and the real reason behind each.</div>
-        </div>
-        <div class="q-card">
-          <div class="q-card__num">04</div>
-          <div class="q-card__title">The Origin Story</div>
-          <div class="q-card__desc">Why you do what you do. The defining moment that shaped your approach.</div>
-        </div>
-        <div class="q-card">
-          <div class="q-card__num">05</div>
-          <div class="q-card__title">The Goodie Bag</div>
-          <div class="q-card__desc">3 free resources you can offer attendees to build trust and demonstrate value.</div>
-        </div>
-        <div class="q-card">
-          <div class="q-card__num">06</div>
-          <div class="q-card__title">The Scarcity</div>
-          <div class="q-card__desc">Why prospects say no &mdash; and what they miss by waiting.</div>
+        <div class="questions__grid">
+          <div class="q-card reveal" data-delay="1">
+            <div class="q-card__num">01</div>
+            <div class="q-card__title">The Mistake</div>
+            <div class="q-card__desc">The #1 mistake your ideal client makes &mdash; and the simple fix only you provide.</div>
+          </div>
+          <div class="q-card reveal" data-delay="2">
+            <div class="q-card__num">02</div>
+            <div class="q-card__title">The Vision</div>
+            <div class="q-card__desc">Paint the picture of success. What does life look like 3 years from now with the right plan?</div>
+          </div>
+          <div class="q-card reveal" data-delay="3">
+            <div class="q-card__num">03</div>
+            <div class="q-card__title">The Objections</div>
+            <div class="q-card__desc">The 3 objections you hear every day &mdash; the polite reason and the real reason behind each.</div>
+          </div>
+          <div class="q-card reveal" data-delay="4">
+            <div class="q-card__num">04</div>
+            <div class="q-card__title">The Origin Story</div>
+            <div class="q-card__desc">Why you do what you do. The defining moment that shaped your approach.</div>
+          </div>
+          <div class="q-card reveal" data-delay="5">
+            <div class="q-card__num">05</div>
+            <div class="q-card__title">The Goodie Bag</div>
+            <div class="q-card__desc">3 free resources you can offer attendees to build trust and demonstrate value.</div>
+          </div>
+          <div class="q-card reveal" data-delay="6">
+            <div class="q-card__num">06</div>
+            <div class="q-card__title">The Scarcity</div>
+            <div class="q-card__desc">Why prospects say no &mdash; and what they miss by waiting.</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── SCREENSHOTS ─── -->
-  <section class="section section--light">
+  <!-- ─── PRODUCT SHOWCASE ─── -->
+  <section class="section showcase">
     <div class="wrap">
-      <div class="label" style="margin-bottom:16px">See It In Action</div>
-      <h2 class="section__title fade-up">Built for Financial Advisors.<br>Not a Generic AI Tool.</h2>
-      <p class="section__subtitle fade-up">Every piece of your campaign is generated inside one polished interface&nbsp;&mdash;&nbsp;review, edit, present, and export without leaving the app.</p>
+      <div class="label section__label reveal">See It In Action</div>
+      <h2 class="section__title reveal" data-delay="1">Built for Financial Advisors.<br><em>Not a Generic AI Tool.</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">Every piece of your campaign is generated inside one polished interface&nbsp;&mdash;&nbsp;review, edit, present, and export without leaving the app.</p>
 
-      <div class="screenshots-grid fade-up">
-        <!-- Screenshot 1: Results page (wide) -->
-        <div class="screenshot-frame screenshot-frame--wide">
-          <div class="screenshot-frame__bar">
-            <div class="screenshot-frame__dot"></div>
-            <div class="screenshot-frame__dot"></div>
-            <div class="screenshot-frame__dot"></div>
-            <span class="screenshot-frame__url">webinar-wizard.vercel.app/results</span>
+      <div class="showcase__main reveal--scale" data-delay="2">
+        <div class="browser-frame browser-frame--glow">
+          <div class="browser-frame__bar">
+            <div class="browser-frame__dot"></div>
+            <div class="browser-frame__dot"></div>
+            <div class="browser-frame__dot"></div>
+            <span class="browser-frame__url">webinar-wizard.app/results</span>
           </div>
-          <div class="screenshot-frame__body" id="screenshot-results">
-            <div class="screenshot-placeholder">
-              <div class="screenshot-placeholder__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-              </div>
-              <div class="screenshot-placeholder__label">Results Dashboard</div>
-              <div class="screenshot-placeholder__sub">Script, emails, social posts, landing page &mdash; all in one view</div>
-            </div>
-          </div>
-          <div class="screenshot-frame__caption">
-            <div class="screenshot-frame__caption-title">Your Complete Campaign at a Glance</div>
-            <div class="screenshot-frame__caption-desc">Five tabbed sections with everything you need. Review each piece, then present or export.</div>
+          <div class="browser-frame__body">
+            <img src="assets/screenshot-script-view.png" alt="Webinar Wizard results dashboard" loading="lazy">
           </div>
         </div>
+        <div class="showcase__caption">
+          <div class="showcase__caption-title">Your Complete Campaign at a Glance</div>
+          <div class="showcase__caption-desc">Script, emails, social posts, landing page copy &mdash; tabbed sections with everything you need.</div>
+        </div>
+      </div>
 
-        <!-- Screenshot 2: Presenter mode -->
-        <div class="screenshot-frame">
-          <div class="screenshot-frame__bar">
-            <div class="screenshot-frame__dot"></div>
-            <div class="screenshot-frame__dot"></div>
-            <div class="screenshot-frame__dot"></div>
-            <span class="screenshot-frame__url">presenter mode</span>
-          </div>
-          <div class="screenshot-frame__body" id="screenshot-presenter">
-            <div class="screenshot-placeholder">
-              <div class="screenshot-placeholder__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-              </div>
-              <div class="screenshot-placeholder__label">Presenter Mode</div>
-              <div class="screenshot-placeholder__sub">Full-screen teleprompter for rehearsal</div>
+      <div class="showcase__grid">
+        <div class="reveal--left" data-delay="1">
+          <div class="browser-frame">
+            <div class="browser-frame__bar">
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <span class="browser-frame__url">landing page output</span>
+            </div>
+            <div class="browser-frame__body">
+              <img src="assets/screenshot-landing-page.png" alt="Landing page copy output" loading="lazy">
             </div>
           </div>
-          <div class="screenshot-frame__caption">
-            <div class="screenshot-frame__caption-title">Built-In Teleprompter</div>
-            <div class="screenshot-frame__caption-desc">Rehearse your script in full-screen presenter mode with auto-scroll.</div>
+          <div class="showcase__caption">
+            <div class="showcase__caption-title">Landing Page Copy</div>
+            <div class="showcase__caption-desc">Headlines, hooks, and registration copy personalized to your topic.</div>
           </div>
         </div>
-
-        <!-- Screenshot 3: Email output -->
-        <div class="screenshot-frame">
-          <div class="screenshot-frame__bar">
-            <div class="screenshot-frame__dot"></div>
-            <div class="screenshot-frame__dot"></div>
-            <div class="screenshot-frame__dot"></div>
-            <span class="screenshot-frame__url">email campaigns</span>
-          </div>
-          <div class="screenshot-frame__body" id="screenshot-emails">
-            <div class="screenshot-placeholder">
-              <div class="screenshot-placeholder__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-              </div>
-              <div class="screenshot-placeholder__label">Email Sequences</div>
-              <div class="screenshot-placeholder__sub">3 marketing + 3 follow-up emails</div>
+        <div class="reveal--right" data-delay="2">
+          <div class="browser-frame">
+            <div class="browser-frame__bar">
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <div class="browser-frame__dot"></div>
+              <span class="browser-frame__url">content generation</span>
+            </div>
+            <div class="browser-frame__body">
+              <img src="assets/screenshot-processing.png" alt="AI engines generating your campaign" loading="lazy">
             </div>
           </div>
-          <div class="screenshot-frame__caption">
-            <div class="screenshot-frame__caption-title">Ready-to-Send Emails</div>
-            <div class="screenshot-frame__caption-desc">Marketing and follow-up sequences written around your specific topic and audience.</div>
+          <div class="showcase__caption">
+            <div class="showcase__caption-title">4 AI Engines Working</div>
+            <div class="showcase__caption-desc">Watch your campaign come to life in real-time. ~5 minutes from answers to finished package.</div>
           </div>
         </div>
       </div>
@@ -2138,56 +1792,60 @@
   </section>
 
   <!-- ─── DELIVERABLES ─── -->
-  <section class="section section--light">
+  <section class="section deliverables">
     <div class="wrap">
-      <h2 class="section__title fade-up">Everything You Need to Fill a Room<br><span style="color:var(--blue-bright)">and Book Appointments</span></h2>
-      <p class="section__subtitle fade-up">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
+      <div class="label section__label reveal">What You Get</div>
+      <h2 class="section__title reveal" data-delay="1">Everything You Need to Fill a Room<br><em>and Book Appointments</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
 
-      <div class="deliverables-grid fade-up">
-        <div class="deliverable">
-          <div class="deliverable__accent"></div>
-          <div class="deliverable__title">45-Minute Webinar Script</div>
-          <div class="deliverable__desc">Section-by-section, in your voice. Strategic pacing, audience engagement cues, trial closes, and a closing sequence engineered to book appointments.</div>
+      <div class="deliverables__grid">
+        <div class="deliverables__col">
+          <div class="deliverable reveal--left" data-delay="1">
+            <div class="deliverable__accent"></div>
+            <div class="deliverable__title">45-Minute Webinar Script</div>
+            <div class="deliverable__desc">Section-by-section, in your voice. Strategic pacing, audience engagement cues, trial closes, and a closing sequence engineered to book appointments.</div>
+          </div>
+          <div class="deliverable reveal--left" data-delay="2">
+            <div class="deliverable__accent"></div>
+            <div class="deliverable__title">8 Marketing Emails</div>
+            <div class="deliverable__desc">A full sequence of curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
+          </div>
+          <div class="deliverable reveal--left" data-delay="3">
+            <div class="deliverable__accent"></div>
+            <div class="deliverable__title">3 Follow-Up Emails</div>
+            <div class="deliverable__desc">Post-webinar sequence that converts attendees into booked discovery calls. Urgency, value recap, and clear calls-to-action.</div>
+          </div>
         </div>
-        <div class="deliverable">
-          <div class="deliverable__accent"></div>
-          <div class="deliverable__title">8 Marketing Emails</div>
-          <div class="deliverable__desc">A full sequence of curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
-        </div>
-        <div class="deliverable">
-          <div class="deliverable__accent"></div>
-          <div class="deliverable__title">3 Follow-Up Emails</div>
-          <div class="deliverable__desc">Post-webinar sequence that converts attendees into booked discovery calls. Urgency, value recap, and clear calls-to-action.</div>
-        </div>
-        <div class="deliverable">
-          <div class="deliverable__accent"></div>
-          <div class="deliverable__title">Social Media Posts</div>
-          <div class="deliverable__desc">Ready-to-post promotional content for LinkedIn and beyond. Written to sound human, not automated. Drives registrations.</div>
-        </div>
-        <div class="deliverable">
-          <div class="deliverable__accent"></div>
-          <div class="deliverable__title">Landing Page Copy</div>
-          <div class="deliverable__desc">Headlines, bullets, and body copy for your webinar registration page. Conversion-focused and specific to your topic.</div>
-        </div>
-        <div class="deliverable">
-          <div class="deliverable__accent"></div>
-          <div class="deliverable__title">Complete Offer Stack</div>
-          <div class="deliverable__desc">Named deliverables with value anchoring, built on the Grand Slam methodology. Makes your webinar offer feel irresistible to attendees.</div>
+        <div class="deliverables__col">
+          <div class="deliverable reveal--right" data-delay="1">
+            <div class="deliverable__accent"></div>
+            <div class="deliverable__title">Social Media Posts</div>
+            <div class="deliverable__desc">Ready-to-post promotional content for LinkedIn and beyond. Written to sound human, not automated. Drives registrations.</div>
+          </div>
+          <div class="deliverable reveal--right" data-delay="2">
+            <div class="deliverable__accent"></div>
+            <div class="deliverable__title">Landing Page Copy</div>
+            <div class="deliverable__desc">Headlines, bullets, and body copy for your webinar registration page. Conversion-focused and specific to your topic.</div>
+          </div>
+          <div class="deliverable reveal--right" data-delay="3">
+            <div class="deliverable__accent"></div>
+            <div class="deliverable__title">Complete Offer Stack</div>
+            <div class="deliverable__desc">Named deliverables with value anchoring, built on the Grand Slam methodology. Makes your webinar offer feel irresistible to attendees.</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ─── DIFFERENTIATION ─── -->
-  <section class="section section--alt" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--hot bloom--blue" style="width:500px; height:500px; top:20%; right:10%;"></div>
-    <div class="bloom bloom--medium bloom--purple" style="width:300px; height:300px; top:30%; left:-5%;"></div>
+  <section class="section diff">
     <div class="wrap">
-      <h2 class="section__title fade-up">This Isn&rsquo;t a Chatbot.<br>It&rsquo;s a Campaign Engine.</h2>
+      <div class="label section__label reveal">Why This Is Different</div>
+      <h2 class="section__title reveal" data-delay="1">This Isn&rsquo;t a Chatbot.<br><em>It&rsquo;s a Campaign Engine.</em></h2>
 
-      <div class="section__grid section__grid--engine">
+      <div class="diff__grid">
         <div>
-          <div class="diff__content fade-up">
+          <div class="diff__text reveal" data-delay="2">
             <p>You&rsquo;ve probably asked ChatGPT to write a webinar script before. And you probably got back something generic, robotic, and full of phrases no human would say to a room full of people.</p>
 
             <p>Webinar Wizard was built to do one thing: <strong>create webinar campaigns for financial advisors</strong> using proven direct-response frameworks.</p>
@@ -2197,74 +1855,67 @@
             <p>And the entire system is built around <strong>6 questions that force you to articulate what makes your practice different</strong>&nbsp;&mdash;&nbsp;so the output sounds like you. Not like a template. Not like everyone else.</p>
           </div>
 
-          <blockquote class="diff__quote fade-up">
+          <blockquote class="diff__quote reveal" data-delay="2">
             &ldquo;The output quality is unlike anything I&rsquo;ve seen from AI. Not a rough draft&nbsp;&mdash;&nbsp;ready to present without editing.&rdquo;
+            <span class="diff__quote-attr">&mdash; Early beta tester, retirement planning</span>
           </blockquote>
-
         </div>
 
-        <!-- Engine orbital visual -->
-        <div class="engine-visual fade-up">
-          <div class="engine-orbital">
-            <!-- Orbit rings -->
-            <div class="engine-orbit engine-orbit--inner"></div>
-            <div class="engine-orbit engine-orbit--outer"></div>
+        <!-- Orbital engine visual -->
+        <div class="reveal--right" data-delay="3">
+          <div class="orbital">
+            <div class="orbital__ring orbital__ring--inner"></div>
+            <div class="orbital__ring orbital__ring--outer"></div>
 
-            <!-- Connection beams with traveling particles -->
-            <div class="engine-beam engine-beam--top"></div>
-            <div class="engine-beam engine-beam--right"></div>
-            <div class="engine-beam engine-beam--bottom"></div>
-            <div class="engine-beam engine-beam--left"></div>
+            <div class="orbital__beam orbital__beam--top"></div>
+            <div class="orbital__beam orbital__beam--right"></div>
+            <div class="orbital__beam orbital__beam--bottom"></div>
+            <div class="orbital__beam orbital__beam--left"></div>
 
-            <!-- Central AI core -->
-            <div class="engine-core">
-              <div class="engine-core__inner">
+            <div class="orbital__core">
+              <div class="orbital__core-inner">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
               </div>
-              <span class="engine-core__label">AI Engine</span>
+              <span class="orbital__core-label">AI Engine</span>
             </div>
 
-            <!-- Script node (top) -->
-            <div class="engine-node engine-node--script">
-              <div class="engine-node__icon engine-node__icon--blue">
+            <div class="orbital__node orbital__node--top">
+              <div class="orbital__node-icon orbital__node-icon--teal">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
               </div>
-              <div class="engine-node__text">
-                <div class="engine-node__title">Script Engine</div>
-                <div class="engine-node__sub">45-min presentation</div>
+              <div>
+                <div class="orbital__node-title">Script Engine</div>
+                <div class="orbital__node-sub">45-min presentation</div>
               </div>
             </div>
 
-            <!-- Email node (right) -->
-            <div class="engine-node engine-node--email">
-              <div class="engine-node__icon engine-node__icon--purple">
+            <div class="orbital__node orbital__node--right">
+              <div class="orbital__node-icon orbital__node-icon--blue">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
               </div>
-              <div class="engine-node__text">
-                <div class="engine-node__title">Email Engine</div>
-                <div class="engine-node__sub">11 campaign emails</div>
+              <div>
+                <div class="orbital__node-title">Email Engine</div>
+                <div class="orbital__node-sub">11 campaign emails</div>
               </div>
             </div>
 
-            <!-- Social node (bottom) -->
-            <div class="engine-node engine-node--social">
-              <div class="engine-node__icon engine-node__icon--green">
+            <div class="orbital__node orbital__node--bottom">
+              <div class="orbital__node-icon orbital__node-icon--teal">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </div>
-              <div class="engine-node__text">
-                <div class="engine-node__title">Social Engine</div>
-                <div class="engine-node__sub">LinkedIn &amp; beyond</div>
+              <div>
+                <div class="orbital__node-title">Social Engine</div>
+                <div class="orbital__node-sub">LinkedIn &amp; beyond</div>
               </div>
             </div>
 
-            <!-- Landing node (left) -->
-            <div class="engine-node engine-node--landing">
-              <div class="engine-node__icon engine-node__icon--blue">
+            <div class="orbital__node orbital__node--left">
+              <div class="orbital__node-icon orbital__node-icon--blue">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
               </div>
-              <div class="engine-node__text">
-                <div class="engine-node__title">Landing Page</div>
-                <div class="engine-node__sub">Registration copy</div>
+              <div>
+                <div class="orbital__node-title">Landing Page</div>
+                <div class="orbital__node-sub">Registration copy</div>
               </div>
             </div>
           </div>
@@ -2274,13 +1925,13 @@
   </section>
 
   <!-- ─── COMPARISON ─── -->
-  <section class="section section--light section--centered">
+  <section class="section comparison comparison--centered">
     <div class="wrap">
-      <h2 class="section__title fade-up">The Math Is Simple</h2>
-      <p class="section__subtitle fade-up">Compare the cost and time of building a webinar campaign three different ways.</p>
+      <h2 class="section__title reveal"><em>The Math</em> Is Simple</h2>
+      <p class="section__subtitle reveal" data-delay="1">Compare the cost and time of building a webinar campaign three different ways.</p>
 
-      <div class="comparison fade-up">
-        <div class="comparison__col comparison__col--old">
+      <div class="comparison__grid">
+        <div class="comparison__col comparison__col--old reveal--left" data-delay="2">
           <div class="comparison__heading">The Old Way</div>
           <div class="comparison__item">
             <svg class="comparison__icon comparison__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l10 10M16 6L6 16"/></svg>
@@ -2304,7 +1955,7 @@
           </div>
         </div>
 
-        <div class="comparison__col comparison__col--new">
+        <div class="comparison__col comparison__col--new reveal--right" data-delay="3">
           <div class="comparison__heading">With Webinar Wizard</div>
           <div class="comparison__item">
             <svg class="comparison__icon comparison__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11.5l4 4 8-9"/></svg>
@@ -2332,91 +1983,68 @@
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section section--alt section--centered" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--medium bloom--green" style="width:400px; height:400px; top:30%; left:50%; transform:translateX(-50%);"></div>
+  <section class="section platform">
     <div class="wrap">
-      <div class="label" style="margin-bottom:16px">Included In Your Membership</div>
-      <h2 class="section__title fade-up">Webinar Wizard Is One Feature.<br>You Get the Whole Platform.</h2>
-      <p class="section__subtitle fade-up">Founding Members get 6 months of full access to Advisor Nexus&nbsp;&mdash;&nbsp;the all-in-one marketing platform built specifically for financial advisors.</p>
+      <div class="label section__label reveal">Included In Your Membership</div>
+      <h2 class="section__title reveal" data-delay="1">Webinar Wizard Is One Feature.<br><em>You Get the Whole Platform.</em></h2>
+      <p class="section__subtitle reveal" data-delay="2">Founding Members get 6 months of full access to Advisor Nexus&nbsp;&mdash;&nbsp;the all-in-one marketing platform built specifically for financial advisors.</p>
 
-      <div class="platform-pills fade-up">
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--blue">
+      <div class="platform__pills reveal" data-delay="3">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--teal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
-          <span class="platform-pill__name">Webinar Wizard</span>
+          <span class="platform__pill-name">Webinar Wizard</span>
         </div>
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--green">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--teal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
-          <span class="platform-pill__name">Financial Diagnostic Tool</span>
+          <span class="platform__pill-name">Financial Diagnostic Tool</span>
         </div>
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--purple">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
-          <span class="platform-pill__name">Full CRM</span>
+          <span class="platform__pill-name">Full CRM</span>
         </div>
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--blue">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
           </div>
-          <span class="platform-pill__name">Funnel Builder</span>
+          <span class="platform__pill-name">Funnel Builder</span>
         </div>
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--green">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--teal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
           </div>
-          <span class="platform-pill__name">Email &amp; SMS Automation</span>
+          <span class="platform__pill-name">Email &amp; SMS Automation</span>
         </div>
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--purple">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
           </div>
-          <span class="platform-pill__name">Calendar Booking</span>
+          <span class="platform__pill-name">Calendar Booking</span>
         </div>
-        <div class="platform-pill">
-          <div class="platform-pill__icon platform-pill__icon--green">
+        <div class="platform__pill">
+          <div class="platform__pill-icon platform__pill-icon--teal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <span class="platform-pill__name">Reputation Management</span>
+          <span class="platform__pill-name">Reputation Management</span>
         </div>
       </div>
 
-      <p class="platform-note fade-up">Plus every new tool we build while you&rsquo;re a member. We ship constantly.</p>
+      <p class="platform__note reveal" data-delay="4">Plus every new tool we build while you&rsquo;re a member. We ship constantly.</p>
     </div>
   </section>
 
-  <!-- ─── VALUE STATS STRIP ─── -->
-  <div style="position:relative; padding:40px 0; background:url('assets/bg-dark.jpeg') center/cover no-repeat; overflow:hidden;">
-    <div class="wrap" style="display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap;">
-      <div style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">$3&ndash;5K</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">What a copywriter charges</div>
-      </div>
-      <div class="strip-divider" style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">40&ndash;80 hrs</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">To DIY a campaign</div>
-      </div>
-      <div class="strip-divider" style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">&lt;30 min</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">With Webinar Wizard</div>
-      </div>
-    </div>
-  </div>
-
   <!-- ─── OFFER ─── -->
-  <section class="offer-section" id="offer" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--medium bloom--amber" style="width:600px; height:600px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
-    <div class="bloom bloom--soft bloom--blue" style="width:400px; height:400px; top:30%; right:-5%;"></div>
+  <section class="section offer" id="offer">
     <div class="wrap">
-      <div class="offer-card offer-card--centered fade-up">
-        <div class="offer-card__label label">Founding Member Access</div>
-        <h2 class="offer-card__title">Webinar Wizard + 6&nbsp;Months of&nbsp;Advisor&nbsp;Nexus</h2>
-        <p class="offer-card__subtitle">Everything you need to create, launch, and run webinar campaigns&nbsp;&mdash;&nbsp;plus the full marketing platform built for financial advisors.</p>
+      <div class="offer__card reveal--scale" data-delay="1">
+        <div class="label offer__label">Founding Member Access</div>
+        <h2 class="offer__title">Webinar Wizard + 6&nbsp;Months of&nbsp;Advisor&nbsp;Nexus</h2>
+        <p class="offer__subtitle">Everything you need to create, launch, and run webinar campaigns&nbsp;&mdash;&nbsp;plus the full marketing platform built for financial advisors.</p>
 
         <ul class="value-stack">
           <li>
@@ -2449,31 +2077,31 @@
           </li>
         </ul>
 
-        <div class="offer-price-block">
-          <div class="offer-price-block__anchor">
+        <div class="offer__price-block">
+          <div class="offer__price-anchor">
             <span>Total value of everything included</span>
-            <span class="offer-price-block__anchor-val">$4,782+</span>
+            <span class="offer__price-anchor-val">$4,782+</span>
           </div>
-          <div class="offer-price-block__price">
-            <span class="offer-price-block__amount">$997</span>
-            <span class="offer-price-block__term">one-time</span>
+          <div class="offer__price">
+            <span class="offer__amount">$997</span>
+            <span class="offer__term">one-time</span>
           </div>
         </div>
 
-        <a href="#checkout" class="btn btn--blue offer-card__btn">
+        <a href="#checkout" class="btn btn--primary offer__btn">
           Become a Founding Member
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
         </a>
 
-        <div class="offer-card__secure">
+        <div class="offer__secure">
           <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm2 6H6V5a2 2 0 1 1 4 0v2z"/></svg>
           Secure checkout &middot; Your information is protected
         </div>
 
-        <p class="offer-card__after">After 6 months, keep full platform access&nbsp;&mdash;&nbsp;including Webinar Wizard&nbsp;&mdash;&nbsp;at $197/mo.<br>Or cancel. No contracts. No hassle.</p>
+        <p class="offer__after">After 6 months, keep full platform access&nbsp;&mdash;&nbsp;including Webinar Wizard&nbsp;&mdash;&nbsp;at $197/mo.<br>Or cancel. No contracts. No hassle.</p>
 
-        <div class="offer-scarcity">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="4"/></svg>
+        <div class="offer__scarcity">
+          <span class="offer__scarcity-dot"></span>
           Limited to 50 Founding Members &mdash; then this offer closes permanently
         </div>
       </div>
@@ -2481,88 +2109,88 @@
   </section>
 
   <!-- ─── FAQ ─── -->
-  <section class="section section--light section--centered">
+  <section class="section faq">
     <div class="wrap">
-      <h2 class="section__title fade-up">Common Questions</h2>
+      <h2 class="section__title reveal">Common Questions</h2>
 
-      <div class="faq-list faq-list--centered fade-up">
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+      <div class="faq__list reveal" data-delay="1">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             What exactly do I get for $997?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
+          <div class="faq__a"><div class="faq__a-inner">
             <p>You get 6 months of full access to Advisor Nexus, which includes unlimited Webinar Wizard campaigns, the Financial Diagnostic Tool, a full CRM, funnel builder, email/SMS automation, calendar booking, reputation management, and a private onboarding call. Everything Trained Advisor builds or ships during your membership is included.</p>
           </div></div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             What happens after 6 months?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
-            <p>Webinar Wizard is a feature inside Advisor Nexus. Your $997 covers 6 full months of the platform. After that, you can continue at $197/mo to keep access to Webinar Wizard and everything else. Or cancel&nbsp;&mdash;&nbsp;no contracts, no cancellation fees, no hassle. Your founding member payment covers the full 6 months regardless.</p>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Webinar Wizard is a feature inside Advisor Nexus. Your $997 covers 6 full months of the platform. After that, you can continue at $197/mo to keep access to Webinar Wizard and everything else. Or cancel&nbsp;&mdash;&nbsp;no contracts, no cancellation fees, no hassle.</p>
           </div></div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             How good is the content, really?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
-            <p>Every advisor who has used Webinar Wizard has had the same reaction: the quality is unlike anything they&rsquo;ve seen from AI. These aren&rsquo;t rough drafts or starting points. The scripts come out presentation-ready with natural language, strategic pacing, and built-in closing mechanics. The system uses four specialized AI engines&nbsp;&mdash;&nbsp;each fine-tuned for its part of the campaign&nbsp;&mdash;&nbsp;built on frameworks from $100M Offers and Expert Secrets.</p>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Every advisor who has used Webinar Wizard has had the same reaction: the quality is unlike anything they&rsquo;ve seen from AI. These aren&rsquo;t rough drafts or starting points. The scripts come out presentation-ready with natural language, strategic pacing, and built-in closing mechanics. The system uses four specialized AI engines&nbsp;&mdash;&nbsp;each fine-tuned for its part of the campaign.</p>
           </div></div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             How long does it take to generate a campaign?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
+          <div class="faq__a"><div class="faq__a-inner">
             <p>About 15&ndash;20 minutes to answer the 6 strategic questions, then roughly 5&ndash;6 minutes for the AI engines to generate your complete campaign. From start to finished package, you&rsquo;re looking at under 30 minutes.</p>
           </div></div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             Do I need to be tech-savvy?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
+          <div class="faq__a"><div class="faq__a-inner">
             <p>If you can fill out a form and type a few paragraphs about your practice, you can use Webinar Wizard. There&rsquo;s nothing to install, configure, or integrate. Log in, answer the questions, and your campaign is generated for you.</p>
           </div></div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             Can I generate more than one webinar campaign?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
+          <div class="faq__a"><div class="faq__a-inner">
             <p>Unlimited. Different topics, different niches, different audiences. Want a webinar on tax planning for retirees and another on estate planning for business owners? Generate both. There&rsquo;s no cap on how many campaigns you can create.</p>
           </div></div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             What if it doesn&rsquo;t work for my specific niche?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
+          <div class="faq__a"><div class="faq__a-inner">
             <p>The system is built for financial advisors across all specialties&nbsp;&mdash;&nbsp;retirement planning, life insurance, annuities, estate planning, tax strategy, and more. The 6 strategic questions pull your specific expertise and client base into every piece of content. Your private onboarding call is specifically designed to map the tool to your practice.</p>
           </div></div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-item__q" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
             Can&rsquo;t I just use ChatGPT to do this myself?
-            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">
-            <p>You could&nbsp;&mdash;&nbsp;the same way you could hand a paintbrush to anyone and ask them to paint the Sistine Chapel. The tool matters, but the expertise behind it matters more. We&rsquo;ve spent thousands of hours building AI systems specifically for financial advisor marketing. Webinar Wizard uses four specialized engines trained on direct-response frameworks like $100M Offers and Expert Secrets, tuned for webinar pacing, audience psychology, and offer stacking. ChatGPT gives you a generic rough draft. Webinar Wizard gives you a finished, presentation-ready campaign built around what makes your practice different. It&rsquo;s the difference between AI as a novelty and AI as a competitive advantage.</p>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>You could&nbsp;&mdash;&nbsp;the same way you could hand a paintbrush to anyone and ask them to paint the Sistine Chapel. The tool matters, but the expertise behind it matters more. Webinar Wizard uses four specialized engines trained on direct-response frameworks, tuned for webinar pacing, audience psychology, and offer stacking. ChatGPT gives you a generic rough draft. Webinar Wizard gives you a finished, presentation-ready campaign built around what makes your practice different.</p>
           </div></div>
         </div>
       </div>
@@ -2570,41 +2198,117 @@
   </section>
 
   <!-- ─── FINAL CTA ─── -->
-  <section class="section final-cta" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--hot bloom--green" style="width:500px; height:500px; top:40%; left:50%; transform:translateX(-50%);"></div>
-    <div class="bloom bloom--medium bloom--blue" style="width:300px; height:300px; top:20%; right:10%;"></div>
+  <section class="section final-cta">
     <div class="wrap">
-      <h2 class="final-cta__title fade-up">50 Spots. Then This<br>Price Disappears.</h2>
-      <p class="final-cta__sub fade-up">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
-      <a href="#offer" class="btn btn--blue fade-up">
+      <h2 class="final-cta__title reveal">50 Spots. Then This<br><em>Price Disappears.</em></h2>
+      <p class="final-cta__sub reveal" data-delay="1">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
+      <a href="#offer" class="btn btn--primary reveal" data-delay="2">
         Claim Your Founding Member Spot
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
       </a>
-      <p class="final-cta__terms fade-up">$997 one-time &middot; 6 months Advisor Nexus included &middot; Cancel anytime after</p>
+      <p class="final-cta__terms reveal" data-delay="2">$997 one-time &middot; 6 months Advisor Nexus included &middot; Cancel anytime after</p>
 
-      <!-- P.S. -->
-      <div class="ps">
-        <div class="ps__text">
-          <strong>P.S.</strong>&nbsp;&mdash; Think about what happens if you don&rsquo;t do a webinar this quarter. Same pipeline. Same number of calls. Same ceiling. Now think about what happens if you do one. A room full of prospects who already trust your expertise, already see you as the authority, already want to talk. Webinar Wizard makes the second scenario 30 minutes of work instead of 80 hours. <a href="#offer">Claim your spot before they&rsquo;re gone&nbsp;&rarr;</a>
-        </div>
+      <div class="final-cta__ps reveal" data-delay="3">
+        <strong>P.S.</strong>&nbsp;&mdash; Think about what happens if you don&rsquo;t do a webinar this quarter. Same pipeline. Same number of calls. Same ceiling. Now think about what happens if you do one. A room full of prospects who already trust your expertise, already see you as the authority, already want to talk. Webinar Wizard makes the second scenario 30 minutes of work instead of 80 hours. <a href="#offer">Claim your spot before they&rsquo;re gone&nbsp;&rarr;</a>
       </div>
     </div>
   </section>
 
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__brand">Trained Advisor</div>
+      <div class="footer__copy">&copy; 2026 Trained Advisor. All rights reserved.</div>
+      <div class="footer__secure">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm2 6H6V5a2 2 0 1 1 4 0v2z"/></svg>
+        Secure checkout powered by Stripe
+      </div>
+    </div>
+  </footer>
+
   <!-- ─── MOBILE STICKY CTA ─── -->
   <div class="mobile-cta" id="mobileCta">
-    <a href="#offer" class="btn btn--blue">Become a Founding Member</a>
+    <a href="#offer" class="btn btn--primary">Become a Founding Member</a>
   </div>
 
   <script>
-    // FAQ Accordion
-    document.querySelectorAll('.faq-item__q').forEach(btn => {
+    // ─── PARTICLE CANVAS ───
+    (function() {
+      const canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let w, h;
+
+      function resize() {
+        const hero = canvas.parentElement;
+        w = canvas.width = hero.offsetWidth;
+        h = canvas.height = hero.offsetHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.min(60, Math.floor(w * h / 15000));
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: -Math.random() * 0.4 - 0.1,
+            size: Math.random() * 1.5 + 0.5,
+            opacity: Math.random() * 0.5 + 0.1,
+            color: Math.random() > 0.7 ? '6, 214, 160' : '37, 99, 235'
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.color + ',' + p.opacity + ')';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      createParticles();
+      draw();
+      window.addEventListener('resize', () => { resize(); createParticles(); });
+    })();
+
+    // ─── SCROLL REVEAL ───
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.reveal, .reveal--left, .reveal--right, .reveal--scale').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+
+    // ─── FAQ ACCORDION ───
+    document.querySelectorAll('.faq__q').forEach(btn => {
       btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
+        const item = btn.closest('.faq__item');
         const isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.faq-item.is-open').forEach(el => {
+        document.querySelectorAll('.faq__item.is-open').forEach(el => {
           el.classList.remove('is-open');
-          el.querySelector('.faq-item__q').setAttribute('aria-expanded', 'false');
+          el.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
         });
         if (!isOpen) {
           item.classList.add('is-open');
@@ -2613,28 +2317,18 @@
       });
     });
 
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Mobile sticky CTA
-    const mobileCta = document.getElementById('mobileCta');
-    const heroSection = document.querySelector('.hero');
-    if (mobileCta && heroSection) {
-      const heroObserver = new IntersectionObserver(([entry]) => {
+    // ─── MOBILE STICKY CTA ───
+    (function() {
+      const mobileCta = document.getElementById('mobileCta');
+      const hero = document.querySelector('.hero');
+      if (!mobileCta || !hero) return;
+      const obs = new IntersectionObserver(([entry]) => {
         mobileCta.classList.toggle('is-visible', !entry.isIntersecting);
       }, { threshold: 0 });
-      heroObserver.observe(heroSection);
-    }
+      obs.observe(hero);
+    })();
 
-    // Smooth scroll
+    // ─── SMOOTH SCROLL ───
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         const target = document.querySelector(link.getAttribute('href'));
