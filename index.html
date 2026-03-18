@@ -495,7 +495,7 @@
     }
 
     .screenshot-frame__body {
-      aspect-ratio: 16/10;
+      aspect-ratio: 16/7;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1662,6 +1662,77 @@
       .offer-card { padding: 28px; border-radius: 12px; }
       .mobile-cta { display: block; }
     }
+
+    /* ─── BLOOM / GLOW ORBS ─── */
+    .bloom {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      z-index: 0;
+    }
+    .bloom--soft { opacity: 0.06; }
+    .bloom--medium { opacity: 0.1; }
+    .bloom--hot { opacity: 0.15; }
+    .bloom--peak { opacity: 0.22; }
+    .bloom--blue { background: #2563EB; }
+    .bloom--purple { background: #7C3AED; }
+    .bloom--green { background: #16A34A; }
+    .bloom--amber { background: #F59E0B; }
+
+    /* ─── LIGHT SECTION OVERRIDES ─── */
+    .section--light .deliverable {
+      background: #fff;
+      border: none;
+    }
+    .section--light .deliverable:hover {
+      background: #F8FAFC;
+    }
+    .section--light .deliverable__title {
+      color: #0F172A;
+    }
+    .section--light .deliverable__desc {
+      color: #475569;
+    }
+    .section--light .deliverable__accent {
+      background: var(--blue);
+    }
+    .section--light .deliverables-grid {
+      background: #E2E8F0;
+      border-color: #E2E8F0;
+    }
+    .section--light .screenshot-frame {
+      background: #fff;
+      border-color: #E2E8F0;
+    }
+    .section--light .screenshot-frame__bar {
+      background: #F8FAFC;
+      border-bottom-color: #E2E8F0;
+    }
+    .section--light .screenshot-frame__body {
+      background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+    }
+    .section--light .screenshot-placeholder__label {
+      color: #0F172A;
+    }
+    .section--light .screenshot-placeholder__sub {
+      color: #475569;
+    }
+    .section--light .screenshot-frame__caption {
+      border-top-color: #E2E8F0;
+    }
+    .section--light .screenshot-frame__caption-title {
+      color: #0F172A;
+    }
+    .section--light .screenshot-frame__caption-desc {
+      color: #475569;
+    }
+    .section--light .screenshot-frame__dot {
+      background: rgba(0,0,0,0.12);
+    }
+    .section--light .screenshot-frame__url {
+      color: #64748B;
+    }
   </style>
 </head>
 
@@ -1802,7 +1873,9 @@
   <div class="section-divider"></div>
 
   <!-- ─── PROBLEM ─── -->
-  <section class="section">
+  <section class="section" style="position:relative; overflow:hidden;">
+    <div class="bloom bloom--medium bloom--blue" style="width:400px; height:400px; top:-10%; right:-5%;"></div>
+    <div class="bloom bloom--soft bloom--purple" style="width:250px; height:250px; bottom:5%; left:-3%;"></div>
     <div class="wrap">
       <h2 class="section__title fade-up">Webinars Work.<br>Building Them Doesn&rsquo;t.</h2>
 
@@ -1836,6 +1909,31 @@
       </div>
     </div>
   </section>
+
+  <!-- ─── STATS STRIP ─── -->
+  <div style="position:relative; padding:40px 0; background:url('assets/bg-dark.jpeg') center/cover no-repeat; overflow:hidden;">
+    <div class="wrap" style="display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">6 min</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Average generation time</div>
+      </div>
+      <div style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">11</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Campaign emails generated</div>
+      </div>
+      <div style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">45 min</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Presentation-ready script</div>
+      </div>
+      <div style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">4</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">Specialized AI engines</div>
+      </div>
+    </div>
+  </div>
 
   <!-- ─── HOW IT WORKS ─── -->
   <section class="section section--alt">
@@ -1955,7 +2053,7 @@
   </section>
 
   <!-- ─── SCREENSHOTS ─── -->
-  <section class="section">
+  <section class="section section--light">
     <div class="wrap">
       <div class="label" style="margin-bottom:16px">See It In Action</div>
       <h2 class="section__title fade-up">Built for Financial Advisors.<br>Not a Generic AI Tool.</h2>
@@ -2035,7 +2133,7 @@
   </section>
 
   <!-- ─── DELIVERABLES ─── -->
-  <section class="section">
+  <section class="section section--light">
     <div class="wrap">
       <h2 class="section__title fade-up">Everything You Need to Fill a Room<br><span style="color:var(--blue-bright)">and Book Appointments</span></h2>
       <p class="section__subtitle fade-up">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
@@ -2076,7 +2174,9 @@
   </section>
 
   <!-- ─── DIFFERENTIATION ─── -->
-  <section class="section section--alt">
+  <section class="section section--alt" style="position:relative; overflow:hidden;">
+    <div class="bloom bloom--hot bloom--blue" style="width:500px; height:500px; top:20%; right:10%;"></div>
+    <div class="bloom bloom--medium bloom--purple" style="width:300px; height:300px; top:30%; left:-5%;"></div>
     <div class="wrap">
       <h2 class="section__title fade-up">This Isn&rsquo;t a Chatbot.<br>It&rsquo;s a Campaign Engine.</h2>
 
@@ -2227,7 +2327,8 @@
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section section--alt section--centered">
+  <section class="section section--alt section--centered" style="position:relative; overflow:hidden;">
+    <div class="bloom bloom--medium bloom--green" style="width:400px; height:400px; top:30%; left:50%; transform:translateX(-50%);"></div>
     <div class="wrap">
       <div class="label" style="margin-bottom:16px">Included In Your Membership</div>
       <h2 class="section__title fade-up">Webinar Wizard Is One Feature.<br>You Get the Whole Platform.</h2>
@@ -2282,8 +2383,30 @@
     </div>
   </section>
 
+  <!-- ─── VALUE STATS STRIP ─── -->
+  <div style="position:relative; padding:40px 0; background:url('assets/bg-dark.jpeg') center/cover no-repeat; overflow:hidden;">
+    <div class="wrap" style="display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">$3&ndash;5K</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">What a copywriter charges</div>
+      </div>
+      <div style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">40&ndash;80 hrs</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">To DIY a campaign</div>
+      </div>
+      <div style="width:1px; height:48px; background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif; font-size:36px; color:#fff; line-height:1; margin-bottom:6px;">&lt;30 min</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif;">With Webinar Wizard</div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── OFFER ─── -->
-  <section class="offer-section" id="offer">
+  <section class="offer-section" id="offer" style="position:relative; overflow:hidden;">
+    <div class="bloom bloom--medium bloom--amber" style="width:600px; height:600px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+    <div class="bloom bloom--soft bloom--blue" style="width:400px; height:400px; top:30%; right:-5%;"></div>
     <div class="wrap">
       <div class="offer-card offer-card--centered fade-up">
         <div class="offer-card__label label">Founding Member Access</div>
@@ -2442,7 +2565,9 @@
   </section>
 
   <!-- ─── FINAL CTA ─── -->
-  <section class="section final-cta">
+  <section class="section final-cta" style="position:relative; overflow:hidden;">
+    <div class="bloom bloom--hot bloom--green" style="width:500px; height:500px; top:40%; left:50%; transform:translateX(-50%);"></div>
+    <div class="bloom bloom--medium bloom--blue" style="width:300px; height:300px; top:20%; right:10%;"></div>
     <div class="wrap">
       <h2 class="final-cta__title fade-up">50 Spots. Then This<br>Price Disappears.</h2>
       <p class="final-cta__sub fade-up">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
