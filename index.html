@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -70,10 +70,11 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-weight: 400;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 700;
       line-height: 1.1;
       color: #fff;
+      letter-spacing: -0.02em;
     }
 
     a { color: var(--electric); text-decoration: none; transition: color 0.2s; }
@@ -97,7 +98,7 @@
       margin: 0 auto;
       padding: 0 clamp(20px, 4vw, 40px);
       position: relative;
-      z-index: 1;
+      z-index: 3;
     }
 
     .label {
@@ -208,9 +209,9 @@
     .global-canvas {
       position: fixed;
       inset: 0;
-      z-index: 0;
+      z-index: 1;
       pointer-events: none;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     .hero__grid {
@@ -239,7 +240,7 @@
       max-width: 680px;
     }
     .hero__title em {
-      font-style: italic;
+      font-style: normal;
       color: var(--electric);
     }
 
@@ -411,7 +412,7 @@
       max-width: 720px;
     }
     .section__title em {
-      font-style: italic;
+      font-style: normal;
       color: var(--electric);
     }
 
@@ -426,7 +427,7 @@
 
     /* ─── PROBLEM ─── */
     .problem {
-      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(8,13,24,0.92) 100%);
     }
 
     .problem__text {
@@ -445,7 +446,7 @@
 
     .problem__stat {
       display: block;
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(56px, 6vw, 80px);
       color: #fff;
       line-height: 1;
@@ -464,7 +465,7 @@
     .stats-strip {
       position: relative;
       padding: 48px 0;
-      background: #080D18;
+      background: rgba(8,13,24,0.92);
       border-top: 1px solid rgba(76,201,240,0.08);
       border-bottom: 1px solid rgba(76,201,240,0.08);
     }
@@ -482,7 +483,7 @@
     }
 
     .stats-strip__num {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(28px, 3vw, 40px);
       color: #fff;
       line-height: 1;
@@ -517,7 +518,7 @@
 
     /* ─── HOW IT WORKS ─── */
     .hiw {
-      background: linear-gradient(180deg, #080D18 0%, #061018 50%, #080D18 100%);
+      background: linear-gradient(180deg, rgba(8,13,24,0.92) 0%, #061018 50%, rgba(8,13,24,0.92) 100%);
     }
 
     .hiw__steps {
@@ -537,14 +538,14 @@
     .hiw__step:last-child { border-bottom: none; }
 
     .hiw__step-num {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(64px, 7vw, 96px);
       color: rgba(255,255,255,0.04);
       line-height: 1;
     }
 
     .hiw__step-title {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(22px, 2.5vw, 30px);
       color: #fff;
       margin-bottom: 12px;
@@ -689,7 +690,7 @@
     }
 
     .q-card__num {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 32px;
       line-height: 1;
       margin-bottom: 12px;
@@ -712,7 +713,7 @@
 
     /* ─── PRODUCT SHOWCASE ─── */
     .showcase {
-      background: linear-gradient(180deg, #080D18 0%, var(--bg) 100%);
+      background: linear-gradient(180deg, rgba(8,13,24,0.92) 0%, var(--bg) 100%);
       border-top: 1px solid rgba(76,201,240,0.06);
     }
 
@@ -761,10 +762,6 @@
       height: auto;
       display: block;
       filter: blur(3px);
-      transition: filter 0.3s ease;
-    }
-    .browser-frame:hover .browser-frame__body img {
-      filter: blur(2px);
     }
 
     .showcase__grid {
@@ -790,7 +787,7 @@
 
     /* ─── DELIVERABLES ─── */
     .deliverables {
-      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(8,13,24,0.92) 100%);
     }
 
     .deliverables__grid {
@@ -840,7 +837,7 @@
 
     /* ─── DIFFERENTIATION ─── */
     .diff {
-      background: linear-gradient(180deg, #080D18 0%, #0A1020 50%, #080D18 100%);
+      background: linear-gradient(180deg, rgba(8,13,24,0.92) 0%, #0A1020 50%, rgba(8,13,24,0.92) 100%);
     }
 
     .diff__grid {
@@ -862,9 +859,9 @@
       margin: 48px 0;
       padding: 28px 0 28px 24px;
       border-left: 2px solid var(--electric);
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(20px, 2vw, 26px);
-      font-style: italic;
+      font-style: normal;
       color: rgba(76,201,240,0.7);
       line-height: 1.5;
     }
@@ -1068,7 +1065,7 @@
     }
 
     .comparison__heading {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 22px;
       color: #fff;
       margin-bottom: 28px;
@@ -1101,7 +1098,7 @@
 
     /* ─── PLATFORM ─── */
     .platform {
-      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(8,13,24,0.92) 100%);
       text-align: center;
     }
 
@@ -1162,7 +1159,7 @@
       margin-top: 32px;
       font-size: 15px;
       color: var(--text-muted);
-      font-style: italic;
+      font-style: normal;
     }
 
     /* ─── OFFER ─── */
@@ -1171,7 +1168,7 @@
       position: relative;
       background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(76,201,240,0.04) 0%, transparent 60%),
                   radial-gradient(ellipse 50% 40% at 50% 50%, rgba(37,99,235,0.05) 0%, transparent 50%),
-                  #080D18;
+                  rgba(8,13,24,0.92);
     }
     .offer::before {
       content: '';
@@ -1270,9 +1267,9 @@
     }
 
     .offer__amount {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(56px, 6vw, 80px);
-      font-style: italic;
+      font-style: normal;
       color: #fff;
       line-height: 1;
       text-shadow: 0 0 60px var(--electric-glow), 0 0 120px rgba(76,201,240,0.2);
@@ -1404,14 +1401,14 @@
       position: relative;
       background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(76,201,240,0.03) 0%, transparent 50%),
                   radial-gradient(ellipse 40% 30% at 50% 40%, rgba(245,158,11,0.03) 0%, transparent 50%),
-                  #080D18;
+                  rgba(8,13,24,0.92);
     }
 
     .final-cta__title {
       font-size: clamp(32px, 4vw, 56px);
       margin-bottom: 20px;
     }
-    .final-cta__title em { font-style: italic; color: var(--electric); }
+    .final-cta__title em { font-style: normal; color: var(--electric); }
 
     .final-cta__sub {
       font-size: 17px;
@@ -1449,7 +1446,7 @@
       text-align: center;
     }
     .footer__brand {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 20px;
       color: #fff;
       margin-bottom: 8px;
@@ -1644,10 +1641,6 @@
         <div class="stats-strip__item reveal" data-delay="4">
           <div class="stats-strip__num">4</div>
           <div class="stats-strip__label">Specialized AI engines</div>
-        </div>
-        <div class="stats-strip__div"></div>
-        <div class="stats-strip__visual reveal" data-delay="5">
-          <img src="assets/screenshot-processing.png" alt="Webinar Wizard generating content">
         </div>
       </div>
     </div>
@@ -2266,7 +2259,7 @@
 
       function createParticles() {
         particles = [];
-        const count = Math.min(60, Math.floor(w * h / 15000));
+        const count = Math.min(35, Math.floor(w * h / 25000));
         for (let i = 0; i < count; i++) {
           particles.push({
             x: Math.random() * w,
@@ -2318,7 +2311,7 @@
 
       function createParticles() {
         particles = [];
-        const count = Math.min(40, Math.floor(w * h / 25000));
+        const count = Math.min(30, Math.floor(w * h / 30000));
         for (let i = 0; i < count; i++) {
           particles.push({
             x: Math.random() * w,
