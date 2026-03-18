@@ -27,13 +27,15 @@
       --blue: #2563EB;
       --blue-bright: #3B82F6;
       --blue-subtle: rgba(37,99,235,0.1);
-      --teal: #06D6A0;
-      --teal-dim: #05B88A;
-      --teal-glow: rgba(6,214,160,0.35);
-      --teal-subtle: rgba(6,214,160,0.08);
+      --electric: #4CC9F0;
+      --electric-dim: #38B0D8;
+      --electric-glow: rgba(76,201,240,0.35);
+      --electric-subtle: rgba(76,201,240,0.08);
       --amber: #F59E0B;
       --amber-glow: rgba(245,158,11,0.35);
       --amber-subtle: rgba(245,158,11,0.08);
+      --coral: #FF7043;
+      --coral-subtle: rgba(255,112,67,0.1);
       --green: #16A34A;
       --green-glow: rgba(22,163,74,0.3);
       --red: #EF4444;
@@ -74,11 +76,11 @@
       color: #fff;
     }
 
-    a { color: var(--teal); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #34D399; }
+    a { color: var(--electric); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #7DD9F5; }
 
     :focus-visible {
-      outline: 2px solid var(--teal);
+      outline: 2px solid var(--electric);
       outline-offset: 3px;
     }
 
@@ -104,7 +106,7 @@
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--teal);
+      color: var(--electric);
     }
 
     /* ─── BUTTONS ─── */
@@ -203,6 +205,14 @@
       pointer-events: none;
     }
 
+    .global-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
     .hero__grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -220,7 +230,7 @@
       content: '';
       width: 28px;
       height: 1px;
-      background: var(--teal);
+      background: var(--electric);
     }
 
     .hero__title {
@@ -230,7 +240,7 @@
     }
     .hero__title em {
       font-style: italic;
-      color: var(--teal);
+      color: var(--electric);
     }
 
     .hero__deck {
@@ -256,21 +266,21 @@
       gap: 10px;
       font-size: 14px;
       font-weight: 600;
-      color: var(--teal);
+      color: var(--electric);
       padding: 10px 20px;
       border-radius: 100px;
-      border: 1px solid rgba(6,214,160,0.2);
-      background: var(--teal-subtle);
+      border: 1px solid rgba(76,201,240,0.2);
+      background: var(--electric-subtle);
     }
     .hero__spots-dot {
       width: 8px; height: 8px;
-      background: var(--teal);
+      background: var(--electric);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(6,214,160,0.4); }
-      50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(6,214,160,0); }
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(76,201,240,0.4); }
+      50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(76,201,240,0); }
     }
 
     .hero__sub {
@@ -289,7 +299,7 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow:
-        0 0 80px rgba(6,214,160,0.08),
+        0 0 80px rgba(76,201,240,0.08),
         0 0 160px rgba(37,99,235,0.06),
         0 30px 80px rgba(0,0,0,0.6);
       border: 1px solid var(--border-light);
@@ -326,6 +336,7 @@
       display: block;
       width: 100%;
       height: auto;
+      filter: blur(3px);
     }
 
     /* Small floating processing card */
@@ -338,7 +349,7 @@
       border: 1px solid var(--border-light);
       border-radius: 14px;
       padding: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(6,214,160,0.06);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(76,201,240,0.06);
       z-index: 5;
       animation: heroFloat 6s ease-in-out infinite;
       animation-delay: -2s;
@@ -361,7 +372,7 @@
       padding: 4px 0;
       font-family: 'Sora', sans-serif;
     }
-    .hero__float-step--done { color: var(--teal); }
+    .hero__float-step--done { color: var(--electric); }
     .hero__float-step--active { color: var(--text); }
 
     .hero__float-check {
@@ -374,11 +385,11 @@
       flex-shrink: 0;
     }
     .hero__float-check--done {
-      border-color: var(--teal);
-      background: var(--teal-subtle);
+      border-color: var(--electric);
+      background: var(--electric-subtle);
     }
     .hero__float-check--active {
-      border-color: var(--teal);
+      border-color: var(--electric);
       animation: spinCheck 1s linear infinite;
     }
     @keyframes spinCheck {
@@ -401,7 +412,7 @@
     }
     .section__title em {
       font-style: italic;
-      color: var(--teal);
+      color: var(--electric);
     }
 
     .section__subtitle {
@@ -454,8 +465,8 @@
       position: relative;
       padding: 48px 0;
       background: #080D18;
-      border-top: 1px solid rgba(6,214,160,0.08);
-      border-bottom: 1px solid rgba(6,214,160,0.08);
+      border-top: 1px solid rgba(76,201,240,0.08);
+      border-bottom: 1px solid rgba(76,201,240,0.08);
     }
 
     .stats-strip__inner {
@@ -477,7 +488,7 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-    .stats-strip__num--teal { color: var(--teal); }
+    .stats-strip__num--electric { color: var(--electric); }
 
     .stats-strip__label {
       font-size: 13px;
@@ -492,11 +503,11 @@
     }
 
     .stats-strip__visual {
-      width: 140px;
+      width: 220px;
       border-radius: 10px;
       overflow: hidden;
       border: 1px solid var(--border);
-      box-shadow: 0 0 30px rgba(6,214,160,0.06);
+      box-shadow: 0 0 30px rgba(76,201,240,0.06);
     }
     .stats-strip__visual img {
       width: 100%;
@@ -550,14 +561,15 @@
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border);
-      box-shadow: 0 0 40px rgba(6,214,160,0.04);
-      max-width: 420px;
+      box-shadow: 0 0 40px rgba(76,201,240,0.04);
+      max-width: 500px;
       justify-self: end;
     }
     .hiw__step-visual img {
       width: 100%;
       height: auto;
       display: block;
+      filter: blur(3px);
     }
 
     /* Mockup component for step 1 */
@@ -566,7 +578,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px;
-      max-width: 420px;
+      max-width: 500px;
       justify-self: end;
     }
     .input-mockup__header {
@@ -582,8 +594,8 @@
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
-      background: var(--teal-subtle);
-      color: var(--teal);
+      background: var(--electric-subtle);
+      color: var(--electric);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -598,6 +610,8 @@
       color: #fff;
       margin-bottom: 12px;
       line-height: 1.4;
+      filter: blur(4px);
+      user-select: none;
     }
     .input-mockup__textarea {
       width: 100%;
@@ -614,7 +628,7 @@
       left: 12px;
       width: 2px;
       height: 16px;
-      background: var(--teal);
+      background: var(--electric);
       animation: blink 1s step-end infinite;
     }
     @keyframes blink {
@@ -666,12 +680,12 @@
       background: rgba(12,18,34,0.5);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .q-card:nth-child(odd) { border-color: rgba(6,214,160,0.1); }
+    .q-card:nth-child(odd) { border-color: rgba(76,201,240,0.1); }
     .q-card:nth-child(even) { border-color: rgba(37,99,235,0.1); }
     .q-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 30px rgba(6,214,160,0.06);
-      border-color: rgba(6,214,160,0.2);
+      box-shadow: 0 0 30px rgba(76,201,240,0.06);
+      border-color: rgba(76,201,240,0.2);
     }
 
     .q-card__num {
@@ -680,7 +694,7 @@
       line-height: 1;
       margin-bottom: 12px;
     }
-    .q-card:nth-child(odd) .q-card__num { color: var(--teal); }
+    .q-card:nth-child(odd) .q-card__num { color: var(--electric); }
     .q-card:nth-child(even) .q-card__num { color: var(--blue-bright); }
 
     .q-card__title {
@@ -699,7 +713,7 @@
     /* ─── PRODUCT SHOWCASE ─── */
     .showcase {
       background: linear-gradient(180deg, #080D18 0%, var(--bg) 100%);
-      border-top: 1px solid rgba(6,214,160,0.06);
+      border-top: 1px solid rgba(76,201,240,0.06);
     }
 
     .showcase__main {
@@ -713,12 +727,12 @@
       transition: box-shadow 0.4s ease;
     }
     .browser-frame:hover {
-      box-shadow: 0 0 60px rgba(6,214,160,0.06);
+      box-shadow: 0 0 60px rgba(76,201,240,0.06);
     }
 
     .browser-frame--glow {
       box-shadow:
-        0 0 80px rgba(6,214,160,0.06),
+        0 0 80px rgba(76,201,240,0.06),
         0 0 160px rgba(37,99,235,0.04),
         0 40px 100px rgba(0,0,0,0.5);
     }
@@ -746,6 +760,11 @@
       width: 100%;
       height: auto;
       display: block;
+      filter: blur(3px);
+      transition: filter 0.3s ease;
+    }
+    .browser-frame:hover .browser-frame__body img {
+      filter: blur(2px);
     }
 
     .showcase__grid {
@@ -776,46 +795,44 @@
 
     .deliverables__grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    .deliverables__col {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .deliverables__col:nth-child(2) {
-      margin-top: 48px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
     .deliverable {
-      padding: clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
-      border-bottom: 1px solid var(--border);
+      padding: clamp(24px, 2.5vw, 32px);
+      border-radius: 14px;
+      background: rgba(76,201,240,0.04);
+      border: 1px solid rgba(76,201,240,0.1);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .deliverable:last-child { border-bottom: none; }
+    .deliverable:hover {
+      background: rgba(76,201,240,0.07);
+      border-color: rgba(76,201,240,0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 0 40px rgba(76,201,240,0.06);
+    }
 
     .deliverable__accent {
       width: 28px;
       height: 2px;
-      background: var(--teal);
+      background: var(--electric);
       margin-bottom: 18px;
       border-radius: 1px;
     }
-    .deliverable:nth-child(even) .deliverable__accent {
-      background: var(--blue-bright);
-    }
 
     .deliverable__title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 21px;
+      font-family: 'Sora', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
       color: #fff;
       margin-bottom: 10px;
       line-height: 1.3;
     }
 
     .deliverable__desc {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-secondary);
       line-height: 1.7;
       font-weight: 300;
@@ -844,11 +861,11 @@
     .diff__quote {
       margin: 48px 0;
       padding: 28px 0 28px 24px;
-      border-left: 2px solid var(--teal);
+      border-left: 2px solid var(--electric);
       font-family: 'Instrument Serif', serif;
       font-size: clamp(20px, 2vw, 26px);
       font-style: italic;
-      color: rgba(6,214,160,0.7);
+      color: rgba(76,201,240,0.7);
       line-height: 1.5;
     }
     .diff__quote-attr {
@@ -876,7 +893,7 @@
     }
     .orbital__ring--inner {
       width: 240px; height: 240px;
-      border-color: rgba(6,214,160,0.08);
+      border-color: rgba(76,201,240,0.08);
     }
     .orbital__ring--outer {
       width: 440px; height: 440px;
@@ -892,7 +909,7 @@
       transform: translate(-50%, -50%);
       width: 90px; height: 90px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(6,214,160,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(76,201,240,0.15) 0%, transparent 70%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -901,18 +918,18 @@
     .orbital__core-inner {
       width: 64px; height: 64px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(6,214,160,0.2), rgba(37,99,235,0.15));
-      border: 1px solid rgba(6,214,160,0.25);
+      background: linear-gradient(135deg, rgba(76,201,240,0.2), rgba(37,99,235,0.15));
+      border: 1px solid rgba(76,201,240,0.25);
       display: flex;
       align-items: center;
       justify-content: center;
       animation: corePulse 3s ease-in-out infinite;
-      box-shadow: 0 0 40px rgba(6,214,160,0.1);
+      box-shadow: 0 0 40px rgba(76,201,240,0.1);
     }
-    .orbital__core-inner svg { width: 28px; height: 28px; color: var(--teal); }
+    .orbital__core-inner svg { width: 28px; height: 28px; color: var(--electric); }
     @keyframes corePulse {
-      0%, 100% { box-shadow: 0 0 40px rgba(6,214,160,0.1); transform: scale(1); }
-      50% { box-shadow: 0 0 80px rgba(6,214,160,0.2); transform: scale(1.06); }
+      0%, 100% { box-shadow: 0 0 40px rgba(76,201,240,0.1); transform: scale(1); }
+      50% { box-shadow: 0 0 80px rgba(76,201,240,0.2); transform: scale(1.06); }
     }
     .orbital__core-label {
       position: absolute;
@@ -940,8 +957,8 @@
       transition: all 0.3s ease;
     }
     .orbital__node:hover {
-      border-color: rgba(6,214,160,0.25);
-      box-shadow: 0 0 30px rgba(6,214,160,0.08);
+      border-color: rgba(76,201,240,0.25);
+      box-shadow: 0 0 30px rgba(76,201,240,0.08);
       transform: scale(1.04);
     }
     .orbital__node--top { top: -10px; left: 50%; transform: translateX(-50%); }
@@ -962,8 +979,8 @@
       flex-shrink: 0;
     }
     .orbital__node-icon svg { width: 18px; height: 18px; }
-    .orbital__node-icon--teal { background: var(--teal-subtle); }
-    .orbital__node-icon--teal svg { color: var(--teal); }
+    .orbital__node-icon--electric { background: var(--electric-subtle); }
+    .orbital__node-icon--electric svg { color: var(--electric); }
     .orbital__node-icon--blue { background: var(--blue-subtle); }
     .orbital__node-icon--blue svg { color: var(--blue-bright); }
 
@@ -985,7 +1002,7 @@
       transform-origin: 0 0;
       height: 1px;
       width: 140px;
-      background: linear-gradient(90deg, rgba(6,214,160,0.25), transparent);
+      background: linear-gradient(90deg, rgba(76,201,240,0.25), transparent);
     }
     .orbital__beam--top { transform: rotate(-90deg); }
     .orbital__beam--right { transform: rotate(0deg); }
@@ -996,8 +1013,8 @@
       position: absolute;
       width: 5px; height: 5px;
       border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 8px var(--teal);
+      background: var(--electric);
+      box-shadow: 0 0 8px var(--electric);
       animation: beamTravel 3s ease-in-out infinite;
     }
     .orbital__beam--top::after { animation-delay: 0s; }
@@ -1013,8 +1030,8 @@
 
     /* ─── COMPARISON ─── */
     .comparison {
-      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(6,214,160,0.02) 0%, transparent 50%), var(--bg);
-      border-top: 1px solid rgba(6,214,160,0.06);
+      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(76,201,240,0.02) 0%, transparent 50%), var(--bg);
+      border-top: 1px solid rgba(76,201,240,0.06);
     }
     .comparison--centered {
       text-align: center;
@@ -1045,9 +1062,9 @@
     }
 
     .comparison__col--new {
-      background: rgba(6,214,160,0.04);
-      border: 1px solid rgba(6,214,160,0.15);
-      box-shadow: 0 0 60px rgba(6,214,160,0.04);
+      background: rgba(76,201,240,0.04);
+      border: 1px solid rgba(76,201,240,0.15);
+      box-shadow: 0 0 60px rgba(76,201,240,0.04);
     }
 
     .comparison__heading {
@@ -1059,7 +1076,7 @@
       border-bottom: 1px solid var(--border);
     }
     .comparison__col--new .comparison__heading {
-      border-bottom-color: rgba(6,214,160,0.12);
+      border-bottom-color: rgba(76,201,240,0.12);
     }
 
     .comparison__item {
@@ -1080,7 +1097,7 @@
       margin-top: 3px;
     }
     .comparison__icon--x { color: var(--red); }
-    .comparison__icon--check { color: var(--teal); }
+    .comparison__icon--check { color: var(--electric); }
 
     /* ─── PLATFORM ─── */
     .platform {
@@ -1115,8 +1132,8 @@
       cursor: default;
     }
     .platform__pill:hover {
-      border-color: rgba(6,214,160,0.2);
-      background: rgba(6,214,160,0.04);
+      border-color: rgba(76,201,240,0.2);
+      background: rgba(76,201,240,0.04);
       transform: translateY(-2px);
     }
 
@@ -1129,8 +1146,8 @@
       flex-shrink: 0;
     }
     .platform__pill-icon svg { width: 15px; height: 15px; }
-    .platform__pill-icon--teal { background: var(--teal-subtle); }
-    .platform__pill-icon--teal svg { color: var(--teal); }
+    .platform__pill-icon--electric { background: var(--electric-subtle); }
+    .platform__pill-icon--electric svg { color: var(--electric); }
     .platform__pill-icon--blue { background: var(--blue-subtle); }
     .platform__pill-icon--blue svg { color: var(--blue-bright); }
 
@@ -1152,8 +1169,8 @@
     .offer {
       padding: clamp(80px, 10vw, 140px) 0;
       position: relative;
-      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(245,158,11,0.04) 0%, transparent 60%),
-                  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(37,99,235,0.03) 0%, transparent 50%),
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(76,201,240,0.04) 0%, transparent 60%),
+                  radial-gradient(ellipse 50% 40% at 50% 50%, rgba(37,99,235,0.05) 0%, transparent 50%),
                   #080D18;
     }
     .offer::before {
@@ -1162,7 +1179,7 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 800px; height: 600px;
-      background: radial-gradient(ellipse, rgba(245,158,11,0.06) 0%, transparent 60%);
+      background: radial-gradient(ellipse, rgba(76,201,240,0.06) 0%, rgba(37,99,235,0.04) 40%, transparent 60%);
       pointer-events: none;
       filter: blur(40px);
     }
@@ -1172,13 +1189,13 @@
       margin: 0 auto;
       background: var(--bg-card);
       border: 1px solid var(--border-light);
-      border-top: 3px solid var(--amber);
+      border-top: 3px solid var(--electric);
       border-radius: 16px;
       padding: clamp(36px, 5vw, 60px);
       position: relative;
       box-shadow:
-        0 0 100px rgba(245,158,11,0.06),
-        0 0 200px rgba(37,99,235,0.04),
+        0 0 100px rgba(76,201,240,0.08),
+        0 0 200px rgba(37,99,235,0.06),
         0 30px 80px rgba(0,0,0,0.5);
       text-align: center;
     }
@@ -1217,7 +1234,7 @@
     .value-stack__check {
       flex-shrink: 0;
       width: 22px; height: 22px;
-      color: var(--teal);
+      color: var(--electric);
       margin-top: 2px;
     }
 
@@ -1258,7 +1275,7 @@
       font-style: italic;
       color: #fff;
       line-height: 1;
-      text-shadow: 0 0 60px var(--amber-glow), 0 0 120px rgba(245,158,11,0.15);
+      text-shadow: 0 0 60px var(--electric-glow), 0 0 120px rgba(76,201,240,0.2);
     }
 
     .offer__term {
@@ -1299,17 +1316,17 @@
       gap: 10px;
       margin-top: 28px;
       padding: 14px 24px;
-      background: var(--amber-subtle);
-      border: 1px solid rgba(245,158,11,0.2);
+      background: var(--coral-subtle);
+      border: 1px solid rgba(255,112,67,0.25);
       border-radius: 10px;
       font-size: 14px;
       font-weight: 600;
-      color: var(--amber);
+      color: var(--coral);
     }
     .offer__scarcity-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--amber);
+      background: var(--coral);
       animation: pulse 2s infinite;
     }
 
@@ -1361,7 +1378,7 @@
     }
     .faq__item.is-open .faq__icon {
       transform: rotate(45deg);
-      color: var(--teal);
+      color: var(--electric);
     }
 
     .faq__a {
@@ -1385,7 +1402,7 @@
       text-align: center;
       padding: clamp(80px, 10vw, 140px) 0;
       position: relative;
-      background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(6,214,160,0.03) 0%, transparent 50%),
+      background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(76,201,240,0.03) 0%, transparent 50%),
                   radial-gradient(ellipse 40% 30% at 50% 40%, rgba(245,158,11,0.03) 0%, transparent 50%),
                   #080D18;
     }
@@ -1394,7 +1411,7 @@
       font-size: clamp(32px, 4vw, 56px);
       margin-bottom: 20px;
     }
-    .final-cta__title em { font-style: italic; color: var(--amber); }
+    .final-cta__title em { font-style: italic; color: var(--electric); }
 
     .final-cta__sub {
       font-size: 17px;
@@ -1486,8 +1503,7 @@
     }
 
     @media (max-width: 900px) {
-      .deliverables__grid { grid-template-columns: 1fr; }
-      .deliverables__col:nth-child(2) { margin-top: 0; }
+      .deliverables__grid { grid-template-columns: repeat(2, 1fr); }
       .comparison__grid { grid-template-columns: 1fr; }
       .showcase__grid { grid-template-columns: 1fr; }
       .questions__grid { grid-template-columns: repeat(2, 1fr); }
@@ -1498,6 +1514,7 @@
       .hiw__step { grid-template-columns: 1fr; gap: 16px; }
       .hiw__step-num { font-size: 48px; }
       .questions__grid { grid-template-columns: 1fr; }
+      .deliverables__grid { grid-template-columns: 1fr; }
       .mobile-cta { display: block; }
       .stats-strip__div { display: none; }
       .stats-strip__inner { gap: 20px; }
@@ -1507,6 +1524,9 @@
 </head>
 
 <body>
+
+  <!-- Global floating particles -->
+  <canvas class="global-canvas" id="globalCanvas"></canvas>
 
   <!-- ─── HERO ─── -->
   <header class="hero">
@@ -1555,7 +1575,7 @@
           </div>
           <div class="hero__float-step hero__float-step--active">
             <div class="hero__float-check hero__float-check--active">
-              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><path d="M8 2a6 6 0 014.5 10" /></svg>
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="var(--electric)" stroke-width="2" stroke-linecap="round"><path d="M8 2a6 6 0 014.5 10" /></svg>
             </div>
             Engineering your offer stack...
           </div>
@@ -1607,7 +1627,7 @@
     <div class="wrap">
       <div class="stats-strip__inner">
         <div class="stats-strip__item reveal" data-delay="1">
-          <div class="stats-strip__num stats-strip__num--teal">6 min</div>
+          <div class="stats-strip__num stats-strip__num--electric">6 min</div>
           <div class="stats-strip__label">Average generation time</div>
         </div>
         <div class="stats-strip__div"></div>
@@ -1801,39 +1821,35 @@
       <p class="section__subtitle reveal" data-delay="2">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
 
       <div class="deliverables__grid">
-        <div class="deliverables__col">
-          <div class="deliverable reveal--left" data-delay="1">
-            <div class="deliverable__accent"></div>
-            <div class="deliverable__title">45-Minute Webinar Script</div>
-            <div class="deliverable__desc">Section-by-section, in your voice. Strategic pacing, audience engagement cues, trial closes, and a closing sequence engineered to book appointments.</div>
-          </div>
-          <div class="deliverable reveal--left" data-delay="2">
-            <div class="deliverable__accent"></div>
-            <div class="deliverable__title">8 Marketing Emails</div>
-            <div class="deliverable__desc">A full sequence of curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
-          </div>
-          <div class="deliverable reveal--left" data-delay="3">
-            <div class="deliverable__accent"></div>
-            <div class="deliverable__title">3 Follow-Up Emails</div>
-            <div class="deliverable__desc">Post-webinar sequence that converts attendees into booked discovery calls. Urgency, value recap, and clear calls-to-action.</div>
-          </div>
+        <div class="deliverable reveal" data-delay="1">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">45-Minute Webinar Script</div>
+          <div class="deliverable__desc">Section-by-section, in your voice. Strategic pacing, audience engagement cues, trial closes, and a closing sequence engineered to book appointments.</div>
         </div>
-        <div class="deliverables__col">
-          <div class="deliverable reveal--right" data-delay="1">
-            <div class="deliverable__accent"></div>
-            <div class="deliverable__title">Social Media Posts</div>
-            <div class="deliverable__desc">Ready-to-post promotional content for LinkedIn and beyond. Written to sound human, not automated. Drives registrations.</div>
-          </div>
-          <div class="deliverable reveal--right" data-delay="2">
-            <div class="deliverable__accent"></div>
-            <div class="deliverable__title">Landing Page Copy</div>
-            <div class="deliverable__desc">Headlines, bullets, and body copy for your webinar registration page. Conversion-focused and specific to your topic.</div>
-          </div>
-          <div class="deliverable reveal--right" data-delay="3">
-            <div class="deliverable__accent"></div>
-            <div class="deliverable__title">Complete Offer Stack</div>
-            <div class="deliverable__desc">Named deliverables with value anchoring, built on the Grand Slam methodology. Makes your webinar offer feel irresistible to attendees.</div>
-          </div>
+        <div class="deliverable reveal" data-delay="2">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">8 Marketing Emails</div>
+          <div class="deliverable__desc">A full sequence of curiosity-driven emails designed to fill seats. Not templates&nbsp;&mdash;&nbsp;written around your specific topic, audience, and webinar angle.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="3">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">3 Follow-Up Emails</div>
+          <div class="deliverable__desc">Post-webinar sequence that converts attendees into booked discovery calls. Urgency, value recap, and clear calls-to-action.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="1">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Social Media Posts</div>
+          <div class="deliverable__desc">Ready-to-post promotional content for LinkedIn and beyond. Written to sound human, not automated. Drives registrations.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="2">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Landing Page Copy</div>
+          <div class="deliverable__desc">Headlines, bullets, and body copy for your webinar registration page. Conversion-focused and specific to your topic.</div>
+        </div>
+        <div class="deliverable reveal" data-delay="3">
+          <div class="deliverable__accent"></div>
+          <div class="deliverable__title">Complete Offer Stack</div>
+          <div class="deliverable__desc">Named deliverables with value anchoring, built on the Grand Slam methodology. Makes your webinar offer feel irresistible to attendees.</div>
         </div>
       </div>
     </div>
@@ -1882,7 +1898,7 @@
             </div>
 
             <div class="orbital__node orbital__node--top">
-              <div class="orbital__node-icon orbital__node-icon--teal">
+              <div class="orbital__node-icon orbital__node-icon--electric">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
               </div>
               <div>
@@ -1902,7 +1918,7 @@
             </div>
 
             <div class="orbital__node orbital__node--bottom">
-              <div class="orbital__node-icon orbital__node-icon--teal">
+              <div class="orbital__node-icon orbital__node-icon--electric">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </div>
               <div>
@@ -1993,13 +2009,13 @@
 
       <div class="platform__pills reveal" data-delay="3">
         <div class="platform__pill">
-          <div class="platform__pill-icon platform__pill-icon--teal">
+          <div class="platform__pill-icon platform__pill-icon--electric">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
           <span class="platform__pill-name">Webinar Wizard</span>
         </div>
         <div class="platform__pill">
-          <div class="platform__pill-icon platform__pill-icon--teal">
+          <div class="platform__pill-icon platform__pill-icon--electric">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
           <span class="platform__pill-name">Financial Diagnostic Tool</span>
@@ -2017,7 +2033,7 @@
           <span class="platform__pill-name">Funnel Builder</span>
         </div>
         <div class="platform__pill">
-          <div class="platform__pill-icon platform__pill-icon--teal">
+          <div class="platform__pill-icon platform__pill-icon--electric">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
           </div>
           <span class="platform__pill-name">Email &amp; SMS Automation</span>
@@ -2029,7 +2045,7 @@
           <span class="platform__pill-name">Calendar Booking</span>
         </div>
         <div class="platform__pill">
-          <div class="platform__pill-icon platform__pill-icon--teal">
+          <div class="platform__pill-icon platform__pill-icon--electric">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <span class="platform__pill-name">Reputation Management</span>
@@ -2234,7 +2250,7 @@
   </div>
 
   <script>
-    // ─── PARTICLE CANVAS ───
+    // ─── HERO PARTICLE CANVAS ───
     (function() {
       const canvas = document.getElementById('heroCanvas');
       if (!canvas) return;
@@ -2259,7 +2275,7 @@
             vy: -Math.random() * 0.4 - 0.1,
             size: Math.random() * 1.5 + 0.5,
             opacity: Math.random() * 0.5 + 0.1,
-            color: Math.random() > 0.7 ? '6, 214, 160' : '37, 99, 235'
+            color: Math.random() > 0.7 ? '76, 201, 240' : '37, 99, 235'
           });
         }
       }
@@ -2273,6 +2289,57 @@
           if (p.x < -10) p.x = w + 10;
           if (p.x > w + 10) p.x = -10;
 
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.color + ',' + p.opacity + ')';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      createParticles();
+      draw();
+      window.addEventListener('resize', () => { resize(); createParticles(); });
+    })();
+
+    // ─── GLOBAL PARTICLE CANVAS (full page) ───
+    (function() {
+      const canvas = document.getElementById('globalCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let w, h;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.min(40, Math.floor(w * h / 25000));
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.15,
+            vy: -Math.random() * 0.2 - 0.05,
+            size: Math.random() * 1.2 + 0.3,
+            opacity: Math.random() * 0.35 + 0.05,
+            color: Math.random() > 0.6 ? '76, 201, 240' : '37, 99, 235'
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(' + p.color + ',' + p.opacity + ')';
