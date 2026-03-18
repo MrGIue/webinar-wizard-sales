@@ -1517,8 +1517,14 @@
       line-height: 1.5;
       transition: color 0.2s;
     }
-    .faq__q:hover { color: #fff; background: none; -webkit-tap-highlight-color: transparent; }
-    .faq__q { -webkit-tap-highlight-color: transparent; }
+    .faq__q:hover { color: #fff; }
+    .faq__q, .faq__q:focus, .faq__q:active, .faq__q:hover {
+      -webkit-tap-highlight-color: transparent;
+      outline: none !important;
+      background: none !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
 
     .faq__icon {
       flex-shrink: 0;
