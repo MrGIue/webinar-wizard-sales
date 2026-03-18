@@ -231,7 +231,11 @@
     /* ─── HERO ─── */
     .hero {
       position: relative;
-      padding: clamp(80px, 10vw, 140px) 0 clamp(60px, 8vw, 100px);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 5vw, 60px) 0;
       overflow: hidden;
       background: radial-gradient(ellipse 80% 60% at 50% 40%, #0C1530 0%, var(--bg) 70%);
     }
