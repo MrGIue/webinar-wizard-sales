@@ -1517,7 +1517,8 @@
       line-height: 1.5;
       transition: color 0.2s;
     }
-    .faq__q:hover { color: #fff; }
+    .faq__q:hover { color: #fff; background: none; -webkit-tap-highlight-color: transparent; }
+    .faq__q { -webkit-tap-highlight-color: transparent; }
 
     .faq__icon {
       flex-shrink: 0;
@@ -1690,8 +1691,35 @@
       .hiw__step-num { font-size: 56px; color: rgba(76,201,240,0.18); }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 767px) {
       body { font-size: 16px; }
+
+      /* Buttons - smaller on mobile */
+      .btn { font-size: 14px; padding: 14px 28px; }
+      .offer__btn { font-size: 16px; padding: 18px 32px; }
+
+      /* Spots pill - wrap text */
+      .hero__spots {
+        font-size: 12px;
+        padding: 8px 16px;
+        gap: 8px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      /* Scarcity pill - allow wrapping */
+      .offer__scarcity {
+        font-size: 12px;
+        padding: 12px 16px;
+        text-align: center;
+        flex-wrap: wrap;
+      }
+
+      /* FAQ - remove all hover highlights */
+      .faq__q:hover { background: none !important; }
+      .faq__q:active { background: none !important; }
+      .faq__q { -webkit-tap-highlight-color: transparent; }
+
       .hiw__step-num { font-size: 48px; }
       .questions__grid { grid-template-columns: 1fr; }
       .deliverables__grid { grid-template-columns: 1fr; }
@@ -1699,6 +1727,9 @@
       .stats-strip__div { display: none; }
       .stats-strip__inner { gap: 20px; }
       .stats-strip__visual { display: none; }
+
+      /* Final CTA button */
+      .final-cta .btn { font-size: 14px; padding: 14px 24px; }
     }
   </style>
 </head>
