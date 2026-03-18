@@ -433,18 +433,31 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--amber);
       padding: 6px 14px;
       border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .step-card__tag--green {
+      color: var(--green);
+      border: 1px solid rgba(22,163,74,0.25);
+      background: rgba(22,163,74,0.08);
+    }
+    .step-card__tag--amber {
+      color: var(--amber);
       border: 1px solid rgba(245,158,11,0.2);
       background: var(--amber-subtle);
-      margin-bottom: 16px;
+    }
+    .step-card__tag--electric {
+      color: var(--electric);
+      border: 1px solid rgba(76,201,240,0.2);
+      background: var(--electric-subtle);
     }
 
     .step-card__tag-dot {
       width: 6px;
       height: 6px;
-      background: var(--amber);
+      background: currentColor;
       border-radius: 50%;
       animation: tagPulse 2s infinite;
     }
@@ -579,7 +592,7 @@
 
       <div class="steps__grid">
         <div class="step-card step-card--active reveal" data-delay="1">
-          <div class="step-card__tag">
+          <div class="step-card__tag step-card__tag--green">
             <span class="step-card__tag-dot"></span>
             Do this now
           </div>
@@ -593,7 +606,7 @@
         </div>
 
         <div class="step-card reveal" data-delay="2">
-          <div class="step-card__tag">
+          <div class="step-card__tag step-card__tag--amber">
             <span class="step-card__tag-dot"></span>
             Do this next
           </div>
@@ -603,7 +616,7 @@
         </div>
 
         <div class="step-card reveal" data-delay="3">
-          <div class="step-card__tag">
+          <div class="step-card__tag step-card__tag--electric">
             <span class="step-card__tag-dot"></span>
             Do this ASAP
           </div>
