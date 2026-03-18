@@ -129,14 +129,14 @@
     }
 
     .btn--blue {
-      background: var(--blue);
+      background: #16A34A;
       color: #fff;
-      box-shadow: var(--glow-sm), 0 1px 2px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(22,163,74,0.2), 0 1px 2px rgba(0,0,0,0.3);
     }
     .btn--blue:hover {
-      background: var(--blue-bright);
+      background: #22C55E;
       color: #fff;
-      box-shadow: var(--glow-md), 0 4px 12px rgba(0,0,0,0.4);
+      box-shadow: 0 0 40px rgba(22,163,74,0.3), 0 4px 12px rgba(0,0,0,0.4);
       transform: translateY(-2px);
     }
 
@@ -1208,6 +1208,51 @@
       transform: translateY(0);
     }
 
+    /* ─── QUESTIONS ROADMAP ─── */
+    .questions-roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .q-card {
+      background: rgba(15,20,36,0.7);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .q-card:hover {
+      border-color: rgba(37,99,235,0.25);
+      background: rgba(15,20,36,0.9);
+      transform: translateY(-2px);
+    }
+
+    .q-card__num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--blue-bright);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .q-card__title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .q-card__desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+    }
+
     /* ─── SECTION WITH VISUAL (2-col layout) ─── */
     .section__grid {
       display: grid;
@@ -1600,6 +1645,7 @@
       .problem__callouts { flex-direction: row; position: static; }
       .callout { flex: 1; }
       .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+      .questions-roadmap { grid-template-columns: repeat(2, 1fr); }
       .comparison { grid-template-columns: 1fr; }
       .hero__stats { gap: 32px; }
       .screenshots-grid { grid-template-columns: 1fr; }
@@ -1610,6 +1656,7 @@
       .wrap { padding: 0 20px; }
       .hero__stats { flex-direction: column; gap: 24px; }
       .deliverables-grid { grid-template-columns: 1fr; }
+      .questions-roadmap { grid-template-columns: 1fr; }
       .problem__callouts { flex-direction: column; }
       .offer-card { padding: 28px; border-radius: 12px; }
       .mobile-cta { display: block; }
@@ -1864,6 +1911,43 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- 6 Questions Roadmap -->
+      <h3 class="section__title fade-up" style="font-size:clamp(22px,2.5vw,32px); margin-top:64px; margin-bottom:8px;">The 6 Questions That Power Everything</h3>
+      <p class="section__subtitle fade-up" style="margin-bottom:32px;">Each question is designed to pull out what makes your practice unique. Here&rsquo;s what you&rsquo;ll answer:</p>
+
+      <div class="questions-roadmap fade-up">
+        <div class="q-card">
+          <div class="q-card__num">01</div>
+          <div class="q-card__title">The Mistake</div>
+          <div class="q-card__desc">The #1 mistake your ideal client makes &mdash; and the simple fix only you provide.</div>
+        </div>
+        <div class="q-card">
+          <div class="q-card__num">02</div>
+          <div class="q-card__title">The Vision</div>
+          <div class="q-card__desc">Paint the picture of success. What does life look like 3 years from now with the right plan?</div>
+        </div>
+        <div class="q-card">
+          <div class="q-card__num">03</div>
+          <div class="q-card__title">The Objections</div>
+          <div class="q-card__desc">The 3 objections you hear every day &mdash; the polite reason and the real reason behind each.</div>
+        </div>
+        <div class="q-card">
+          <div class="q-card__num">04</div>
+          <div class="q-card__title">The Origin Story</div>
+          <div class="q-card__desc">Why you do what you do. The defining moment that shaped your approach.</div>
+        </div>
+        <div class="q-card">
+          <div class="q-card__num">05</div>
+          <div class="q-card__title">The Goodie Bag</div>
+          <div class="q-card__desc">3 free resources you can offer attendees to build trust and demonstrate value.</div>
+        </div>
+        <div class="q-card">
+          <div class="q-card__num">06</div>
+          <div class="q-card__title">The Scarcity</div>
+          <div class="q-card__desc">Why prospects say no &mdash; and what they miss by waiting.</div>
         </div>
       </div>
     </div>
