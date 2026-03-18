@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500;1,9..144,600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -70,11 +70,12 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-weight: 700;
-      line-height: 1.1;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.12;
       color: #fff;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
+      font-optical-sizing: auto;
     }
 
     a { color: var(--electric); text-decoration: none; transition: color 0.2s; }
@@ -206,12 +207,39 @@
       pointer-events: none;
     }
 
-    .global-canvas {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
+    /* CSS-based particles for sections */
+    .has-particles {
+      position: relative;
+    }
+    .has-particles::after {
+      content: '';
+      position: absolute;
+      inset: -60px;
+      background-image:
+        radial-gradient(1.5px 1.5px at 8% 15%, rgba(76,201,240,0.3), transparent),
+        radial-gradient(1px 1px at 25% 55%, rgba(37,99,235,0.25), transparent),
+        radial-gradient(2px 2px at 42% 85%, rgba(76,201,240,0.2), transparent),
+        radial-gradient(1px 1px at 65% 25%, rgba(37,99,235,0.3), transparent),
+        radial-gradient(1.5px 1.5px at 82% 65%, rgba(76,201,240,0.25), transparent),
+        radial-gradient(1px 1px at 18% 78%, rgba(37,99,235,0.2), transparent),
+        radial-gradient(2px 2px at 55% 12%, rgba(76,201,240,0.25), transparent),
+        radial-gradient(1px 1px at 72% 48%, rgba(37,99,235,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 35% 35%, rgba(76,201,240,0.15), transparent),
+        radial-gradient(1px 1px at 88% 88%, rgba(37,99,235,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 5% 45%, rgba(76,201,240,0.2), transparent),
+        radial-gradient(1px 1px at 95% 15%, rgba(37,99,235,0.25), transparent);
+      background-size: 100% 100%;
+      animation: particleDrift 25s ease-in-out infinite;
       pointer-events: none;
-      opacity: 0.5;
+      z-index: 0;
+    }
+    @keyframes particleDrift {
+      0% { transform: translate(0, 0); }
+      20% { transform: translate(12px, -18px); }
+      40% { transform: translate(-8px, -35px); }
+      60% { transform: translate(18px, -20px); }
+      80% { transform: translate(-5px, -10px); }
+      100% { transform: translate(0, 0); }
     }
 
     .hero__grid {
@@ -427,7 +455,7 @@
 
     /* ─── PROBLEM ─── */
     .problem {
-      background: linear-gradient(180deg, var(--bg) 0%, rgba(8,13,24,0.92) 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
     }
 
     .problem__text {
@@ -446,7 +474,7 @@
 
     .problem__stat {
       display: block;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(56px, 6vw, 80px);
       color: #fff;
       line-height: 1;
@@ -465,7 +493,7 @@
     .stats-strip {
       position: relative;
       padding: 48px 0;
-      background: rgba(8,13,24,0.92);
+      background: #080D18;
       border-top: 1px solid rgba(76,201,240,0.08);
       border-bottom: 1px solid rgba(76,201,240,0.08);
     }
@@ -483,7 +511,7 @@
     }
 
     .stats-strip__num {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(28px, 3vw, 40px);
       color: #fff;
       line-height: 1;
@@ -518,7 +546,7 @@
 
     /* ─── HOW IT WORKS ─── */
     .hiw {
-      background: linear-gradient(180deg, rgba(8,13,24,0.92) 0%, #061018 50%, rgba(8,13,24,0.92) 100%);
+      background: linear-gradient(180deg, #080D18 0%, #061018 50%, #080D18 100%);
     }
 
     .hiw__steps {
@@ -538,14 +566,14 @@
     .hiw__step:last-child { border-bottom: none; }
 
     .hiw__step-num {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(64px, 7vw, 96px);
       color: rgba(255,255,255,0.04);
       line-height: 1;
     }
 
     .hiw__step-title {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(22px, 2.5vw, 30px);
       color: #fff;
       margin-bottom: 12px;
@@ -690,7 +718,7 @@
     }
 
     .q-card__num {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 32px;
       line-height: 1;
       margin-bottom: 12px;
@@ -713,7 +741,7 @@
 
     /* ─── PRODUCT SHOWCASE ─── */
     .showcase {
-      background: linear-gradient(180deg, rgba(8,13,24,0.92) 0%, var(--bg) 100%);
+      background: linear-gradient(180deg, #080D18 0%, var(--bg) 100%);
       border-top: 1px solid rgba(76,201,240,0.06);
     }
 
@@ -787,7 +815,7 @@
 
     /* ─── DELIVERABLES ─── */
     .deliverables {
-      background: linear-gradient(180deg, var(--bg) 0%, rgba(8,13,24,0.92) 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
     }
 
     .deliverables__grid {
@@ -837,7 +865,7 @@
 
     /* ─── DIFFERENTIATION ─── */
     .diff {
-      background: linear-gradient(180deg, rgba(8,13,24,0.92) 0%, #0A1020 50%, rgba(8,13,24,0.92) 100%);
+      background: linear-gradient(180deg, #080D18 0%, #0A1020 50%, #080D18 100%);
     }
 
     .diff__grid {
@@ -859,7 +887,7 @@
       margin: 48px 0;
       padding: 28px 0 28px 24px;
       border-left: 2px solid var(--electric);
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(20px, 2vw, 26px);
       font-style: normal;
       color: rgba(76,201,240,0.7);
@@ -1065,7 +1093,7 @@
     }
 
     .comparison__heading {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 22px;
       color: #fff;
       margin-bottom: 28px;
@@ -1098,7 +1126,7 @@
 
     /* ─── PLATFORM ─── */
     .platform {
-      background: linear-gradient(180deg, var(--bg) 0%, rgba(8,13,24,0.92) 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, #080D18 100%);
       text-align: center;
     }
 
@@ -1168,7 +1196,7 @@
       position: relative;
       background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(76,201,240,0.04) 0%, transparent 60%),
                   radial-gradient(ellipse 50% 40% at 50% 50%, rgba(37,99,235,0.05) 0%, transparent 50%),
-                  rgba(8,13,24,0.92);
+                  #080D18;
     }
     .offer::before {
       content: '';
@@ -1267,7 +1295,7 @@
     }
 
     .offer__amount {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(56px, 6vw, 80px);
       font-style: normal;
       color: #fff;
@@ -1401,7 +1429,7 @@
       position: relative;
       background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(76,201,240,0.03) 0%, transparent 50%),
                   radial-gradient(ellipse 40% 30% at 50% 40%, rgba(245,158,11,0.03) 0%, transparent 50%),
-                  rgba(8,13,24,0.92);
+                  #080D18;
     }
 
     .final-cta__title {
@@ -1446,7 +1474,7 @@
       text-align: center;
     }
     .footer__brand {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 20px;
       color: #fff;
       margin-bottom: 8px;
@@ -1522,9 +1550,6 @@
 
 <body>
 
-  <!-- Global floating particles -->
-  <canvas class="global-canvas" id="globalCanvas"></canvas>
-
   <!-- ─── HERO ─── -->
   <header class="hero">
     <canvas class="hero__canvas" id="heroCanvas"></canvas>
@@ -1590,7 +1615,7 @@
   </header>
 
   <!-- ─── PROBLEM ─── -->
-  <section class="section problem">
+  <section class="section problem has-particles">
     <div class="wrap">
       <div class="label section__label reveal">The Problem</div>
       <h2 class="section__title reveal" data-delay="1">Webinars Work.<br>Building Them <em>Doesn&rsquo;t.</em></h2>
@@ -1647,7 +1672,7 @@
   </div>
 
   <!-- ─── HOW IT WORKS ─── -->
-  <section class="section hiw">
+  <section class="section hiw has-particles">
     <div class="wrap">
       <div class="label section__label reveal">How It Works</div>
       <h2 class="section__title reveal" data-delay="1">6 Questions. One System.<br><em>Complete Campaign.</em></h2>
@@ -1743,7 +1768,7 @@
   </section>
 
   <!-- ─── PRODUCT SHOWCASE ─── -->
-  <section class="section showcase">
+  <section class="section showcase has-particles">
     <div class="wrap">
       <div class="label section__label reveal">See It In Action</div>
       <h2 class="section__title reveal" data-delay="1">Built for Financial Advisors.<br><em>Not a Generic AI Tool.</em></h2>
@@ -1807,7 +1832,7 @@
   </section>
 
   <!-- ─── DELIVERABLES ─── -->
-  <section class="section deliverables">
+  <section class="section deliverables has-particles">
     <div class="wrap">
       <div class="label section__label reveal">What You Get</div>
       <h2 class="section__title reveal" data-delay="1">Everything You Need to Fill a Room<br><em>and Book Appointments</em></h2>
@@ -1849,7 +1874,7 @@
   </section>
 
   <!-- ─── DIFFERENTIATION ─── -->
-  <section class="section diff">
+  <section class="section diff has-particles">
     <div class="wrap">
       <div class="label section__label reveal">Why This Is Different</div>
       <h2 class="section__title reveal" data-delay="1">This Isn&rsquo;t a Chatbot.<br><em>It&rsquo;s a Campaign Engine.</em></h2>
@@ -1936,7 +1961,7 @@
   </section>
 
   <!-- ─── COMPARISON ─── -->
-  <section class="section comparison comparison--centered">
+  <section class="section comparison has-particles comparison--centered">
     <div class="wrap">
       <h2 class="section__title reveal"><em>The Math</em> Is Simple</h2>
       <p class="section__subtitle reveal" data-delay="1">Compare the cost and time of building a webinar campaign three different ways.</p>
@@ -1994,7 +2019,7 @@
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section platform">
+  <section class="section platform has-particles">
     <div class="wrap">
       <div class="label section__label reveal">Included In Your Membership</div>
       <h2 class="section__title reveal" data-delay="1">Webinar Wizard Is One Feature.<br><em>You Get the Whole Platform.</em></h2>
@@ -2050,7 +2075,7 @@
   </section>
 
   <!-- ─── OFFER ─── -->
-  <section class="section offer" id="offer">
+  <section class="section offer has-particles" id="offer">
     <div class="wrap">
       <div class="offer__card reveal--scale" data-delay="1">
         <div class="label offer__label">Founding Member Access</div>
@@ -2209,7 +2234,7 @@
   </section>
 
   <!-- ─── FINAL CTA ─── -->
-  <section class="section final-cta">
+  <section class="section final-cta has-particles">
     <div class="wrap">
       <h2 class="final-cta__title reveal">50 Spots. Then This<br><em>Price Disappears.</em></h2>
       <p class="final-cta__sub reveal" data-delay="1">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
@@ -2296,56 +2321,6 @@
       window.addEventListener('resize', () => { resize(); createParticles(); });
     })();
 
-    // ─── GLOBAL PARTICLE CANVAS (full page) ───
-    (function() {
-      const canvas = document.getElementById('globalCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-      let w, h;
-
-      function resize() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-      }
-
-      function createParticles() {
-        particles = [];
-        const count = Math.min(30, Math.floor(w * h / 30000));
-        for (let i = 0; i < count; i++) {
-          particles.push({
-            x: Math.random() * w,
-            y: Math.random() * h,
-            vx: (Math.random() - 0.5) * 0.15,
-            vy: -Math.random() * 0.2 - 0.05,
-            size: Math.random() * 1.2 + 0.3,
-            opacity: Math.random() * 0.35 + 0.05,
-            color: Math.random() > 0.6 ? '76, 201, 240' : '37, 99, 235'
-          });
-        }
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        particles.forEach(p => {
-          p.x += p.vx;
-          p.y += p.vy;
-          if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
-          if (p.x < -10) p.x = w + 10;
-          if (p.x > w + 10) p.x = -10;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(' + p.color + ',' + p.opacity + ')';
-          ctx.fill();
-        });
-        requestAnimationFrame(draw);
-      }
-
-      resize();
-      createParticles();
-      draw();
-      window.addEventListener('resize', () => { resize(); createParticles(); });
-    })();
 
     // ─── SCROLL REVEAL ───
     (function() {
