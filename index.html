@@ -55,110 +55,7 @@
       overflow-x: hidden;
     }
 
-    /* ─── ESCALATING BLOOM SYSTEM ─── */
-    /* Each section gets progressively more intense glow as user scrolls toward pricing */
-
-    .bloom {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(80px);
-      z-index: 0;
-    }
-
-    /* Intensity levels — applied per section */
-    .bloom--soft { opacity: 0.06; }
-    .bloom--medium { opacity: 0.1; }
-    .bloom--hot { opacity: 0.15; }
-    .bloom--peak { opacity: 0.22; }
-
-    .bloom--blue { background: var(--blue); }
-    .bloom--purple { background: var(--purple); }
-    .bloom--green { background: #16A34A; }
-    .bloom--amber { background: #F59E0B; }
-
-    /* ─── GEOMETRIC ACCENT LINES ─── */
-    /* Angular lines matching the TA branded background — increase in density toward bottom */
-    .geo-accent {
-      position: absolute;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .geo-accent svg {
-      width: 100%;
-      height: 100%;
-    }
-    .geo-accent__line {
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .geo-accent__line--blue {
-      stroke: rgba(37,99,235,0.15);
-    }
-    .geo-accent__line--purple {
-      stroke: rgba(124,58,237,0.12);
-    }
-    .geo-accent__line--green {
-      stroke: rgba(22,163,74,0.1);
-    }
-
-    /* ─── SECTION TRANSITION STRIPS ─── */
-    /* Full-width branded accent strips between sections */
-    .section-strip {
-      position: relative;
-      padding: 40px 0;
-      background: url('assets/bg-dark.jpeg') center/cover no-repeat;
-      overflow: hidden;
-    }
-    .section-strip__inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-    }
-    .section-strip__stat {
-      text-align: center;
-    }
-    .section-strip__num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 36px;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .section-strip__label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-      font-family: 'Inter', sans-serif;
-    }
-    .section-strip__divider {
-      width: 1px;
-      height: 48px;
-      background: rgba(255,255,255,0.15);
-    }
-
-    /* ─── VALUE TICKER ─── */
-    /* Running value counter that builds toward the offer */
-    .value-ticker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 20px;
-      background: rgba(22,163,74,0.08);
-      border: 1px solid rgba(22,163,74,0.15);
-      border-radius: 100px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      color: #4ADE80;
-      margin-bottom: 32px;
-    }
-    .value-ticker__icon {
-      width: 16px;
-      height: 16px;
-    }
+    /* Background gradient atmosphere — removed fixed overlay, using per-section atmospheres instead */
 
     /* Subtle noise texture */
     body::after {
@@ -1905,9 +1802,7 @@
   <div class="section-divider"></div>
 
   <!-- ─── PROBLEM ─── -->
-  <section class="section" style="position:relative; overflow:hidden;">
-    <!-- Soft bloom — low intensity, cool -->
-    <div class="bloom bloom--soft bloom--blue" style="width:400px; height:400px; top:-10%; right:-5%;"></div>
+  <section class="section">
     <div class="wrap">
       <h2 class="section__title fade-up">Webinars Work.<br>Building Them Doesn&rsquo;t.</h2>
 
@@ -1941,31 +1836,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Stats strip — branded bg transition -->
-  <div class="section-strip">
-    <div class="wrap section-strip__inner">
-      <div class="section-strip__stat">
-        <div class="section-strip__num">6 min</div>
-        <div class="section-strip__label">Average generation time</div>
-      </div>
-      <div class="section-strip__divider"></div>
-      <div class="section-strip__stat">
-        <div class="section-strip__num">11</div>
-        <div class="section-strip__label">Campaign emails generated</div>
-      </div>
-      <div class="section-strip__divider"></div>
-      <div class="section-strip__stat">
-        <div class="section-strip__num">45 min</div>
-        <div class="section-strip__label">Presentation-ready script</div>
-      </div>
-      <div class="section-strip__divider"></div>
-      <div class="section-strip__stat">
-        <div class="section-strip__num">4</div>
-        <div class="section-strip__label">Specialized AI engines</div>
-      </div>
-    </div>
-  </div>
 
   <!-- ─── HOW IT WORKS ─── -->
   <section class="section section--alt">
@@ -2085,9 +1955,7 @@
   </section>
 
   <!-- ─── SCREENSHOTS ─── -->
-  <section class="section" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--medium bloom--purple" style="width:500px; height:500px; bottom:-15%; left:-8%;"></div>
-    <div class="bloom bloom--soft bloom--blue" style="width:350px; height:350px; top:10%; right:-5%;"></div>
+  <section class="section">
     <div class="wrap">
       <div class="label" style="margin-bottom:16px">See It In Action</div>
       <h2 class="section__title fade-up">Built for Financial Advisors.<br>Not a Generic AI Tool.</h2>
@@ -2167,15 +2035,7 @@
   </section>
 
   <!-- ─── DELIVERABLES ─── -->
-  <section class="section" style="position:relative; overflow:hidden;">
-    <!-- Geometric accent — angular line peeking from right edge -->
-    <div class="geo-accent" style="position:absolute; top:10%; right:0; width:200px; height:300px; opacity:0.4;">
-      <svg viewBox="0 0 200 300" preserveAspectRatio="none">
-        <polyline class="geo-accent__line geo-accent__line--blue" points="200,0 160,60 200,120"/>
-        <polyline class="geo-accent__line geo-accent__line--purple" points="200,180 140,240 200,300" style="opacity:0.6"/>
-      </svg>
-    </div>
-    <div class="bloom bloom--medium bloom--blue" style="width:400px; height:400px; top:20%; right:-10%;"></div>
+  <section class="section">
     <div class="wrap">
       <h2 class="section__title fade-up">Everything You Need to Fill a Room<br><span style="color:var(--blue-bright)">and Book Appointments</span></h2>
       <p class="section__subtitle fade-up">Each campaign includes six complete deliverables&nbsp;&mdash;&nbsp;not templates, not outlines. Finished, ready-to-use content personalized to your practice.</p>
@@ -2308,26 +2168,6 @@
     </div>
   </section>
 
-  <!-- Value strip — builds toward pricing -->
-  <div class="section-strip">
-    <div class="wrap section-strip__inner">
-      <div class="section-strip__stat">
-        <div class="section-strip__num">$3&ndash;5K</div>
-        <div class="section-strip__label">What a copywriter charges</div>
-      </div>
-      <div class="section-strip__divider"></div>
-      <div class="section-strip__stat">
-        <div class="section-strip__num">40&ndash;80 hrs</div>
-        <div class="section-strip__label">To DIY a campaign</div>
-      </div>
-      <div class="section-strip__divider"></div>
-      <div class="section-strip__stat">
-        <div class="section-strip__num">&lt; 30 min</div>
-        <div class="section-strip__label">With Webinar Wizard</div>
-      </div>
-    </div>
-  </div>
-
   <!-- ─── COMPARISON ─── -->
   <section class="section section--light section--centered">
     <div class="wrap">
@@ -2387,16 +2227,7 @@
   </section>
 
   <!-- ─── PLATFORM ─── -->
-  <section class="section section--alt section--centered" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--hot bloom--purple" style="width:500px; height:500px; top:30%; left:-10%;"></div>
-    <div class="bloom bloom--medium bloom--blue" style="width:350px; height:350px; bottom:10%; right:-5%;"></div>
-    <!-- Geometric accent — left edge -->
-    <div class="geo-accent" style="position:absolute; bottom:5%; left:0; width:180px; height:250px; opacity:0.3;">
-      <svg viewBox="0 0 180 250" preserveAspectRatio="none">
-        <polyline class="geo-accent__line geo-accent__line--blue" points="0,250 40,190 0,130"/>
-        <polyline class="geo-accent__line geo-accent__line--purple" points="0,80 50,40 0,0" style="opacity:0.5"/>
-      </svg>
-    </div>
+  <section class="section section--alt section--centered">
     <div class="wrap">
       <div class="label" style="margin-bottom:16px">Included In Your Membership</div>
       <h2 class="section__title fade-up">Webinar Wizard Is One Feature.<br>You Get the Whole Platform.</h2>
@@ -2611,9 +2442,7 @@
   </section>
 
   <!-- ─── FINAL CTA ─── -->
-  <section class="section final-cta" style="position:relative; overflow:hidden;">
-    <div class="bloom bloom--hot bloom--green" style="width:500px; height:500px; top:20%; left:50%; transform:translateX(-50%);"></div>
-    <div class="bloom bloom--medium bloom--blue" style="width:400px; height:400px; bottom:-10%; right:-5%;"></div>
+  <section class="section final-cta">
     <div class="wrap">
       <h2 class="final-cta__title fade-up">50 Spots. Then This<br>Price Disappears.</h2>
       <p class="final-cta__sub fade-up">After we fill 50 Founding Member spots, access to Webinar Wizard requires a standard Advisor Nexus membership at full price. This is the lowest it will ever be.</p>
