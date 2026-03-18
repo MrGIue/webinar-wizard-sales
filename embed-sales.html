@@ -119,12 +119,12 @@
 
     .btn--primary {
       background: var(--green);
-      color: #fff;
+      color: #fff !important;
       box-shadow: 0 0 24px var(--green-glow), 0 2px 4px rgba(0,0,0,0.3);
     }
     .btn--primary:hover {
       background: #22C55E;
-      color: #fff;
+      color: #fff !important;
       box-shadow: 0 0 48px var(--green-glow), 0 8px 20px rgba(0,0,0,0.4);
       transform: translateY(-2px);
     }
@@ -1449,10 +1449,11 @@
       text-align: center;
     }
     .footer__logo {
-      height: 36px;
+      height: 28px;
       width: auto;
+      max-width: 180px;
       margin-bottom: 12px;
-      opacity: 0.8;
+      opacity: 0.7;
     }
     .footer__copy {
       font-size: 13px;
@@ -1550,7 +1551,7 @@
       .stats-strip__inner { gap: 20px; }
       .stats-strip__visual { display: none; }
     }
-  </style>
+
 
   <!-- Hidden SEO/AI summary for crawlers -->
   <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true">
@@ -2437,4 +2438,3 @@
       });
     });
   </script>
-
